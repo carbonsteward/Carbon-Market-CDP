@@ -24,43 +24,52 @@ jobs:
         
       - name: Setup Pages
         uses: actions/configure-pages@v4
+        with:
+          enablement: true
         
       - name: Prepare deployment files
         run: |
           # Create deployment directory
           mkdir -p _site
           
-          # Copy main presentation file as index.html for GitHub Pages
-          cp carbon_market_trends_2024_2025_standalone.html _site/index.html
+          # SECURE DEPLOYMENT: Only copy approved presentation files
+          echo "🔒 Secure deployment - presentation files only"
           
-          # Copy any additional assets
-          if [ -f "icvcm-elets-terminology-comparison.jpg" ]; then
-            cp icvcm-elets-terminology-comparison.jpg _site/
+          # Copy main presentation file as index.html for GitHub Pages
+          if [ -f "carbon_market_trends_2024_2025_standalone.html" ]; then
+            cp carbon_market_trends_2024_2025_standalone.html _site/index.html
+            echo "✅ Main presentation copied"
           fi
           
-          # Copy images directory if it exists
-          if [ -d "images" ]; then
-            cp -r images _site/
+          # Copy landing page
+          if [ -f "index.html" ]; then
+            cp index.html _site/landing.html
+            echo "✅ Landing page copied"
+          fi
+          
+          # Copy approved image assets only
+          if [ -f "icvcm-elets-terminology-comparison.jpg" ]; then
+            cp icvcm-elets-terminology-comparison.jpg _site/
+            echo "✅ Approved image assets copied"
           fi
           
           # Copy .nojekyll to ensure GitHub Pages doesn't process Jekyll
-          cp .nojekyll _site/
+          if [ -f ".nojekyll" ]; then
+            cp .nojekyll _site/
+            echo "✅ Jekyll bypass configured"
+          fi
           
-          # Create a simple redirect page for legacy URLs
-          cat > _site/presentation.html << 'EOF'
-          <!DOCTYPE html>
-          <html>
-          <head>
-            <meta http-equiv="refresh" content="0; url=./">
-            <title>Redirecting...</title>
-          </head>
-          <body>
-            <p>Redirecting to <a href="./">Carbon Market CDP Presentation</a>...</p>
-          </body>
-          </html>
-          EOF
+          # Security check: Ensure no sensitive files
+          echo "🔍 Security verification:"
+          if find _site -name "*.pdf" -o -name "*.csv" -o -name "*.docx" | grep -q .; then
+            echo "❌ SECURITY ALERT: Sensitive files detected!"
+            exit 1
+          else
+            echo "✅ No sensitive files detected"
+          fi
           
-          echo "✅ Deployment files prepared"
+          echo "✅ Secure deployment package prepared"
+          echo "📊 Deployment contents:"
           ls -la _site/
         
       - name: Upload artifact
