@@ -45,6 +45,18 @@
       line-height: 1.8;
       background: var(--korean-white);
       font-weight: 400;
+      font-size: 1.2rem;
+    }
+
+    /* Increase base paragraph and text sizes */
+    p {
+      font-size: 1.3rem;
+      line-height: 1.6;
+    }
+
+    li {
+      font-size: 1.25rem;
+      line-height: 1.6;
     }
 
     /* Global list reset to prevent checkbox-like patterns */
@@ -64,7 +76,7 @@
     .korean-title {
       font-family: var(--korean-font-primary);
       font-weight: 700;
-      font-size: 4rem;
+      font-size: 5rem;
       color: var(--korean-white);
       letter-spacing: -0.02em;
       margin-bottom: 2rem;
@@ -104,14 +116,14 @@
     }
 
     h1 {
-      font-size: 5rem;
+      font-size: 6rem;
       font-weight: 700;
       color: var(--korean-white);
       margin-bottom: 1rem;
     }
 
     h2 {
-      font-size: 3.5rem;
+      font-size: 4.2rem;
       color: var(--korean-black);
       border-bottom: 1px solid var(--korean-border);
       padding-bottom: 1rem;
@@ -120,14 +132,14 @@
     }
 
     h3 {
-      font-size: 2.5rem;
+      font-size: 3rem;
       color: var(--korean-black);
       margin-bottom: 1rem;
       font-weight: 600;
     }
 
     h4 {
-      font-size: 2rem;
+      font-size: 2.4rem;
       color: var(--korean-dark-gray);
       margin-bottom: 0.75rem;
       font-weight: 600;
@@ -493,7 +505,7 @@
       padding: 0;
       margin: 0;
     }
-    
+
     .description li {
       padding: 0.75rem 0;
       border-bottom: 1px solid var(--korean-border);
@@ -946,6 +958,77 @@
         gap: 1rem;
       }
     }
+
+
+
+
+
+    /* Slide Pagination */
+    .slide-pagination {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: rgba(44, 62, 80, 0.9);
+      color: var(--korean-white);
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      font-family: var(--korean-font-primary);
+      font-size: 0.9rem;
+      font-weight: 500;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .slide-pagination .current-slide {
+      color: var(--korean-white);
+      font-weight: 600;
+    }
+
+    .slide-pagination .total-slides {
+      color: rgba(255, 255, 255, 0.7);
+      font-weight: 400;
+    }
+
+    /* Slide Transition Overlay */
+    .slide-transition-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(44, 62, 80, 0.8), rgba(52, 73, 94, 0.8));
+      z-index: 500;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 2rem;
+      font-weight: 300;
+    }
+
+    .slide-transition-overlay.active {
+      opacity: 1;
+    }
+
+
+    /* Mobile Navigation Adjustments */
+    @media (max-width: 768px) {
+      .navigation-panel {
+        top: 10px;
+        right: 10px;
+        min-width: 200px;
+      }
+
+
+      .nav-buttons {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 <body>
@@ -954,71 +1037,652 @@
     <div class="progress-fill" id="progress-fill"></div>
   </div>
 
+
+
+  <!-- Slide Pagination -->
+  <div class="slide-pagination" id="slide-pagination">
+    <span class="current-slide" id="current-slide">1</span>
+    <span class="total-slides"> / <span id="total-slides">19</span></span>
+  </div>
+
+  <!-- Slide Transition Overlay -->
+  <div class="slide-transition-overlay" id="transition-overlay">
+    <div id="transition-text">Loading...</div>
+  </div>
+
   <main role="main">
     <article id="webslides" class="vertical">
 
       <!-- Slide 1: Title -->
       <section class="bg-primary">
-        <div class="wrap aligncenter">
-          <h1><strong>CDP 문항으로 해석하는 탄소시장 현황 및 트렌드</strong></h1>
+        <div class="wrap" style="position: relative; height: 100vh; display: flex; align-items: center; justify-content: center; text-align: center;">
+          <h1 class="korean-title" style="color: var(--korean-white) !important; font-size: 5.5rem; line-height: 1.2; margin: 0;">
+            <strong>CDP 문항으로 해석하는<br>탄소시장 현황 및 트렌드</strong>
+          </h1>
         </div>
       </section>
 
-      <!-- Slide 2: CDP Question Changes & Market Trends 1 -->
+      <!-- Slide 2: 탄소시장 개요 -->
+      <section>
+        <div class="wrap korean-font alignleft">
+          <div class="korean-section-header">
+            <h2>탄소시장 개요</h2>
+            <div class="subtitle">탄소시장의 기본 구조와 주요 메커니즘</div>
+          </div>
+
+          <!-- Enhanced Carbon Market Structure with Visual Icons -->
+          <div class="korean-card" style="padding: 2.5rem; margin-bottom: 2rem; background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%); box-shadow: 0 8px 24px rgba(0,0,0,0.1);">
+            <div style="display: grid; grid-template-columns: 1fr 2fr 1fr; gap: 3rem; align-items: start;">
+              
+              <!-- Demand Section (Left) with Enhanced Visual Design -->
+              <div style="background: linear-gradient(135deg, #27AE60 0%, #2ecc71 100%); padding: 2rem; border-radius: 12px; color: white; box-shadow: 0 6px 20px rgba(39, 174, 96, 0.3);">
+                <div style="text-align: center; margin-bottom: 2rem;">
+                  <div style="font-size: 3.5rem; margin-bottom: 0.5rem;">🏭</div>
+                  <h3 style="font-size: 2.4rem; margin: 0; font-weight: 700; line-height: 1.1;">탄소크레딧 수요 메커니즘</h3>
+                </div>
+                
+                <!-- National with Enhanced Typography -->
+                <div style="background: rgba(255,255,255,0.15); padding: 1.8rem; margin-bottom: 1.5rem; border-radius: 8px; backdrop-filter: blur(10px);">
+                  <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                    <div style="font-size: 1.8rem; margin-right: 0.8rem;">🏛️</div>
+                    <h4 style="font-size: 1.8rem; margin: 0; font-weight: 600;">국가 단위</h4>
+                  </div>
+                  <div style="font-size: 1.3rem; line-height: 1.6; font-weight: 500;">
+                    <div style="margin-bottom: 0.5rem;">• NDC 이행</div>
+                    <div style="margin-bottom: 0.5rem;">• 국가 직접 구매</div>
+                    <div style="margin-bottom: 0.5rem;">• 탄소세</div>
+                    <div>• 배출권 거래제</div>
+                  </div>
+                </div>
+
+                <!-- International with Enhanced Typography -->
+                <div style="background: rgba(255,255,255,0.15); padding: 1.8rem; border-radius: 8px; backdrop-filter: blur(10px);">
+                  <div style="display: flex; align-items: center; margin-bottom: 1rem;">
+                    <div style="font-size: 1.8rem; margin-right: 0.8rem;">🌍</div>
+                    <h4 style="font-size: 1.8rem; margin: 0; font-weight: 600;">국제적 수요</h4>
+                  </div>
+                  <div style="font-size: 1.3rem; line-height: 1.6; font-weight: 500;">
+                    <div style="margin-bottom: 0.5rem;">• 기업 넷제로 공약</div>
+                    <div style="margin-bottom: 0.5rem;">• 개인 단위 상쇄</div>
+                    <div style="margin-bottom: 0.5rem;">• 국제항공탄소상쇄</div>
+                    <div style="margin-left: 1rem;">감축제도 (CORSIA)</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Central Processing (Middle) with Enhanced Visual Design -->
+              <div style="background: linear-gradient(135deg, #2C3E50 0%, #34495e 100%); padding: 2rem; border-radius: 12px; color: white; box-shadow: 0 6px 20px rgba(44, 62, 80, 0.3);">
+                <div style="text-align: center; margin-bottom: 2rem;">
+                  <div style="font-size: 3.5rem; margin-bottom: 0.5rem;">⚙️</div>
+                  <h3 style="font-size: 2.4rem; margin: 0; font-weight: 700; line-height: 1.1;">상응조정 및 방법론</h3>
+                </div>
+                
+                <div style="background: rgba(255,255,255,0.95); color: var(--korean-black); padding: 1.8rem; margin-bottom: 1.5rem; border-radius: 8px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                  <div style="font-size: 1.5rem; font-weight: 600; color: var(--korean-navy);">✅ 상응조정 적용</div>
+                  <div style="font-size: 1.2rem; color: var(--korean-dark-gray); margin-top: 0.5rem;">이중계상 방지</div>
+                </div>
+                
+                <div style="background: rgba(255,255,255,0.95); color: var(--korean-black); padding: 1.8rem; margin-bottom: 2rem; border-radius: 8px; text-align: center; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                  <div style="font-size: 1.5rem; font-weight: 600; color: var(--korean-navy);">❌ 상응조정 미적용</div>
+                  <div style="font-size: 1.2rem; color: var(--korean-dark-gray); margin-top: 0.5rem;">이중계상 위험</div>
+                </div>
+
+                <!-- Enhanced Methodology Section -->
+                <div style="background: rgba(255,255,255,0.1); padding: 1.8rem; border-radius: 8px; backdrop-filter: blur(10px);">
+                  <div style="text-align: center; margin-bottom: 1.2rem;">
+                    <div style="font-size: 1.8rem; margin-bottom: 0.5rem;">🔬</div>
+                    <h4 style="font-size: 1.6rem; margin: 0; font-weight: 600;">감축 방법론</h4>
+                  </div>
+                  <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem;">
+                    <div style="background: rgba(255,255,255,0.2); padding: 1.2rem; border-radius: 6px; text-align: center; font-size: 1.3rem; font-weight: 500;">
+                      <div style="font-size: 1.4rem; margin-bottom: 0.5rem;">🔄</div>
+                      <div>배출감축</div>
+                      <div style="font-size: 1.1rem; margin-top: 0.3rem;">자연/기술 기반</div>
+                    </div>
+                    <div style="background: rgba(255,255,255,0.2); padding: 1.2rem; border-radius: 6px; text-align: center; font-size: 1.3rem; font-weight: 500;">
+                      <div style="font-size: 1.4rem; margin-bottom: 0.5rem;">🌲</div>
+                      <div>탄소흡수</div>
+                      <div style="font-size: 1.1rem; margin-top: 0.3rem;">REDD+ 등</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Supply Section (Right) with Enhanced Visual Design -->
+              <div style="background: linear-gradient(135deg, #E67E22 0%, #F39C12 100%); padding: 1.8rem; border-radius: 12px; color: white; box-shadow: 0 6px 20px rgba(230, 126, 34, 0.3);">
+                <div style="text-align: center; margin-bottom: 1.5rem;">
+                  <div style="font-size: 3rem; margin-bottom: 0.3rem;">📦</div>
+                  <h3 style="font-size: 2rem; margin: 0; font-weight: 700; line-height: 1.1;">탄소크레딧 공급 메커니즘</h3>
+                </div>
+                
+                <div style="display: grid; gap: 0.8rem;">
+                  <!-- Enhanced Supply Types with Icons -->
+                  <div style="background: rgba(255,255,255,0.15); padding: 0.8rem; border-radius: 6px; font-size: 1.2rem; text-align: center; font-weight: 600; backdrop-filter: blur(10px);">
+                    <div style="font-size: 1.3rem; margin-bottom: 0.2rem;">🌐</div>
+                    <div>CDM</div>
+                  </div>
+                  
+                  <div style="background: rgba(255,255,255,0.15); padding: 0.8rem; border-radius: 6px; font-size: 1.1rem; text-align: center; font-weight: 500; backdrop-filter: blur(10px);">
+                    <div style="font-size: 1.2rem; margin-bottom: 0.2rem;">🔗</div>
+                    <div>독립 국제 크레딧</div>
+                  </div>
+                  
+                  <div style="background: rgba(255,255,255,0.15); padding: 0.8rem; border-radius: 6px; font-size: 1.1rem; text-align: center; font-weight: 500; backdrop-filter: blur(10px);">
+                    <div style="font-size: 1.2rem; margin-bottom: 0.2rem;">🏠</div>
+                    <div>국내 자발적</div>
+                  </div>
+                  
+                  <div style="background: rgba(255,255,255,0.15); padding: 0.8rem; border-radius: 6px; font-size: 1.1rem; text-align: center; font-weight: 500; backdrop-filter: blur(10px);">
+                    <div style="font-size: 1.2rem; margin-bottom: 0.2rem;">✅</div>
+                    <div>국내 의무</div>
+                  </div>
+                  
+                  <div style="background: rgba(255,255,255,0.15); padding: 0.8rem; border-radius: 6px; font-size: 1.2rem; text-align: center; font-weight: 600; backdrop-filter: blur(10px);">
+                    <div style="font-size: 1.3rem; margin-bottom: 0.2rem;">🤝</div>
+                    <div>ITMO (제6.2조)</div>
+                  </div>
+                  
+                  <div style="background: rgba(255,255,255,0.15); padding: 0.8rem; border-radius: 6px; font-size: 1.2rem; text-align: center; font-weight: 600; backdrop-filter: blur(10px);">
+                    <div style="font-size: 1.3rem; margin-bottom: 0.2rem;">📋</div>
+                    <div>PACM (제6.4조)</div>
+                  </div>
+                  
+                  <div style="background: rgba(255,255,255,0.15); padding: 0.8rem; border-radius: 6px; font-size: 1.2rem; text-align: center; font-weight: 600; backdrop-filter: blur(10px);">
+                    <div style="font-size: 1.3rem; margin-bottom: 0.2rem;">📑</div>
+                    <div>제5조 (REDD+)</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Arrows indicating flow -->
+            <div style="margin-top: 1rem; text-align: center; color: var(--korean-dark-gray); font-size: 0.9rem;">
+              ← Demand flows through Central Processing to Supply →
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 3: 2025년 글로벌 기업 상쇄 규모순위 -->
+      <section>
+        <div class="wrap korean-font alignleft">
+          <div class="korean-section-header">
+            <h2>2025년 글로벌 기업 상쇄 규모순위</h2>
+            <div class="subtitle">Global Corporate Offsetting Volume Rankings 2025</div>
+          </div>
+
+          <!-- Empty content area for future data -->
+          <div class="korean-card" style="padding: 3rem; margin: 2rem 0; background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%); box-shadow: 0 8px 24px rgba(0,0,0,0.1); text-align: center;">
+            <div style="color: var(--korean-dark-gray); font-size: 1.5rem; font-style: italic;">
+              컨텐츠 준비 중
+            </div>
+            <div style="color: var(--korean-dark-gray); font-size: 1.2rem; margin-top: 1rem;">
+              Content to be added
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 4: CDP 질의서 -->
+      <section>
+        <div class="wrap korean-font alignleft">
+          <div class="korean-section-header">
+            <h2>CDP 질의서</h2>
+            <div class="subtitle">CDP 2025 Questionnaire - Carbon Credits Questions 7.79 & 7.79.1</div>
+          </div>
+
+          <!-- 3:7 Column Layout Container -->
+          <div style="display: grid; grid-template-columns: 3fr 7fr; gap: 2rem; height: calc(100vh - 200px); align-items: start;">
+            
+            <!-- Left Column (30% - 3fr): CDP Original Questions -->
+            <div class="korean-card" style="padding: 1.5rem; background: var(--korean-white); border: 2px solid var(--korean-accent); height: fit-content; max-height: calc(100vh - 240px); overflow-y: auto;">
+              <h3 style="font-size: 1.6rem; margin-bottom: 1.2rem; color: var(--korean-navy);">📋 CDP 2025 질의서 원문</h3>
+            
+            <!-- Question 7.79 -->
+            <div style="background: var(--korean-light-gray); padding: 1.2rem; border-radius: 6px; margin-bottom: 1.5rem;">
+              <h4 style="font-size: 1.4rem; margin-bottom: 0.8rem; color: var(--korean-navy); font-weight: 600;">
+                (7.79) Has your organization retired any project-based carbon credits within the reporting year?
+              </h4>
+              <div style="margin-bottom: 0.8rem;">
+                <strong style="color: var(--korean-dark-gray);">Response options:</strong>
+                <p style="margin: 0.5rem 0; font-size: 1.2rem;">Select one of the following options:</p>
+                <ul style="font-size: 1.2rem; margin: 0; padding-left: 1.5rem; line-height: 1.4;">
+                  <li>• Yes</li>
+                  <li>• No</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Question 7.79.1 -->
+            <div style="background: var(--korean-light-gray); padding: 1.2rem; border-radius: 6px; margin-bottom: 1.5rem;">
+              <h4 style="font-size: 1.4rem; margin-bottom: 0.8rem; color: var(--korean-navy); font-weight: 600;">
+                (7.79.1) Provide details of the project-based carbon credits retired by your organization in the reporting year.
+              </h4>
+            </div>
+            </div>
+
+            <!-- Right Column (70% - 7fr): Enhanced CDP Response Tables -->
+            <div style="height: calc(100vh - 240px); overflow-y: auto; background: var(--korean-white); border-radius: 8px; padding: 1.5rem; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+              <h3 style="font-size: 1.8rem; margin-bottom: 1.5rem; color: var(--korean-navy); text-align: center; border-bottom: 2px solid var(--korean-accent); padding-bottom: 1rem;">📊 CDP 7.79.1 응답 테이블</h3>
+            
+              <!-- Split Table Layout - First Half (Columns 1-7) -->
+              <div style="margin-bottom: 2rem;">
+                <h4 style="font-size: 1.4rem; margin-bottom: 1rem; color: var(--korean-navy); text-align: center; border-bottom: 1px solid var(--korean-accent); padding-bottom: 0.5rem;">Part 1: 기본 정보 (Columns 1-7)</h4>
+                <div style="overflow-x: visible;">
+                  <table style="width: 100%; border-collapse: collapse; font-size: 0.95rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                    <thead>
+                      <tr style="background: linear-gradient(135deg, var(--korean-navy) 0%, #2c3e50 100%); color: var(--korean-white);">
+                        <th style="border: 1px solid #ddd; padding: 0.9rem 0.5rem; text-align: center; font-size: 1rem; font-weight: 700; width: 14.3%; line-height: 1.3;">1<br><span style="font-size: 0.8rem; font-weight: 500; opacity: 0.9;">Project type</span></th>
+                        <th style="border: 1px solid #ddd; padding: 0.9rem 0.5rem; text-align: center; font-size: 1rem; font-weight: 700; width: 14.3%; line-height: 1.3;">2<br><span style="font-size: 0.8rem; font-weight: 500; opacity: 0.9;">Type of mitigation activity</span></th>
+                        <th style="border: 1px solid #ddd; padding: 0.9rem 0.5rem; text-align: center; font-size: 1rem; font-weight: 700; width: 14.3%; line-height: 1.3;">3<br><span style="font-size: 0.8rem; font-weight: 500; opacity: 0.9;">Project description</span></th>
+                        <th style="border: 1px solid #ddd; padding: 0.9rem 0.5rem; text-align: center; font-size: 1rem; font-weight: 700; width: 14.3%; line-height: 1.3;">4<br><span style="font-size: 0.8rem; font-weight: 500; opacity: 0.9;">Credits retired (metric tons CO₂e)</span></th>
+                        <th style="border: 1px solid #ddd; padding: 0.9rem 0.5rem; text-align: center; font-size: 1rem; font-weight: 700; width: 14.3%; line-height: 1.3;">5<br><span style="font-size: 0.8rem; font-weight: 500; opacity: 0.9;">Purpose of retirement</span></th>
+                        <th style="border: 1px solid #ddd; padding: 0.9rem 0.5rem; text-align: center; font-size: 1rem; font-weight: 700; width: 14.3%; line-height: 1.3;">6<br><span style="font-size: 0.8rem; font-weight: 500; opacity: 0.9;">Report vintage?</span></th>
+                        <th style="border: 1px solid #ddd; padding: 0.9rem 0.5rem; text-align: center; font-size: 1rem; font-weight: 700; width: 14.3%; line-height: 1.3;">7<br><span style="font-size: 0.8rem; font-weight: 500; opacity: 0.9;">Vintage year</span></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr style="background: #f8f9fa;">
+                        <td style="border: 1px solid #ddd; padding: 0.7rem 0.5rem; vertical-align: top; font-size: 0.9rem; color: var(--korean-black); line-height: 1.4;">
+                          <div style="font-weight: 600; color: var(--korean-navy); margin-bottom: 0.5rem;">Select from:</div>
+                          <div style="font-size: 0.85rem; line-height: 1.4;">[listed below]</div>
+                        </td>
+                        <td style="border: 1px solid #ddd; padding: 0.7rem 0.5rem; vertical-align: top; font-size: 0.9rem; color: var(--korean-black); line-height: 1.4;">
+                          <div style="font-weight: 600; color: var(--korean-navy); margin-bottom: 0.5rem;">Select from:</div>
+                          <div style="font-size: 0.85rem; line-height: 1.4;">• Emissions reduction<br>• Carbon removal</div>
+                        </td>
+                        <td style="border: 1px solid #ddd; padding: 0.7rem 0.5rem; vertical-align: top; font-size: 0.9rem; color: var(--korean-black); line-height: 1.4;">
+                          <div style="font-weight: 600; color: var(--korean-navy); margin-bottom: 0.5rem;">Text field</div>
+                          <div style="font-size: 0.85rem; line-height: 1.4;">[maximum 2,500 characters]</div>
+                        </td>
+                        <td style="border: 1px solid #ddd; padding: 0.7rem 0.5rem; vertical-align: top; font-size: 0.9rem; color: var(--korean-black); line-height: 1.4;">
+                          <div style="font-weight: 600; color: var(--korean-navy); margin-bottom: 0.5rem;">Numerical field</div>
+                          <div style="font-size: 0.85rem; line-height: 1.4;">[0-999,999,999.99, max 2 decimal places]</div>
+                        </td>
+                        <td style="border: 1px solid #ddd; padding: 0.7rem 0.5rem; vertical-align: top; font-size: 0.9rem; color: var(--korean-black); line-height: 1.4;">
+                          <div style="font-weight: 600; color: var(--korean-navy); margin-bottom: 0.5rem;">Select from:</div>
+                          <div style="font-size: 0.85rem; line-height: 1.4;">• Compliance with carbon pricing<br>• Voluntary offsetting<br>• Other, please specify</div>
+                        </td>
+                        <td style="border: 1px solid #ddd; padding: 0.7rem 0.5rem; vertical-align: top; font-size: 0.9rem; color: var(--korean-black); line-height: 1.4;">
+                          <div style="font-weight: 600; color: var(--korean-navy); margin-bottom: 0.5rem;">Select from:</div>
+                          <div style="font-size: 0.85rem; line-height: 1.4;">• Yes<br>• No</div>
+                        </td>
+                        <td style="border: 1px solid #ddd; padding: 0.7rem 0.5rem; vertical-align: top; font-size: 0.9rem; color: var(--korean-black); line-height: 1.4;">
+                          <div style="font-weight: 600; color: var(--korean-navy); margin-bottom: 0.5rem;">Numerical field</div>
+                          <div style="font-size: 0.85rem; line-height: 1.4;">[1900-2024]</div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <!-- Split Table Layout - Second Half (Columns 8-14) -->
+              <div>
+                <h4 style="font-size: 1.4rem; margin-bottom: 1rem; color: var(--korean-navy); text-align: center; border-bottom: 1px solid var(--korean-accent); padding-bottom: 0.5rem;">Part 2: 세부 정보 (Columns 8-14)</h4>
+                <div style="overflow-x: visible;">
+                  <table style="width: 100%; border-collapse: collapse; font-size: 0.95rem; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                    <thead>
+                      <tr style="background: linear-gradient(135deg, var(--korean-navy) 0%, #2c3e50 100%); color: var(--korean-white);">
+                        <th style="border: 1px solid #ddd; padding: 0.9rem 0.5rem; text-align: center; font-size: 1rem; font-weight: 700; width: 14.3%; line-height: 1.3;">8<br><span style="font-size: 0.8rem; font-weight: 500; opacity: 0.9;">Issued/Purchased?</span></th>
+                        <th style="border: 1px solid #ddd; padding: 0.9rem 0.5rem; text-align: center; font-size: 1rem; font-weight: 700; width: 14.3%; line-height: 1.3;">9<br><span style="font-size: 0.8rem; font-weight: 500; opacity: 0.9;">Carbon-crediting program</span></th>
+                        <th style="border: 1px solid #ddd; padding: 0.9rem 0.5rem; text-align: center; font-size: 1rem; font-weight: 700; width: 14.3%; line-height: 1.3;">10<br><span style="font-size: 0.8rem; font-weight: 500; opacity: 0.9;">Additionality methods</span></th>
+                        <th style="border: 1px solid #ddd; padding: 0.9rem 0.5rem; text-align: center; font-size: 1rem; font-weight: 700; width: 14.3%; line-height: 1.3;">11<br><span style="font-size: 0.8rem; font-weight: 500; opacity: 0.9;">Reversal risk approaches</span></th>
+                        <th style="border: 1px solid #ddd; padding: 0.9rem 0.5rem; text-align: center; font-size: 1rem; font-weight: 700; width: 14.3%; line-height: 1.3;">12<br><span style="font-size: 0.8rem; font-weight: 500; opacity: 0.9;">Leakage sources</span></th>
+                        <th style="border: 1px solid #ddd; padding: 0.9rem 0.5rem; text-align: center; font-size: 1rem; font-weight: 700; width: 14.3%; line-height: 1.3;">13<br><span style="font-size: 0.8rem; font-weight: 500; opacity: 0.9;">Other issues</span></th>
+                        <th style="border: 1px solid #ddd; padding: 0.9rem 0.5rem; text-align: center; font-size: 1rem; font-weight: 700; width: 14.3%; line-height: 1.3;">14<br><span style="font-size: 0.8rem; font-weight: 500; opacity: 0.9;">Explanation</span></th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr style="background: #f8f9fa;">
+                        <td style="border: 1px solid #ddd; padding: 0.7rem 0.5rem; vertical-align: top; font-size: 0.9rem; color: var(--korean-black); line-height: 1.4;">
+                          <div style="font-weight: 600; color: var(--korean-navy); margin-bottom: 0.5rem;">Select from:</div>
+                          <div style="font-size: 0.85rem; line-height: 1.4;">• Issued<br>• Purchased</div>
+                        </td>
+                        <td style="border: 1px solid #ddd; padding: 0.7rem 0.5rem; vertical-align: top; font-size: 0.9rem; color: var(--korean-black); line-height: 1.4;">
+                          <div style="font-weight: 600; color: var(--korean-navy); margin-bottom: 0.5rem;">Select all that apply:</div>
+                          <div style="font-size: 0.85rem; line-height: 1.4;">• Legal requirements<br>• Investment analysis<br>• Barrier analysis<br>• Market penetration<br>• Standardized approaches<br>• Other, specify<br>• Not assessed</div>
+                        </td>
+                        <td style="border: 1px solid #ddd; padding: 0.7rem 0.5rem; vertical-align: top; font-size: 0.9rem; color: var(--korean-black); line-height: 1.4;">
+                          <div style="font-weight: 600; color: var(--korean-navy); margin-bottom: 0.5rem;">Select all that apply:</div>
+                          <div style="font-size: 0.85rem; line-height: 1.4;">• Monitoring/compensation<br>• Temporary crediting<br>• Other, specify<br>• No risk of reversal</div>
+                        </td>
+                        <td style="border: 1px solid #ddd; padding: 0.7rem 0.5rem; vertical-align: top; font-size: 0.9rem; color: var(--korean-black); line-height: 1.4;">
+                          <div style="font-weight: 600; color: var(--korean-navy); margin-bottom: 0.5rem;">Select all that apply:</div>
+                          <div style="font-size: 0.85rem; line-height: 1.4;">• Upstream/downstream<br>• Activity shifting<br>• Market leakage<br>• Ecological leakage<br>• Other, specify<br>• Not assessed</div>
+                        </td>
+                        <td style="border: 1px solid #ddd; padding: 0.7rem 0.5rem; vertical-align: top; font-size: 0.9rem; color: var(--korean-black); line-height: 1.4;">
+                          <div style="font-weight: 600; color: var(--korean-navy); margin-bottom: 0.5rem;">Text field</div>
+                          <div style="font-size: 0.85rem; line-height: 1.4;">[maximum 2,500 characters]</div>
+                        </td>
+                        <td style="border: 1px solid #ddd; padding: 0.7rem 0.5rem; vertical-align: top; font-size: 0.9rem; color: var(--korean-black); line-height: 1.4;">
+                          <div style="font-weight: 600; color: var(--korean-navy); margin-bottom: 0.5rem;">Text field</div>
+                          <div style="font-size: 0.85rem; line-height: 1.4;">[maximum 2,500 characters]</div>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+
+              <!-- Additional Information Section -->
+              <div style="margin-top: 2rem; padding: 1.5rem; background: linear-gradient(135deg, var(--korean-light-gray) 0%, #ffffff 100%); border-radius: 8px; border: 1px solid var(--korean-border);">
+                <h4 style="font-size: 1.3rem; color: var(--korean-navy); margin-bottom: 1rem; text-align: center;">📝 Additional Notes</h4>
+                <div style="font-size: 1rem; line-height: 1.6; color: var(--korean-dark-gray);">
+                  <div style="margin-bottom: 0.8rem;"><strong>Table Structure:</strong> All 14 columns of CDP 7.79.1 questionnaire split into two parts for better visibility</div>
+                  <div style="margin-bottom: 0.8rem;"><strong>Part 1 (기본 정보):</strong> Columns 1-7 covering basic project information and retirement details</div>
+                  <div><strong>Part 2 (세부 정보):</strong> Columns 8-14 covering detailed methodology and program information</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 4: CDP Question Changes & Market Trends 1 -->
       <section>
         <div class="wrap korean-font alignleft">
           <div class="korean-section-header">
             <h2>CDP 질문 변경으로 본 마켓 트렌드 1: 용어의 규격화</h2>
-            <div class="subtitle">########</div>
+            <div class="subtitle">제도 탄소시장과 자발적 탄소시장에서의 용어 표준화 노력 진행 중</div>
           </div>
 
-          <div class="korean-grid one-col">
-            <div class="korean-card">
-              <h3>예) Retirement vs Cancellation</h3>
-              <h4>CDP 연도별 용어변경</h4>
-              <div class="korean-list">
-                <li><strong>2022: C11.2:</strong> "Has your organization originated or purchased any project-based carbon credits within the reporting period?"</li>
-                <li><strong>2023: C11.2:</strong> "Has your organization canceled any project-based carbon credits within the reporting year?"</li>
-                <li><strong>2024: 7.79:</strong> "Has your organization canceled any project-based carbon credits within the reporting year?"</li>
+          <!-- Main Content: Retirement vs Cancellation -->
+          <div class="korean-grid" style="grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem;">
+            <!-- Left Side: Retirement vs Cancellation -->
+            <div class="korean-card" style="padding: 2rem;">
+              <h3 style="font-size: 1.8rem; margin-bottom: 1.5rem;">예) Retirement vs Cancellation</h3>
+              <h4 style="font-size: 1.4rem; margin-bottom: 1.5rem; color: var(--korean-navy);">CDP 연도별 용어변경</h4>
+              <div class="korean-list" style="font-size: 1.1rem; line-height: 1.6;">
+                <li style="margin-bottom: 1rem;"><strong>2022: C11.2:</strong> "Has your organization originated or purchased any project-based carbon credits within the reporting period?"</li>
+                <li style="margin-bottom: 1rem;"><strong>2023: C11.2:</strong> "Has your organization canceled any project-based carbon credits within the reporting year?"</li>
+                <li style="margin-bottom: 1rem;"><strong>2024: 7.79:</strong> "Has your organization canceled any project-based carbon credits within the reporting year?"</li>
                 <li><strong>2025: 7.79:</strong> "Has your organization retired any project-based carbon credits within the reporting year?"</li>
               </div>
+            </div>
 
-              <h4 style="margin-top: 2rem;">cancellation의 예시</h4>
-              <div style="background: var(--korean-light-gray); padding: 0.75rem; border-radius: 4px; margin-top: 1rem;">
-                <p style="font-size: 1.4rem; font-weight: 500; margin: 0; text-align: center;">
-                  <strong>CDM → VCS(Verra)</strong> || <strong>CDM → CTX(exchange)</strong> || <strong>ACS → VCS(Verra)</strong>
-                </p>
+            <!-- Right Side: Image/Document Attachment Area -->
+            <div class="korean-card" style="padding: 2rem; border: 2px dashed var(--korean-border); background: var(--korean-light-gray);">
+              <h3 style="font-size: 1.6rem; margin-bottom: 1.5rem; text-align: center; color: var(--korean-dark-gray);">문서/다이어그램 첨부 영역</h3>
+              <div style="min-height: 300px; display: flex; align-items: center; justify-content: center; background: var(--korean-white); border-radius: 8px; border: 1px solid var(--korean-border);">
+                <div style="text-align: center; color: var(--korean-dark-gray);">
+                  <p style="font-size: 1.2rem; margin-bottom: 0.5rem;">📎 이미지 첨부 예정</p>
+                  <p style="font-size: 1rem;">용어 변경 관련 문서 또는 다이어그램</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Slide 3: CDP Question Changes & Market Trends 2 -->
+      <!-- Slide 5: Cancellation Examples -->
       <section>
         <div class="wrap korean-font alignleft">
           <div class="korean-section-header">
-            <h2>CDP 질문 변경으로 본 마켓 트렌드 2: 용어의 규격화</h2>
-            <div class="subtitle">########</div>
+            <h2>Cancellation 예시</h2>
+            <div class="subtitle">Cross-Registry Transfer Examples</div>
           </div>
 
-          <div class="korean-grid one-col">
-            <div class="korean-card">
-              <h3>예) 프로젝트 기반 크레딧 vs Sectoral 크레딧</h3>
-              <h4>cf) sectoral 크레딧은 기업용으로 사용 가능한가?</h4>
+          <!-- Main Content Area -->
+          <div class="korean-grid" style="grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem;">
+            <!-- Left Side: Cancellation Examples -->
+            <div class="korean-card" style="padding: 2rem;">
+              <h3 style="font-size: 1.8rem; margin-bottom: 1.5rem;">Registry 간 전환 사례</h3>
+              
+              <div style="margin-bottom: 1.5rem;">
+                <p style="font-weight: 600; color: var(--korean-navy); margin-bottom: 0.5rem; font-size: 1.2rem;">CDM → Verra (CER to VCU)</p>
+                <ul style="font-size: 1rem; line-height: 1.5; margin: 0; padding-left: 1.5rem;">
+                  <li>• UNFCCC CDM Registry의 "transfer to VERRA Program" 옵션</li>
+                  <li>• CER 취소 후 VCU로 재발급</li>
+                </ul>
+              </div>
 
-              <!-- Appendix Section -->
-              <div style="margin-top: 2rem; padding: 1rem; background: var(--korean-light-gray); border-radius: 4px; border-left: 3px solid var(--korean-accent);">
-                <p style="font-size: 0.9rem; color: var(--korean-dark-gray); margin: 0; line-height: 1.5;">
-                  <strong>*</strong> 섹터별(국가가 baseline이되는) 크레딧의 기업 활용 가능성에 대한 규정 및 가이드라인이 명확화되어야 하며, 프로젝트 기반 크레딧과의 차별화된 접근이 필요한 상황입니다.
-                </p>
+              <div style="margin-bottom: 1.5rem;">
+                <p style="font-weight: 600; color: var(--korean-navy); margin-bottom: 0.5rem; font-size: 1.2rem;">CDM → CTX (Exchange)</p>
+                <ul style="font-size: 1rem; line-height: 1.5; margin: 0; padding-left: 1.5rem;">
+                  <li>• "CDM-CTX-Reserve" 계정으로 전송</li>
+                  <li>• 자발적 상쇄용 CER 취소</li>
+                </ul>
+              </div>
+
+              <div style="margin-bottom: 1.5rem;">
+                <p style="font-weight: 600; color: var(--korean-navy); margin-bottom: 0.5rem; font-size: 1.2rem;">ACR → VCS</p>
+                <ul style="font-size: 1rem; line-height: 1.5; margin: 0; padding-left: 1.5rem;">
+                  <li>• "모든 미판매·미이전·미상쇄 크레딧 취소" 후 전환</li>
+                  <li>• 캘리포니아 조기행동 크레딧 → ARB 컴플라이언스 크레딧</li>
+                </ul>
+              </div>
+
+              <div>
+                <p style="font-weight: 600; color: var(--korean-navy); margin-bottom: 0.5rem; font-size: 1.2rem;">CAR → VCS</p>
+                <ul style="font-size: 1rem; line-height: 1.5; margin: 0; padding-left: 1.5rem;">
+                  <li>• CRT를 VCU로 일방향 전환</li>
+                  <li>• "Early Action Offset Credits 취소 후 ARB 크레딧 발급"</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Right Side: Diagram Placeholder -->
+            <div class="korean-card" style="padding: 2rem; border: 2px dashed var(--korean-border); background: var(--korean-light-gray);">
+              <h3 style="font-size: 1.6rem; margin-bottom: 1.5rem; text-align: center; color: var(--korean-dark-gray);">다이어그램 영역</h3>
+              <div style="min-height: 400px; display: flex; align-items: center; justify-content: center; background: var(--korean-white); border-radius: 8px; border: 1px solid var(--korean-border);">
+                <div style="text-align: center; color: var(--korean-dark-gray);">
+                  <p style="font-size: 1.2rem; margin-bottom: 0.5rem;">📊 다이어그램 첨부 예정</p>
+                  <p style="font-size: 1rem;">Registry 간 전환 프로세스 시각화</p>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- Slide 4: 탄소 스탠다드의 다변화, 다각화 -->
+      <!-- Slide 6: CDP Question Changes & Market Trends 2 -->
+      <section>
+        <div class="wrap korean-font alignleft">
+          <div class="korean-section-header">
+            <h2>CDP 질문 변경으로 본 마켓 트렌드 2: 국가단위의 Baseline 설정 방법론 대두</h2>
+            <div class="subtitle">REDD+, Transitional Credits 등 Baseline을 국가 단위로 설정해서 과다상계 방지목적의 크레딧 발행 중이며 기업 실 사용 사례도 등장</div>
+          </div>
+
+          <!-- Dense layout for sectoral credits examples -->
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem;">
+            <!-- Left Column: Concept & Guyana -->
+            <div class="korean-card" style="padding: 1.2rem;">
+              <h3 style="font-size: 1.8rem; margin-bottom: 0.8rem;">🌍 Sectoral 크레딧 기업 활용 현황</h3>
+              <p style="font-size: 1.1rem; margin-bottom: 1rem; color: var(--korean-dark-gray);">
+                <strong>국가 단위 베이스라인</strong>을 통한 섹터별 크레딧이 이미 기업용으로 활발히 사용되고 있음
+              </p>
+
+              <h4 style="font-size: 1.3rem; margin-bottom: 0.5rem; color: var(--korean-navy);">🇬🇾 가이아나 ART-TREES</h4>
+              <ul style="font-size: 1rem; line-height: 1.4; margin-bottom: 1rem; padding-left: 1rem;">
+                <li>• <strong>2022년 12월:</strong> 전 국토 대상 3,347만 TREES 크레딧 발급</li>
+                <li>• <strong>Hess Corporation:</strong> 2030년까지 3,750만 크레딧 구매 (~7.5억 달러)</li>
+                <li>• <strong>2023-24년:</strong> Scope 1 배출 상쇄용으로 첫 상쇄 완료</li>
+                <li>• <strong>세계 최초</strong> 관할권 단위 REDD+ 기업 활용 사례</li>
+              </ul>
+
+              <h4 style="font-size: 1.3rem; margin-bottom: 0.5rem; color: var(--korean-navy);">🇬🇭 가나 ART-TREES</h4>
+              <ul style="font-size: 1rem; line-height: 1.4; margin: 0; padding-left: 1rem;">
+                <li>• <strong>2023년 11월:</strong> 590만 헥타르 대상 1,170만 크레딧 발급</li>
+                <li>• <strong>South Pole:</strong> 2024년 3월 유럽 소비재 기업들 대신 구매·상쇄</li>
+                <li>• <strong>ICVCM 권장</strong> 관할권 접근법과 일치하는 고무결성 크레딧</li>
+              </ul>
+            </div>
+
+            <!-- Right Column: Mozambique & Key Insights -->
+            <div class="korean-card" style="padding: 1.2rem;">
+              <h4 style="font-size: 1.3rem; margin-bottom: 0.5rem; color: var(--korean-navy);">🇲🇿 모잠비크 중첩형 REDD+</h4>
+              <ul style="font-size: 1rem; line-height: 1.4; margin-bottom: 1rem; padding-left: 1rem;">
+                <li>• <strong>2024년:</strong> 정부 섹터별 베이스라인 내 개별 프로젝트 운영</li>
+                <li>• <strong>Olam 등:</strong> 아프리카 공급망 배출 감축 명목으로 상쇄</li>
+                <li>• <strong>Nested 시스템:</strong> 국가 회계와 프로젝트 크레딧 정렬</li>
+              </ul>
+
+              <h4 style="font-size: 1.3rem; margin-bottom: 0.5rem; color: var(--korean-success);">✅ 핵심 인사이트</h4>
+              <ul style="font-size: 1rem; line-height: 1.4; margin-bottom: 1rem; padding-left: 1rem;">
+                <li>• <strong>관할권 REDD+ 크레딧</strong>이 이미 기업들에 의해 상쇄되고 있음</li>
+                <li>• <strong>석유가스(Hess), 소비재</strong> 기업들이 고무결성 상쇄재 추구</li>
+                <li>• <strong>ART-TREES</strong>가 유일한 대규모 섹터별 크레딧 공급원</li>
+                <li>• <strong>CDM Program of Activities</strong>는 아직 주요 상쇄 실적 없음</li>
+              </ul>
+
+              <h4 style="font-size: 1.3rem; margin-bottom: 0.5rem; color: var(--korean-warning);">⚠️ 향후 전망</h4>
+              <ul style="font-size: 1rem; line-height: 1.4; margin: 0; padding-left: 1rem;">
+                <li>• <strong>수십 개 열대국가들</strong>이 유사한 관할권 REDD+ 프로그램 준비 중</li>
+                <li>• <strong>Article 6.4</strong> 2025년 이후 새로운 섹터별 크레딧 생성 예상</li>
+                <li>• <strong>기업 활용 확대</strong> 가능성이 높아 CDP 질문 범위 확장 예정</li>
+              </ul>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Slide 7: Baseline & Credit의 구분 -->
+      <section>
+        <div class="wrap korean-font alignleft">
+          <div class="korean-section-header">
+            <h2>Baseline & Credit의 구분</h2>
+            <div class="subtitle">########</div>
+          </div>
+
+          <div class="korean-grid three-col">
+            <div class="korean-card">
+              <h3>Removal & Mitigation & "Avoidance"</h3>
+              <div class="korean-list">
+                <li><strong>Removal:</strong> 대기 중 이산화탄소 직접 제거</li>
+                <li><strong>Mitigation:</strong> 배출 감소 또는 방지</li>
+                <li><strong>Avoidance:</strong> 배출 회피 (정의 논란)</li>
+              </div>
+            </div>
+            <div class="korean-card">
+              <h3>국가별 입장</h3>
+              <div class="korean-list">
+                <li>[콘텐츠 추가 예정]</li>
+              </div>
+            </div>
+            <div class="korean-card">
+              <h3>스탠다드별 입장</h3>
+              <div class="korean-list">
+                <li>[콘텐츠 추가 예정]</li>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 8: 다양한 탄소크레딧 공급 통로 -->
+      <section>
+        <div class="wrap korean-font alignleft">
+          <div class="korean-section-header">
+            <h2>다양한 탄소크레딧 공급 통로</h2>
+            <div class="subtitle">VCM과 UNFCCC 제6조·제5조의 연계 다양한 사례 등장 중</div>
+          </div>
+
+          <!-- Carbon Market Ecosystem Structure Diagram -->
+          <div style="text-align: center; margin: 2rem 0;">
+            <svg width="800" height="500" viewBox="0 0 800 500" style="max-width: 100%; height: auto; border: 1px solid var(--korean-border);">
+              <!-- Background -->
+              <rect width="800" height="500" fill="var(--korean-white)"/>
+
+              <!-- Title -->
+              <text x="400" y="30" text-anchor="middle" font-size="18" font-weight="bold" fill="var(--korean-navy)">탄소시장 생태계 구조도</text>
+
+              <!-- Demand Section (Left) -->
+              <g>
+                <rect x="50" y="60" width="200" height="380" fill="var(--korean-light-gray)" stroke="var(--korean-navy)" stroke-width="2" rx="8"/>
+                <text x="150" y="85" text-anchor="middle" font-size="16" font-weight="bold" fill="var(--korean-navy)">Demand (수요)</text>
+
+                <!-- Domestic/Regional -->
+                <rect x="70" y="100" width="160" height="140" fill="var(--korean-white)" stroke="var(--korean-border)" rx="4"/>
+                <text x="150" y="120" text-anchor="middle" font-size="12" font-weight="bold">Domestic / Regional</text>
+                <text x="150" y="140" text-anchor="middle" font-size="10">NDC Directly</text>
+                <text x="150" y="155" text-anchor="middle" font-size="10">Carbon Tax</text>
+                <text x="150" y="170" text-anchor="middle" font-size="10">Cap & Trade</text>
+
+                <!-- International -->
+                <rect x="70" y="260" width="160" height="160" fill="var(--korean-white)" stroke="var(--korean-border)" rx="4"/>
+                <text x="150" y="280" text-anchor="middle" font-size="12" font-weight="bold">International</text>
+                <text x="150" y="300" text-anchor="middle" font-size="10">Net Zero Corporate</text>
+                <text x="150" y="315" text-anchor="middle" font-size="10">Commitments</text>
+                <text x="150" y="335" text-anchor="middle" font-size="10">Individual-level</text>
+                <text x="150" y="350" text-anchor="middle" font-size="10">Offsetting</text>
+                <text x="150" y="370" text-anchor="middle" font-size="10">CORSIA (ICAO)</text>
+              </g>
+
+              <!-- Central Processing (Middle) -->
+              <g>
+                <rect x="300" y="180" width="200" height="140" fill="var(--korean-navy)" stroke="var(--korean-navy)" stroke-width="2" rx="8"/>
+                <text x="400" y="205" text-anchor="middle" font-size="14" font-weight="bold" fill="var(--korean-white)">Central Processing</text>
+
+                <rect x="320" y="220" width="160" height="30" fill="var(--korean-white)" stroke="var(--korean-border)" rx="4"/>
+                <text x="400" y="240" text-anchor="middle" font-size="11">Corresponding adjusted</text>
+
+                <rect x="320" y="270" width="160" height="30" fill="var(--korean-white)" stroke="var(--korean-border)" rx="4"/>
+                <text x="400" y="290" text-anchor="middle" font-size="11">Non-corresponding adjusted</text>
+              </g>
+
+              <!-- Supply Section (Right) -->
+              <g>
+                <rect x="550" y="60" width="200" height="380" fill="var(--korean-light-gray)" stroke="var(--korean-navy)" stroke-width="2" rx="8"/>
+                <text x="650" y="85" text-anchor="middle" font-size="16" font-weight="bold" fill="var(--korean-navy)">Supply (공급)</text>
+
+                <!-- Supply Types -->
+                <rect x="570" y="100" width="160" height="25" fill="var(--korean-white)" stroke="var(--korean-border)" rx="4"/>
+                <text x="650" y="117" text-anchor="middle" font-size="10">CDM</text>
+
+                <rect x="570" y="135" width="160" height="40" fill="var(--korean-white)" stroke="var(--korean-border)" rx="4"/>
+                <text x="650" y="150" text-anchor="middle" font-size="10">Independent International</text>
+                <text x="650" y="165" text-anchor="middle" font-size="10">Baseline-and-credit</text>
+
+                <rect x="570" y="185" width="160" height="40" fill="var(--korean-white)" stroke="var(--korean-border)" rx="4"/>
+                <text x="650" y="200" text-anchor="middle" font-size="10">(non compliance) Domestic</text>
+                <text x="650" y="215" text-anchor="middle" font-size="10">Baseline-and-credit</text>
+
+                <rect x="570" y="235" width="160" height="40" fill="var(--korean-white)" stroke="var(--korean-border)" rx="4"/>
+                <text x="650" y="250" text-anchor="middle" font-size="10">(compliance) Domestic</text>
+                <text x="650" y="265" text-anchor="middle" font-size="10">Baseline-and-credit</text>
+
+                <rect x="570" y="285" width="160" height="25" fill="var(--korean-white)" stroke="var(--korean-border)" rx="4"/>
+                <text x="650" y="302" text-anchor="middle" font-size="10">ITMO (PA6.2)</text>
+
+                <rect x="570" y="320" width="160" height="25" fill="var(--korean-white)" stroke="var(--korean-border)" rx="4"/>
+                <text x="650" y="337" text-anchor="middle" font-size="10">PACM (PA6.4)</text>
+
+                <rect x="570" y="355" width="160" height="25" fill="var(--korean-white)" stroke="var(--korean-border)" rx="4"/>
+                <text x="650" y="372" text-anchor="middle" font-size="10">Article 5</text>
+              </g>
+
+              <!-- Methodology Section (Bottom) -->
+              <g>
+                <rect x="250" y="450" width="300" height="40" fill="var(--korean-dark-gray)" stroke="var(--korean-navy)" stroke-width="2" rx="8"/>
+                <text x="400" y="470" text-anchor="middle" font-size="14" font-weight="bold" fill="var(--korean-white)">Methodology (방법론)</text>
+
+                <!-- Reduction and Removal -->
+                <text x="320" y="485" text-anchor="middle" font-size="11" fill="var(--korean-white)">Reduction: Nature/Technology based</text>
+                <text x="480" y="485" text-anchor="middle" font-size="11" fill="var(--korean-white)">Removal: REDD+</text>
+              </g>
+
+              <!-- Arrows -->
+              <defs>
+                <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                  <polygon points="0 0, 10 3.5, 0 7" fill="var(--korean-navy)" />
+                </marker>
+              </defs>
+
+              <!-- Left to Center arrows -->
+              <line x1="250" y1="170" x2="300" y2="220" stroke="var(--korean-navy)" stroke-width="2" marker-end="url(#arrowhead)"/>
+              <line x1="250" y1="330" x2="300" y2="280" stroke="var(--korean-navy)" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+              <!-- Center to Right arrows -->
+              <line x1="500" y1="220" x2="550" y2="170" stroke="var(--korean-navy)" stroke-width="2" marker-end="url(#arrowhead)"/>
+              <line x1="500" y1="280" x2="550" y2="330" stroke="var(--korean-navy)" stroke-width="2" marker-end="url(#arrowhead)"/>
+            </svg>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 9: 탄소 스탠다드의 다변화, 다각화 -->
       <section>
         <div class="wrap korean-font alignleft">
           <div class="korean-section-header">
@@ -1033,4 +1697,2029 @@
               <h3>CDP dropdown list</h3>
               <div style="background: var(--korean-white); padding: 0.75rem; border-radius: 4px; border: 1px solid var(--korean-border);">
                 <!-- CDP Dropdown List - Actual Image -->
-                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABGIAAANVCAYAAAAgCIwmAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAuIwAALiMBeKU/dgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAACAASURBVHic7N0JdFT1+Qfw77xJJpksJCEQCAmELWwJ+76DyL6JaEVFrVo9tVpta7V6bO1pbWut51Q92lZbrbW11VpbQVFBUVQWZV9kXyQsAYGEJWwJCQnZl3n3/zOZTJZJJsnM3Hszk+/nHCEzycy998578813Jvd5j8VqtVqJiIiIiIiIiIg0ZzS6AiIiIiIiIiIiihfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiIt
+                <img src="data:image/png;base64,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"
+                     alt="CDP Carbon Standards Dropdown List"
+                     style="width: 100%; height: auto; border: 1px solid var(--korean-border); border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                <p style="font-size: 1.2rem; font-weight: 600; color: var(--korean-navy); margin: 1rem 0 0 0; text-align: center;">
+                  실제로는 <strong>이보다 훨씬 많음</strong>
+                </p>
+              </div>
+            </div>
+
+            <!-- Metrics Column (30%) -->
+            <div style="display: flex; flex-direction: column; gap: 1rem;">
+              <div class="korean-metric fade-in-up">
+                <div class="korean-metric-value trend-up">
+                  <span class="animated-counter" data-target="135" data-suffix="+">135</span>+
+                </div>
+                <div class="korean-metric-label">총 탄소 표준 수</div>
+              </div>
+              <div class="korean-metric fade-in-up">
+                <div class="korean-metric-value trend-up">
+                  <span class="animated-counter" data-target="6" data-suffix="개">6</span>개
+                </div>
+                <div class="korean-metric-label">주요 카테고리</div>
+              </div>
+              <div class="korean-metric fade-in-up">
+                <div class="korean-metric-value trend-up">
+                  <span class="animated-counter" data-target="50" data-suffix="+">50</span>+
+                </div>
+                <div class="korean-metric-label">국가/지역</div>
+              </div>
+              <div class="korean-metric fade-in-up">
+                <div class="korean-metric-value trend-up">
+                  <span class="animated-counter" data-target="15" data-suffix="+">15</span>+
+                </div>
+                <div class="korean-metric-label">CORSIA 승인</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Slide 10: 탄소 스탠다드 생태계 시각화 Part 1 -->
+      <section>
+        <div class="wrap korean-font alignleft">
+          <div class="korean-section-header">
+            <h2>탄소 스탠다드 생태계 시각화 (1/2)</h2>
+            <div class="subtitle">6개 주요 카테고리별 분포 및 특성</div>
+          </div>
+
+          <!-- Category Distribution Section -->
+          <div class="korean-card" style="margin-top: 1.5rem;">
+            <h3 style="margin-bottom: 1rem;">6개 주요 카테고리별 분포</h3>
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.8rem; margin-top: 1rem;">
+              <div class="korean-metric fade-in-up">
+                <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
+                  <div style="width: 16px; height: 16px; border-radius: 50%; background: linear-gradient(135deg, #2C3E50 0%, #34495e 100%);"></div>
+                  <span style="font-size: 0.9rem; font-weight: 600;">독립 국제기관</span>
+                </div>
+                <div class="korean-metric-value" style="color: #2C3E50;">45</div>
+              </div>
+
+              <div class="korean-metric fade-in-up">
+                <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
+                  <div style="width: 16px; height: 16px; border-radius: 50%; background: linear-gradient(135deg, #27AE60 0%, #2ecc71 100%);"></div>
+                  <span style="font-size: 0.9rem; font-weight: 600;">정부 기반 표준</span>
+                </div>
+                <div class="korean-metric-value" style="color: #27AE60;">35</div>
+              </div>
+
+              <div class="korean-metric fade-in-up">
+                <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
+                  <div style="width: 16px; height: 16px; border-radius: 50%; background: linear-gradient(135deg, #4A90E2 0%, #5dade2 100%);"></div>
+                  <span style="font-size: 0.9rem; font-weight: 600;">특화 섹터</span>
+                </div>
+                <div class="korean-metric-value" style="color: #4A90E2;">26</div>
+              </div>
+
+              <div class="korean-metric fade-in-up">
+                <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
+                  <div style="width: 16px; height: 16px; border-radius: 50%; background: linear-gradient(135deg, #F39C12 0%, #f8c471 100%);"></div>
+                  <span style="font-size: 0.9rem; font-weight: 600;">국제기구</span>
+                </div>
+                <div class="korean-metric-value" style="color: #F39C12;">15</div>
+              </div>
+
+              <div class="korean-metric fade-in-up">
+                <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
+                  <div style="width: 16px; height: 16px; border-radius: 50%; background: linear-gradient(135deg, #8e44ad 0%, #a569bd 100%);"></div>
+                  <span style="font-size: 0.9rem; font-weight: 600;">산업협회</span>
+                </div>
+                <div class="korean-metric-value" style="color: #8e44ad;">10</div>
+              </div>
+
+              <div class="korean-metric fade-in-up">
+                <div style="display: flex; align-items: center; gap: 0.75rem; margin-bottom: 0.5rem;">
+                  <div style="width: 16px; height: 16px; border-radius: 50%; background: linear-gradient(135deg, #d35400 0%, #e67e22 100%);"></div>
+                  <span style="font-size: 0.9rem; font-weight: 600;">IPLC</span>
+                </div>
+                <div class="korean-metric-value" style="color: #d35400;">6</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Interactive Standards Ecosystem Visualization -->
+          <div class="standards-visualization" style="position: relative; height: 400px; background: #ffffff; border: 1px solid #e1e5e9; border-radius: 4px; margin: 2rem 0;">
+            <!-- Fallback content that loads immediately -->
+            <div class="category-bubble bubble-independent"
+                 style="position: absolute; width: 120px; height: 120px; top: 50px; left: 50px; border-radius: 50%; background: linear-gradient(135deg, #2C3E50 0%, #34495e 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 0.9rem; font-weight: 600; text-align: center; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"
+                 data-category="독립 국제기관"
+                 data-count="45"
+                 data-examples="VCS, Gold Standard, CAR">
+              독립 국제기관<br><strong>45개</strong>
+            </div>
+
+            <div class="category-bubble bubble-government"
+                 style="position: absolute; width: 100px; height: 100px; top: 80px; right: 100px; border-radius: 50%; background: linear-gradient(135deg, #27AE60 0%, #2ecc71 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 0.9rem; font-weight: 600; text-align: center; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"
+                 data-category="정부 기반 표준"
+                 data-count="35"
+                 data-examples="CCER, K-Offset, California">
+              정부 기반<br><strong>35개</strong>
+            </div>
+
+            <div class="category-bubble bubble-sector"
+                 style="position: absolute; width: 90px; height: 90px; bottom: 100px; left: 150px; border-radius: 50%; background: linear-gradient(135deg, #4A90E2 0%, #5dade2 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 0.9rem; font-weight: 600; text-align: center; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"
+                 data-category="특화 섹터"
+                 data-count="25"
+                 data-examples="Isometric, NCX, Regenagri">
+              특화 섹터<br><strong>25개</strong>
+            </div>
+
+            <div class="category-bubble bubble-intergovernmental"
+                 style="position: absolute; width: 80px; height: 80px; top: 200px; right: 50px; border-radius: 50%; background: linear-gradient(135deg, #F39C12 0%, #f8c471 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 0.9rem; font-weight: 600; text-align: center; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"
+                 data-category="국제기구"
+                 data-count="15"
+                 data-examples="CDM, Article 6.4">
+              국제기구<br><strong>15개</strong>
+            </div>
+
+            <div class="category-bubble bubble-industry"
+                 style="position: absolute; width: 70px; height: 70px; bottom: 50px; right: 200px; border-radius: 50%; background: linear-gradient(135deg, #8e44ad 0%, #a569bd 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 0.9rem; font-weight: 600; text-align: center; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"
+                 data-category="산업협회"
+                 data-count="10"
+                 data-examples="KCCI, Industry Groups">
+              산업협회<br><strong>10개</strong>
+            </div>
+
+            <div class="category-bubble bubble-iplc"
+                 style="position: absolute; width: 60px; height: 60px; bottom: 150px; right: 300px; border-radius: 50%; background: linear-gradient(135deg, #d35400 0%, #e67e22 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 0.9rem; font-weight: 600; text-align: center; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"
+                 data-category="IPLC"
+                 data-count="5"
+                 data-examples="Indigenous Projects">
+              IPLC<br><strong>5개</strong>
+            </div>
+
+            <!-- Connection lines -->
+            <svg style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1;">
+              <defs>
+                <linearGradient id="connectionGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                  <stop offset="0%" style="stop-color:#2C3E50;stop-opacity:0.2" />
+                  <stop offset="100%" style="stop-color:#2C3E50;stop-opacity:0" />
+                </linearGradient>
+              </defs>
+              <!-- Simple connecting lines -->
+              <line x1="170" y1="110" x2="250" y2="130" stroke="url(#connectionGradient)" stroke-width="1" opacity="0.3"/>
+              <line x1="210" y1="190" x2="280" y2="170" stroke="url(#connectionGradient)" stroke-width="1" opacity="0.3"/>
+              <line x1="320" y1="180" x2="380" y2="200" stroke="url(#connectionGradient)" stroke-width="1" opacity="0.3"/>
+            </svg>
+          </div>
+
+
+          <!-- Image placeholders for User Images #1 and #2 -->
+          <div class="korean-card" style="margin-bottom: 2rem; padding: 1.5rem; border: 2px solid var(--korean-accent); background: var(--korean-white);">
+            <h4 style="color: var(--korean-navy); margin-bottom: 1rem;">📊 탄소 스탠다드 카테고리 분류표 (Image #1)</h4>
+            <p style="color: var(--korean-dark-gray); text-align: center; padding: 2rem; background: var(--korean-light-gray); border-radius: 4px;">
+              독립 국제기관 | 정부 기반 표준 | 특화 섹터 표준<br>
+              상세 분류표 이미지 영역
+            </p>
+          </div>
+
+          <div class="korean-card" style="margin-bottom: 2rem; padding: 1.5rem; border: 2px solid var(--korean-success); background: var(--korean-white);">
+            <h4 style="color: var(--korean-navy); margin-bottom: 1rem;">📈 6개 주요 카테고리별 분포 (Image #2)</h4>
+            <p style="color: var(--korean-dark-gray); text-align: center; padding: 2rem; background: var(--korean-light-gray); border-radius: 4px;">
+              독립 국제기관 45개 | 정부 기반 표준 35개 | 특화 섹터 26개<br>
+              국제기구 15개 | 산업협회 10개 | IPLC 6개
+            </p>
+          </div>
+
+          <!-- Main Categories -->
+          <div class="korean-grid three-col">
+            <div class="korean-card">
+              <h3>독립 국제기관 <span class="korean-status high-growth">주도적</span></h3>
+              <div class="korean-list">
+                <li><strong>VCS (Verra):</strong> 전 세계 가장 널리 사용</li>
+                <li><strong>Gold Standard:</strong> SDGs 중심, CORSIA 승인</li>
+                <li><strong>Climate Action Reserve:</strong> 신뢰성 높은 레지스트리</li>
+                <li><strong>ART/TREES:</strong> REDD+ 관할 구역 표준</li>
+                <li><strong>CCB Standards:</strong> 지역사회-생물다양성 혜택</li>
+              </div>
+            </div>
+
+            <div class="korean-card">
+              <h3>정부 기반 표준 <span class="korean-status high-growth">확산</span></h3>
+              <div class="korean-list">
+                <li><strong>국가 단위:</strong> 중국 CCER, 한국 K-Offset</li>
+                <li><strong>지역 단위:</strong> California, Quebec, BC</li>
+                <li><strong>국제기구:</strong> UNFCCC CDM, Article 6.4</li>
+                <li><strong>EU CRCF:</strong> 탄소 제거 인증 프레임워크</li>
+                <li><strong>Label Bas Carbone:</strong> 프랑스 공식 자발적 제도</li>
+              </div>
+            </div>
+
+            <div class="korean-card">
+              <h3>특화 섹터 표준 <span class="korean-status high-growth">신규</span></h3>
+              <div class="korean-list">
+                <li><strong>Isometric:</strong> 장기 탄소 제거 (CDR) 전문</li>
+                <li><strong>Puro.earth:</strong> 산업 탄소 제거</li>
+                <li><strong>City Forest Credits:</strong> 도시 산림 전문</li>
+                <li><strong>NCX:</strong> 산림 수확 연기 (1년 단위)</li>
+                <li><strong>Regenagri:</strong> 재생농업 및 토양 건강</li>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- Slide 11: 탄소 스탠다드 생태계 시각화 Part 2 -->
+      <section>
+        <div class="wrap korean-font alignleft">
+          <div class="korean-section-header">
+            <h2>탄소 스탠다드 생태계 시각화 (2/2)</h2>
+            <div class="subtitle">거버넌스 이슈와 레지스트리 요건 강화</div>
+          </div>
+
+          <!-- Image placeholder for User Image #3 -->
+          <div class="korean-card" style="margin-bottom: 2rem; padding: 1.5rem; border: 2px solid var(--korean-warning); background: var(--korean-white);">
+            <h4 style="color: var(--korean-navy); margin-bottom: 1rem;">⚖️ 거버넌스 이슈 및 레지스트리 요건 (Image #3)</h4>
+            <p style="color: var(--korean-dark-gray); text-align: center; padding: 2rem; background: var(--korean-light-gray); border-radius: 4px;">
+              거버넌스, 이해상충 문제 | 레지스트리 요건 강화<br>
+              IT & TI (Information Transparency & Technology Infrastructure)
+            </p>
+          </div>
+
+          <!-- Enhanced Governance, Registry Requirements -->
+          <div class="korean-grid two-col">
+            <div class="korean-card fade-in-up">
+              <h3>거버넌스, 이해상충 문제</h3>
+              <div class="korean-list">
+                <li><strong>Verra case study:</strong> 이사회 구성의 독립성 검토</li>
+                <li><strong>표준 개발 주체:</strong> 비영리 vs 영리 vs 정부 간 역할 분담</li>
+                <li><strong>IPLC 참여:</strong> 원주민 및 지역사회 권익 보호</li>
+                <li><strong>투명성 강화:</strong> 의사결정 과정 및 이해관계자 공개</li>
+              </div>
+            </div>
+
+            <div class="korean-card fade-in-up">
+              <h3>레지스트리 요건 강화</h3>
+              <h4>IT & TI (Information Transparency & Technology Infrastructure)</h4>
+              <div class="korean-list">
+                <li><strong>블록체인 도입:</strong> BioCarbon (LACCHAIN) 등</li>
+                <li><strong>MRV 플랫폼:</strong> Isometric Certify 등 과학적 엄밀성</li>
+                <li><strong>데이터 품질:</strong> Climate Action Data Trust 통합</li>
+                <li><strong>실시간 추적:</strong> 이중 계상 방지 시스템</li>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 12: SBTi내 탄소크레딧 인정 범위 -->
+      <section>
+        <div class="wrap korean-font alignleft">
+          <div class="korean-section-header">
+            <h2>SBTi내 탄소크레딧 인정 범위</h2>
+            <div class="subtitle">Science-Based Targets initiative 내 탄소크레딧 인정 범위 및 가이드라인</div>
+          </div>
+
+          <!-- Placeholder content maintaining template style -->
+          <div class="korean-grid" style="grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem;">
+            <!-- Left Column -->
+            <div class="korean-card" style="padding: 1.5rem;">
+              <h3 style="font-size: 1.8rem; margin-bottom: 1rem; color: var(--korean-navy);">🎯 SBTi 개요</h3>
+
+              <div style="margin-bottom: 1.5rem;">
+                <h4 style="font-size: 1.3rem; margin-bottom: 0.5rem; color: var(--korean-success);">컨텐츠 준비 중</h4>
+                <ul style="font-size: 1.3rem; line-height: 1.5; margin-bottom: 1rem; padding-left: 1rem;">
+                  <li>• 상세 내용 추가 예정</li>
+                  <li>• SBTi 기준 분석</li>
+                  <li>• 크레딧 인정 범위</li>
+                </ul>
+              </div>
+            </div>
+
+            <!-- Right Column -->
+            <div class="korean-card" style="padding: 1.5rem;">
+              <h3 style="font-size: 1.8rem; margin-bottom: 1rem; color: var(--korean-navy);">📋 인정 기준</h3>
+
+              <div style="margin-bottom: 1.5rem;">
+                <h4 style="font-size: 1.3rem; margin-bottom: 0.5rem; color: var(--korean-accent);">추가 예정</h4>
+                <ul style="font-size: 1.3rem; line-height: 1.5; margin: 0; padding-left: 1rem;">
+                  <li>• 가이드라인 세부사항</li>
+                  <li>• 품질 요건</li>
+                  <li>• 제외 항목</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom placeholder section -->
+          <div class="korean-card" style="padding: 1.5rem; background: var(--korean-light-gray); border-left: 4px solid var(--korean-accent);">
+            <h3 style="font-size: 1.6rem; margin-bottom: 1rem; color: var(--korean-navy);">📊 상세 분석</h3>
+            <p style="font-size: 1.1rem; color: var(--korean-dark-gray); margin: 0; line-height: 1.5; font-style: italic;">
+              SBTi 탄소크레딧 인정 범위에 대한 상세 분석 내용이 추가될 예정입니다.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 13: 리스크 사례 -->
+      <section>
+        <div class="wrap korean-font alignleft">
+          <div class="korean-section-header">
+            <h2>리스크 사례</h2>
+            <div class="subtitle">Carbon Credit Risk Case Studies</div>
+          </div>
+
+          <!-- Content will be added later -->
+          <div class="korean-card" style="padding: 2rem; text-align: center; background: var(--korean-light-gray); border: 2px dashed var(--korean-border); margin: 2rem 0;">
+            <h3 style="color: var(--korean-dark-gray); font-size: 1.5rem; margin-bottom: 1rem;">📋 Content Area</h3>
+            <p style="color: var(--korean-dark-gray); font-size: 1.2rem;">This slide is ready for content addition</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 14: 리스크의 다각화 -->
+      <section>
+        <div class="wrap korean-font alignleft">
+          <div class="korean-section-header">
+            <h2>리스크의 다각화</h2>
+            <div class="subtitle">########</div>
+          </div>
+
+          <div class="korean-grid two-col">
+            <div class="korean-card">
+              <h3>기존의 경제성, 발급과정</h3>
+              <h4>(탄소시장 직접적인 이해관계자)</h4>
+              <div class="korean-list">
+                <li><strong>경제성 리스크:</strong> 프로젝트 수익성 및 비용 효율성</li>
+                <li><strong>발급과정 리스크:</strong> 크레딧 생성 및 검증 과정의 불확실성</li>
+                <li><strong>기술적 리스크:</strong> 프로젝트 기술의 성능 및 지속가능성</li>
+                <li><strong>시장 리스크:</strong> 가격 변동성 및 유동성 문제</li>
+                <li>주로 탄소시장 직접 참여자들의 이해관계에 초점</li>
+              </div>
+            </div>
+            <div class="korean-card">
+              <h3>현재 Social, Environmental Safeguards 까지</h3>
+              <h4>(이해관계자 범위 확대)</h4>
+              <div class="korean-list">
+                <li><strong>사회적 보호장치:</strong> 지역 공동체 권리 보호</li>
+                <li><strong>환경적 보호장치:</strong> 생물다양성 및 생태계 보전</li>
+                <li><strong>인권 고려:</strong> 원주민 및 지역주민 권익 보호</li>
+                <li><strong>투명성 강화:</strong> 이해관계자 참여 및 정보 공개</li>
+                <li>이해관계자 범위가 탄소시장을 넘어 광범위하게 확대</li>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 15: 리스크의 다각화 - Safeguard Documents -->
+      <section>
+        <div class="wrap korean-font alignleft">
+          <div class="korean-section-header">
+            <h2>리스크의 다각화</h2>
+            <div class="subtitle">주요 탄소 레지스트리별 Safeguard 문서/정책</div>
+          </div>
+
+          <!-- 4 Boxes Grid for Safeguard Documents -->
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2rem;">
+            <!-- Box 1: Verra -->
+            <div class="korean-card" style="min-height: 200px; padding: 1.5rem;">
+              <h3 style="color: var(--korean-navy); margin-bottom: 1rem; font-size: 1.4rem;">📄 Verra Safeguards</h3>
+              <div style="border: 2px dashed var(--korean-border); padding: 1rem; text-align: center; color: var(--korean-dark-gray); font-style: italic;">
+                Document attachment area
+                <br><br>
+                <small>Drag & drop or click to attach<br>Verra safeguard policies</small>
+              </div>
+            </div>
+
+            <!-- Box 2: Gold Standard -->
+            <div class="korean-card" style="min-height: 200px; padding: 1.5rem;">
+              <h3 style="color: var(--korean-navy); margin-bottom: 1rem; font-size: 1.4rem;">📄 Gold Standard Safeguards</h3>
+              <div style="border: 2px dashed var(--korean-border); padding: 1rem; text-align: center; color: var(--korean-dark-gray); font-style: italic;">
+                Document attachment area
+                <br><br>
+                <small>Drag & drop or click to attach<br>Gold Standard safeguard policies</small>
+              </div>
+            </div>
+
+            <!-- Box 3: Climate Action Reserve -->
+            <div class="korean-card" style="min-height: 200px; padding: 1.5rem;">
+              <h3 style="color: var(--korean-navy); margin-bottom: 1rem; font-size: 1.4rem;">📄 CAR Safeguards</h3>
+              <div style="border: 2px dashed var(--korean-border); padding: 1rem; text-align: center; color: var(--korean-dark-gray); font-style: italic;">
+                Document attachment area
+                <br><br>
+                <small>Drag & drop or click to attach<br>Climate Action Reserve safeguard policies</small>
+              </div>
+            </div>
+
+            <!-- Box 4: Other Registries -->
+            <div class="korean-card" style="min-height: 200px; padding: 1.5rem;">
+              <h3 style="color: var(--korean-navy); margin-bottom: 1rem; font-size: 1.4rem;">📄 Other Registry Safeguards</h3>
+              <div style="border: 2px dashed var(--korean-border); padding: 1rem; text-align: center; color: var(--korean-dark-gray); font-style: italic;">
+                Document attachment area
+                <br><br>
+                <small>Drag & drop or click to attach<br>Other registry safeguard policies</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 16: 시장참여자 확대 -->
+      <section>
+        <div class="wrap korean-font">
+          <div class="korean-section-header">
+            <h2>시장참여자 확대</h2>
+            <div class="subtitle">탄소크레딧 생태계의 새로운 이해관계자들</div>
+          </div>
+
+          <div class="korean-grid two-col">
+            <div class="korean-card">
+              <h3>현존하는 가이드라인</h3>
+              <div class="korean-list">
+                <li><strong>IOSCO (국제증권감독기구):</strong> 2024년 11월 자발적 탄소시장 가이드라인 발표, 21개 원칙으로 구성된 금융 무결성 지침</li>
+                <li><strong>G20:</strong> 2024년 10월 기후금융 이니셔티브 발표, 다자개발은행 개혁 및 저탄소 경제 전환 지원</li>
+                <li><strong>ISDA (국제스왑파생상품협회):</strong> 2024년 자발적 탄소시장 표준 정의서 개발, ICVCM 표준 통합</li>
+                <li><strong>ILO (국제노동기구):</strong> 2024년 11월 공정전환 가이드라인 발표, 탄소시장 리스크 프레임워크 및 사회적 영향 평가 기준</li>
+                <li><strong>금융 부문 규제기관:</strong> 시장 투명성 및 공시 강화</li>
+              </div>
+            </div>
+
+            <div class="korean-card">
+              <h3>새로운 이해관계자 범주 등장</h3>
+              <div class="korean-list">
+                <li><strong>보험 제공업체:</strong> 프로젝트 개발자와 구매자에게 종합적 위험 보장 제공</li>
+                <li><strong>데이터 서비스 제공업체:</strong> 기준선 설정 방법론 개선 및 환경 무결성 강화</li>
+                <li><strong>평가 기관:</strong> 탄소 크레딧의 환경 무결성에 대한 정보 비대칭성 완화</li>
+                <li><strong>핀테크 솔루션:</strong> 디지털 MRV 시스템 강화 및 투명성 제고</li>
+                <li><strong>민간 펀드:</strong> 기후 중심 자산 포트폴리오 다변화 및 프로젝트 금융</li>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 17: 이해관계자 상세 맵 -->
+      <section>
+        <div class="wrap korean-font">
+          <div class="korean-section-header">
+            <h2>이해관계자 상세 맵</h2>
+            <div class="subtitle">탄소크레딧 생태계의 세부 참여자들</div>
+          </div>
+
+          <!-- Large Visual Stakeholder Categories with Equal Heights -->
+          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; margin: 2rem 0; grid-template-rows: repeat(3, minmax(180px, 1fr));">
+
+            <!-- Primary Stakeholders (Left Column) -->
+            <div style="background: linear-gradient(135deg, #B8D4E3 0%, #D6E9F0 100%); color: #2C3E50; padding: 1.5rem; border-radius: 12px; display: flex; flex-direction: column; border: 2px solid #A8C8E1;">
+              <h3 style="font-size: 1.4rem; margin: 0 0 1rem 0; text-align: center; color: #1A365D; font-weight: 700;">🏗️ 프로젝트 생태계</h3>
+              <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; font-size: 1.1rem; flex-grow: 1; align-content: center;">
+                <div style="background: rgba(255,255,255,0.7); padding: 0.8rem; border-radius: 8px; text-align: center; color: #1A365D; border: 1px solid #A8C8E1;">토지 소유자</div>
+                <div style="background: rgba(255,255,255,0.7); padding: 0.8rem; border-radius: 8px; text-align: center; color: #1A365D; border: 1px solid #A8C8E1;">토착민 공동체</div>
+                <div style="background: rgba(255,255,255,0.7); padding: 0.8rem; border-radius: 8px; text-align: center; color: #1A365D; border: 1px solid #A8C8E1;">프로젝트 개발자</div>
+                <div style="background: rgba(255,255,255,0.7); padding: 0.8rem; border-radius: 8px; text-align: center; color: #1A365D; border: 1px solid #A8C8E1;">프로젝트 운영자</div>
+              </div>
+            </div>
+
+            <div style="background: linear-gradient(135deg, #F8D7DA 0%, #F5C6CB 100%); color: #721C24; padding: 1.5rem; border-radius: 12px; display: flex; flex-direction: column; border: 2px solid #F1AAA8;">
+              <h3 style="font-size: 1.4rem; margin: 0 0 1rem 0; text-align: center; color: #721C24; font-weight: 700;">📋 등록 및 인증</h3>
+              <div style="display: grid; grid-template-columns: 1fr; gap: 0.5rem; font-size: 0.95rem; flex-grow: 1; align-content: center;">
+                <div style="background: rgba(255,255,255,0.8); padding: 0.5rem; border-radius: 6px; text-align: center; color: #721C24; border: 1px solid #F1AAA8;">프로젝트 레지스트리</div>
+                <div style="background: rgba(255,255,255,0.8); padding: 0.5rem; border-radius: 6px; text-align: center; color: #721C24; border: 1px solid #F1AAA8;">거래 레지스트리</div>
+                <div style="background: rgba(255,255,255,0.8); padding: 0.5rem; border-radius: 6px; text-align: center; color: #721C24; border: 1px solid #F1AAA8;">표준 설정기관</div>
+                <div style="background: rgba(255,255,255,0.8); padding: 0.5rem; border-radius: 6px; text-align: center; color: #721C24; border: 1px solid #F1AAA8;">검증 기관</div>
+                <div style="background: rgba(255,255,255,0.8); padding: 0.5rem; border-radius: 6px; text-align: center; color: #721C24; border: 1px solid #F1AAA8;">인증 기관</div>
+              </div>
+            </div>
+
+            <div style="background: linear-gradient(135deg, #D1F2D1 0%, #C3E9C3 100%); color: #155724; padding: 1.5rem; border-radius: 12px; display: flex; flex-direction: column; border: 2px solid #B7E4B7;">
+              <h3 style="font-size: 1.4rem; margin: 0 0 1rem 0; text-align: center; color: #155724; font-weight: 700;">💰 시장 참여자</h3>
+              <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 0.8rem; font-size: 1rem; flex-grow: 1; align-content: center;">
+                <div style="background: rgba(255,255,255,0.8); padding: 0.6rem; border-radius: 6px; text-align: center; color: #155724; border: 1px solid #B7E4B7;">구매자</div>
+                <div style="background: rgba(255,255,255,0.8); padding: 0.6rem; border-radius: 6px; text-align: center; color: #155724; border: 1px solid #B7E4B7;">최종사용자</div>
+                <div style="background: rgba(255,255,255,0.8); padding: 0.6rem; border-radius: 6px; text-align: center; color: #155724; border: 1px solid #B7E4B7;">오프테이커</div>
+                <div style="background: rgba(255,255,255,0.8); padding: 0.6rem; border-radius: 6px; text-align: center; color: #155724; border: 1px solid #B7E4B7;">탄소 트레이더</div>
+                <div style="background: rgba(255,255,255,0.8); padding: 0.6rem; border-radius: 6px; text-align: center; color: #155724; border: 1px solid #B7E4B7;">탄소 펀드</div>
+                <div style="background: rgba(255,255,255,0.8); padding: 0.6rem; border-radius: 6px; text-align: center; color: #155724; border: 1px solid #B7E4B7;">평가 기관</div>
+              </div>
+            </div>
+
+            <div style="background: linear-gradient(135deg, #E6D7FF 0%, #DCC9FF 100%); color: #4A154B; padding: 1.5rem; border-radius: 12px; display: flex; flex-direction: column; border: 2px solid #D1B3FF;">
+              <h3 style="font-size: 1.4rem; margin: 0 0 1rem 0; text-align: center; color: #4A154B; font-weight: 700;">⚖️ 규제 및 감독</h3>
+              <div style="display: grid; grid-template-columns: 1fr; gap: 0.8rem; font-size: 1.1rem; flex-grow: 1; align-content: center;">
+                <div style="background: rgba(255,255,255,0.8); padding: 0.8rem; border-radius: 8px; text-align: center; color: #4A154B; border: 1px solid #D1B3FF;">금융 규제기관</div>
+                <div style="background: rgba(255,255,255,0.8); padding: 0.8rem; border-radius: 8px; text-align: center; color: #4A154B; border: 1px solid #D1B3FF;">시장 규제기관</div>
+                <div style="background: rgba(255,255,255,0.8); padding: 0.8rem; border-radius: 8px; text-align: center; color: #4A154B; border: 1px solid #D1B3FF;">표준화 기구</div>
+              </div>
+            </div>
+
+            <div style="background: linear-gradient(135deg, #DBEAFE 0%, #BFDBFE 100%); color: #1E3A8A; padding: 1.5rem; border-radius: 12px; display: flex; flex-direction: column; border: 2px solid #93C5FD;">
+              <h3 style="font-size: 1.4rem; margin: 0 0 1rem 0; text-align: center; color: #1E3A8A; font-weight: 700;">🏛️ 거래 플랫폼</h3>
+              <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 0.8rem; font-size: 1rem; flex-grow: 1; align-content: center;">
+                <div style="background: rgba(255,255,255,0.8); padding: 0.6rem; border-radius: 6px; text-align: center; color: #1E3A8A; border: 1px solid #93C5FD;">거래소</div>
+                <div style="background: rgba(255,255,255,0.8); padding: 0.6rem; border-radius: 6px; text-align: center; color: #1E3A8A; border: 1px solid #93C5FD;">현물 거래소</div>
+                <div style="background: rgba(255,255,255,0.8); padding: 0.6rem; border-radius: 6px; text-align: center; color: #1E3A8A; border: 1px solid #93C5FD;">선물 거래소</div>
+                <div style="background: rgba(255,255,255,0.8); padding: 0.6rem; border-radius: 6px; text-align: center; color: #1E3A8A; border: 1px solid #93C5FD;">OTC 인프라</div>
+                <div style="background: rgba(255,255,255,0.8); padding: 0.6rem; border-radius: 6px; text-align: center; color: #1E3A8A; border: 1px solid #93C5FD;">경매 플랫폼</div>
+                <div style="background: rgba(255,255,255,0.8); padding: 0.6rem; border-radius: 6px; text-align: center; color: #1E3A8A; border: 1px solid #93C5FD;">청산소</div>
+              </div>
+            </div>
+
+            <div style="background: linear-gradient(135deg, #FEF3C7 0%, #FDE68A 100%); color: #92400E; padding: 1.5rem; border-radius: 12px; display: flex; flex-direction: column; border: 2px solid #FBBF24;">
+              <h3 style="font-size: 1.4rem; margin: 0 0 1rem 0; text-align: center; color: #92400E; font-weight: 700;">🔧 디지털 혁신</h3>
+              <div style="display: grid; grid-template-columns: 1fr; gap: 0.8rem; font-size: 1rem; flex-grow: 1; align-content: center;">
+                <div style="background: rgba(255,255,255,0.8); padding: 0.6rem; border-radius: 6px; text-align: center; color: #92400E; border: 1px solid #FBBF24;">토큰화 플랫폼</div>
+                <div style="background: rgba(255,255,255,0.8); padding: 0.6rem; border-radius: 6px; text-align: center; color: #92400E; border: 1px solid #FBBF24;">dMRV 솔루션</div>
+                <div style="background: rgba(255,255,255,0.8); padding: 0.6rem; border-radius: 6px; text-align: center; color: #92400E; border: 1px solid #FBBF24;">가격정보 플랫폼</div>
+                <div style="background: rgba(255,255,255,0.8); padding: 0.6rem; border-radius: 6px; text-align: center; color: #92400E; border: 1px solid #FBBF24;">NGO 감시기구</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 18: 리스크 최소화를 위한 국제 기준 채택 -->
+      <section>
+        <div class="wrap korean-font alignleft">
+          <div class="korean-section-header">
+            <h2>리스크 최소화를 위한 국제 기준 채택</h2>
+            <div class="subtitle">다양한 국제규격에 부합하는 크레딧 수요 증가</div>
+          </div>
+
+          <div class="korean-grid three-col">
+            <div class="korean-card">
+              <h3>Article 6</h3>
+              <div class="korean-list">
+                <li>파리협정 제6조 메커니즘</li>
+                <li>국가 간 탄소 크레딧 이전 규정</li>
+                <li>이중계상 방지 요구사항</li>
+                <li>지속가능발전 기여 확보</li>
+              </div>
+            </div>
+            <div class="korean-card">
+              <h3>SBTi Net-Zero</h3>
+              <div class="korean-list">
+                <li>과학기반 넷제로 목표 설정</li>
+                <li>기업 탄소중립 경로 가이드라인</li>
+                <li>크레딧 사용 제한 및 우선순위</li>
+                <li>장기 감축 목표와 연계</li>
+              </div>
+            </div>
+            <div class="korean-card">
+              <h3>ICVCM CCP</h3>
+              <div class="korean-list">
+                <li>핵심 탄소 원칙 프레임워크</li>
+                <li>고품질 크레딧 인증 기준</li>
+                <li>추가성, 지속성, 정량화 요구</li>
+                <li>시장 신뢰성 제고 목적</li>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 19: 그럼에도 각 Framework별 리스크 존재 -->
+      <section>
+        <div class="wrap korean-font alignleft">
+          <div class="korean-section-header">
+            <h2>그럼에도 각 Framework별 리스크 존재</h2>
+            <div class="subtitle">########</div>
+          </div>
+
+          <!-- Simplified 2-column layout with bigger fonts -->
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 3rem;">
+
+            <!-- Left Column: Main Framework Issues -->
+            <div class="korean-card" style="padding: 2rem;">
+              <h3 style="font-size: 2rem; margin-bottom: 1.5rem;">ICVCM 라벨링 논란</h3>
+              <div style="font-size: 1.2rem; line-height: 1.6; margin-bottom: 2rem;">
+                <p style="margin-bottom: 1rem;">• 미국 매립가스 크레딧 승인 후 추가성 부족 지적</p>
+                <p style="margin-bottom: 1rem;">• REDD+ 방법론 승인에 전문가 반발</p>
+                <p>• 고품질 라벨이 있어도 환경적 실효성 의문</p>
+              </div>
+
+              <h3 style="font-size: 2rem; margin-bottom: 1.5rem;">Article 6.4 초기 논란</h3>
+              <div style="font-size: 1.2rem; line-height: 1.6;">
+                <p style="margin-bottom: 1rem;">• 첫 승인 프로젝트 과대 산정 논란</p>
+                <p>• ICVCM 기각한 방법론으로 신뢰성 의문</p>
+              </div>
+            </div>
+
+            <!-- Right Column: Key Messages -->
+            <div class="korean-card" style="padding: 2rem;">
+              <h3 style="font-size: 2rem; margin-bottom: 1.5rem;">핵심 메시지</h3>
+              <div style="font-size: 1.3rem; line-height: 1.7; margin-bottom: 2rem;">
+                <p style="margin-bottom: 1rem;">• 무결성 라벨만으로 품질 보장 불가</p>
+                <p style="margin-bottom: 1rem;">• 승인된 크레딧도 분쟁 소지 상존</p>
+                <p>• 라벨 보유해도 리스크 존재</p>
+              </div>
+
+              <h3 style="font-size: 2rem; margin-bottom: 1.5rem;">대응 방안</h3>
+              <div style="font-size: 1.3rem; line-height: 1.7;">
+                <p style="margin-bottom: 1rem;">• 철저한 실사 필수</p>
+                <p style="margin-bottom: 1rem;">• 지속적 모니터링</p>
+                <p>• 다중 검증 체계 구축</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 20: 이중계상 방지 -->
+      <section>
+        <div class="wrap korean-font alignleft">
+          <div class="korean-section-header">
+            <h2>이중계상 방지</h2>
+            <div class="subtitle">########</div>
+          </div>
+
+          <div class="korean-grid one-col">
+            <div class="korean-card">
+              <h3>이중계상의 종류</h3>
+              <div class="korean-list">
+                <li><strong>이중발급 (Double Issuance):</strong> 동일한 감축량에 대해 여러 레지스트리에서 중복 크레딧 발급</li>
+                <li><strong>이중사용 (Double Use):</strong> 발급된 단일 크레딧을 동일 주체가 서로 다른 목적으로 중복 사용</li>
+                <li><strong>이중청구/계상 (Double Claiming/Counting):</strong> 동일한 감축량을 호스트국과 구매국이 각각의 NDC에 중복 계상</li>
+              </div>
+
+              <div class="korean-highlight">
+                <p style="font-size: 1.4rem; font-weight: 500; margin: 0;">파리협정 Article 6의 상응조정(Corresponding Adjustments) 메커니즘으로 이중계상 방지를 목적으로 하나, 현재 이를 실현하기 위해선 VCM발 크레딧 사용에 대한 정확한 정보가 필요함</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="korean-grid two-col">
+            <div class="korean-card">
+              <h3>국가단위의, 파리협정에서의 이중계상 방지를 위한 최소한의 요건: 정보공개</h3>
+              <div class="korean-list">
+                <li>파리협정 제6조 하에서 국가 간 크레딧 이전 시 투명성 확보</li>
+                <li>NDC 달성을 위한 국제 크레딧 사용 현황 공개</li>
+                <li>해당조정(Corresponding Adjustment) 적용 의무</li>
+                <li>정기적 보고 및 검토 체계 구축</li>
+                <li>국제 레지스트리를 통한 추적 시스템 운영</li>
+              </div>
+            </div>
+            <div class="korean-card">
+              <h3>국가별 이중계상에 대한 입장 차이</h3>
+              <div class="korean-list">
+                <li>[콘텐츠 추가 예정]</li>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Slide 21: 탄소시장 개요 v2 -->
+      <section>
+        <div class="wrap korean-font alignleft">
+          <div class="korean-section-header">
+            <h2>탄소시장 개요 v2</h2>
+            <div class="subtitle">Carbon Market Framework Matrix</div>
+          </div>
+
+          <!-- Matrix Diagram Recreation -->
+          <div style="display: flex; justify-content: center; align-items: center; height: 70vh; padding: 2rem;">
+            <div style="display: grid; grid-template-columns: 100px 450px 450px; grid-template-rows: 80px 250px 250px; gap: 0; font-family: Arial, sans-serif; border: 4px solid #000; background: #000;">
+              
+              <!-- Top Left Corner (Empty) -->
+              <div style="background: #e0e0e0; border-right: 2px solid #000; border-bottom: 2px solid #000;"></div>
+              
+              <!-- Top Headers -->
+              <div style="background: #000; color: white; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; font-weight: bold; border-right: 2px solid #000; border-bottom: 2px solid #000;">
+                Voluntary
+              </div>
+              <div style="background: #000; color: white; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; font-weight: bold; border-bottom: 2px solid #000;">
+                Compliance
+              </div>
+              
+              <!-- Left Side Headers -->
+              <div style="background: #000; color: white; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; font-weight: bold; writing-mode: vertical-rl; text-orientation: mixed; border-right: 2px solid #000; border-bottom: 2px solid #000;">
+                Domestic
+              </div>
+              <div style="background: #000; color: white; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; font-weight: bold; writing-mode: vertical-rl; text-orientation: mixed; border-bottom: 2px solid #000;">
+                International
+              </div>
+              
+              <!-- Matrix Content Cells -->
+              <!-- Domestic + Voluntary -->
+              <div style="background: #e0e0e0; border-right: 2px solid #000; display: flex; align-items: center; justify-content: center; padding: 2rem;">
+                <div style="border: 2px solid #666; padding: 2rem; background: white; text-align: center; font-size: 1.2rem; font-weight: 500; min-width: 200px;">
+                  Domestic<br/>Baseline-and-<br/>credit
+                </div>
+              </div>
+              
+              <!-- Domestic + Compliance -->
+              <div style="background: #e0e0e0; border-bottom: 2px solid #000; display: flex; flex-direction: column; justify-content: space-evenly; padding: 1.5rem; gap: 1rem;">
+                <div style="border: 2px solid #666; padding: 1rem; background: white; text-align: center; font-size: 1.1rem; font-weight: 500;">
+                  PACM (PA6.4)
+                </div>
+                <div style="border: 2px solid #666; padding: 1rem; background: white; text-align: center; font-size: 1.1rem; font-weight: 500;">
+                  Carbon Tax
+                </div>
+                <div style="border: 2px solid #666; padding: 1rem; background: white; text-align: center; font-size: 1.1rem; font-weight: 500;">
+                  Cap & Trade
+                </div>
+              </div>
+              
+              <!-- International + Voluntary -->
+              <div style="background: #e0e0e0; border-right: 2px solid #000; display: flex; align-items: center; justify-content: center; padding: 2rem;">
+                <div style="border: 2px solid #666; padding: 2rem; background: white; text-align: center; font-size: 1.2rem; font-weight: 500; min-width: 200px;">
+                  Net Zero<br/>Corporate<br/>Commitments
+                </div>
+              </div>
+              
+              <!-- International + Compliance -->
+              <div style="background: #e0e0e0; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 2rem; gap: 1.5rem;">
+                <div style="border: 2px solid #666; padding: 1.2rem; background: white; text-align: center; font-size: 1.1rem; font-weight: 500; width: 200px;">
+                  CORSIA(ICAO)
+                </div>
+                <div style="border: 2px solid #666; padding: 1.2rem; background: white; text-align: center; font-size: 1.1rem; font-weight: 500; width: 250px;">
+                  ITMO (PA6.2)
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Legend/Notes -->
+          <div style="text-align: center; margin-top: 2rem; color: var(--korean-dark-gray); font-size: 1rem;">
+            <div>Matrix showing carbon market mechanisms by jurisdiction (Domestic/International) and nature (Voluntary/Compliance)</div>
+          </div>
+        </div>
+      </section>
+
+
+
+    </article>
+  </main>
+
+  <!-- WebSlides JavaScript -->
+  <script src="https://webslides.tv/static/js/webslides.js"></script>
+
+
+  <!-- Embedded Professional Interactions -->
+  <script>
+    // Simple progress bar update
+    function updateProgress() {
+      const slides = document.querySelectorAll('section');
+      const currentSlide = document.querySelector('.current') || slides[0];
+      const currentIndex = Array.from(slides).indexOf(currentSlide);
+      const progress = ((currentIndex + 1) / slides.length) * 100;
+      const progressFill = document.getElementById('progress-fill');
+      if (progressFill) {
+        progressFill.style.width = progress + '%';
+      }
+    }
+
+    // Initialize WebSlides and add event listeners
+    document.addEventListener('DOMContentLoaded', function() {
+      window.ws = new WebSlides({
+        autoslide: false,
+        changeOnClick: true,
+        loop: false,
+        minWheelDelta: 40,
+        navigateOnScroll: false,
+        scrollWait: 450,
+        slideOffset: 50,
+        showIndex: false
+      });
+
+      // Update progress on slide change
+      window.ws.el.addEventListener('ws:slide-change', updateProgress);
+
+      // Update pagination on slide change
+      function updatePagination() {
+        const currentSlideElement = document.querySelector('.current');
+        if (currentSlideElement) {
+          const slides = document.querySelectorAll('#webslides > section');
+          const currentIndex = Array.from(slides).indexOf(currentSlideElement) + 1;
+          const totalSlides = slides.length;
+
+          document.getElementById('current-slide').textContent = currentIndex;
+          document.getElementById('total-slides').textContent = totalSlides;
+        }
+      }
+
+      window.ws.el.addEventListener('ws:slide-change', updatePagination);
+
+      // Initialize pagination on page load
+      updatePagination();
+
+      // Enhanced slide navigation for Korean presentation
+      window.ws.el.addEventListener('ws:slide-change', function() {
+        setTimeout(() => {
+          const currentSlide = document.querySelector('.current .wrap');
+          if (currentSlide) {
+            currentSlide.scrollTop = 0;
+          }
+        }, 10);
+      });
+
+      // Korean-specific smooth scroll enhancements
+      const elements = document.querySelectorAll('.fade-in-up');
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      });
+
+      elements.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'all 0.6s ease';
+        observer.observe(el);
+      });
+
+      console.log('McKinsey-style presentation loaded successfully');
+    });
+
+
+    // Animation Controller for Standards Visualization
+    class StandardsAnimationController {
+      constructor() {
+        this.initializeAnimations();
+        this.initializeBubbleInteractions();
+        this.initializeCounters();
+      }
+
+      initializeAnimations() {
+        // GSAP Timeline for entrance animations
+        const tl = gsap.timeline();
+
+        // Animate metrics counters
+        tl.from('.korean-metric', {
+          duration: 0.8,
+          y: 30,
+          opacity: 0,
+          stagger: 0.2,
+          ease: "power2.out"
+        });
+
+        // Animate bubble visualization
+        tl.from('.category-bubble', {
+          duration: 1,
+          scale: 0,
+          opacity: 0,
+          stagger: 0.15,
+          ease: "back.out(1.7)"
+        }, "-=0.4");
+
+        // Animate legend
+        tl.from('.legend-item', {
+          duration: 0.6,
+          x: -20,
+          opacity: 0,
+          stagger: 0.1,
+          ease: "power2.out"
+        }, "-=0.5");
+      }
+
+      initializeBubbleInteractions() {
+        const bubbles = document.querySelectorAll('.category-bubble');
+
+        bubbles.forEach(bubble => {
+          const originalScale = 1;
+
+          bubble.addEventListener('mouseenter', () => {
+            gsap.to(bubble, {
+              duration: 0.3,
+              scale: 1.15,
+              ease: "power2.out"
+            });
+
+            // Show tooltip with examples
+            this.showTooltip(bubble);
+          });
+
+          bubble.addEventListener('mouseleave', () => {
+            gsap.to(bubble, {
+              duration: 0.3,
+              scale: originalScale,
+              ease: "power2.out"
+            });
+
+            this.hideTooltip();
+          });
+
+          bubble.addEventListener('click', () => {
+            // Pulse animation on click
+            gsap.to(bubble, {
+              duration: 0.1,
+              scale: 0.95,
+              ease: "power2.inOut",
+              yoyo: true,
+              repeat: 1
+            });
+          });
+        });
+      }
+
+      showTooltip(bubble) {
+        const category = bubble.getAttribute('data-category');
+        const count = bubble.getAttribute('data-count');
+        const examples = bubble.getAttribute('data-examples');
+
+        // Remove existing tooltip
+        this.hideTooltip();
+
+        // Create tooltip
+        const tooltip = document.createElement('div');
+        tooltip.className = 'bubble-tooltip';
+        tooltip.innerHTML = `
+          <h4>${category}</h4>
+          <p><strong>${count}개 표준</strong></p>
+          <p>예시: ${examples}</p>
+        `;
+
+        tooltip.style.cssText = `
+          position: absolute;
+          background: var(--korean-navy);
+          color: white;
+          padding: 1rem;
+          border-radius: 8px;
+          font-size: 0.85rem;
+          box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+          z-index: 1000;
+          max-width: 200px;
+          pointer-events: none;
+          opacity: 0;
+          transform: translateY(10px);
+          transition: all 0.3s ease;
+        `;
+
+        document.body.appendChild(tooltip);
+
+        // Position tooltip
+        const rect = bubble.getBoundingClientRect();
+        tooltip.style.left = (rect.left + rect.width / 2 - tooltip.offsetWidth / 2) + 'px';
+        tooltip.style.top = (rect.top - tooltip.offsetHeight - 10) + 'px';
+
+        // Animate in
+        requestAnimationFrame(() => {
+          tooltip.style.opacity = '1';
+          tooltip.style.transform = 'translateY(0)';
+        });
+      }
+
+      hideTooltip() {
+        const existing = document.querySelector('.bubble-tooltip');
+        if (existing) {
+          existing.remove();
+        }
+      }
+
+      initializeCounters() {
+        const counters = document.querySelectorAll('.animated-counter');
+
+        const animateCounter = (counter) => {
+          const target = parseInt(counter.getAttribute('data-target'));
+          const duration = 2000; // 2 seconds
+          const increment = target / (duration / 16); // 60 FPS
+          let current = 0;
+
+          const updateCounter = () => {
+            current += increment;
+            if (current < target) {
+              counter.textContent = Math.floor(current);
+              requestAnimationFrame(updateCounter);
+            } else {
+              counter.textContent = target;
+            }
+          };
+
+          updateCounter();
+        };
+
+        // Intersection Observer for counter animation
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const counter = entry.target.querySelector('.animated-counter');
+              if (counter && !counter.classList.contains('animated')) {
+                counter.classList.add('animated');
+                setTimeout(() => animateCounter(counter), 500);
+              }
+            }
+          });
+        }, { threshold: 0.5 });
+
+        counters.forEach(counter => {
+          observer.observe(counter.closest('.korean-metric'));
+        });
+      }
+    }
+
+    // Simple fallback animation system
+    function initSimpleAnimations() {
+      // Animate counters
+      const counters = document.querySelectorAll('.animated-counter');
+      counters.forEach(counter => {
+        const target = parseInt(counter.getAttribute('data-target'));
+        let current = 0;
+        const increment = target / 60; // 1 second animation
+
+        const timer = setInterval(() => {
+          current += increment;
+          if (current >= target) {
+            counter.textContent = target;
+            clearInterval(timer);
+          } else {
+            counter.textContent = Math.floor(current);
+          }
+        }, 16);
+      });
+
+      // Add hover effects to bubbles
+      const bubbles = document.querySelectorAll('.category-bubble');
+      bubbles.forEach(bubble => {
+        bubble.addEventListener('mouseenter', function() {
+          this.style.transform = 'scale(1.1)';
+          this.style.transition = 'transform 0.3s ease';
+        });
+
+        bubble.addEventListener('mouseleave', function() {
+          this.style.transform = 'scale(1)';
+        });
+      });
+    }
+
+    // Initialize animations when slide becomes active
+    window.ws.el.addEventListener('ws:slide-change', function(event) {
+      const currentSlide = event.detail.slide;
+      if (currentSlide.querySelector('.standards-visualization')) {
+        setTimeout(() => {
+          // Try advanced animations first, fallback to simple ones
+          try {
+            new StandardsAnimationController();
+          } catch(e) {
+            console.log('Using fallback animations');
+            initSimpleAnimations();
+          }
+        }, 300);
+      }
+    });
+
+    // Also initialize on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      setTimeout(() => {
+        const visualization = document.querySelector('.standards-visualization');
+        if (visualization) {
+          try {
+            new StandardsAnimationController();
+          } catch(e) {
+            console.log('Using fallback animations on load');
+            initSimpleAnimations();
+          }
+        }
+      }, 1000);
+    });
+
+  </script>
+
+
+  <!-- Enhanced Navigation JavaScript -->
+  <script>
+    class EnhancedNavigation {
+      constructor() {
+        this.currentSlide = 0;
+        this.totalSlides = 0;
+        this.slides = [];
+        this.slideNames = [
+          "목차",
+          "탄소시장 개요",
+          "2025년 글로벌 기업 상쇄 규모순위",
+          "CDP 질의서",
+          "CDP 질문 변경으로 본 마켓 트렌드 1: 용어의 규격화",
+          "Cancellation 예시",
+          "CDP 질문 변경으로 본 마켓 트렌드 2: 국가단위의 Baseline 설정 방법론 대두",
+          "Baseline & Credit의 구분",
+          "다양한 탄소크레딧 공급 통로",
+          "탄소 스탠다드의 다변화, 다각화",
+          "탄소 스탠다드 생태계 시각화 (1/2)",
+          "탄소 스탠다드 생태계 시각화 (2/2)",
+          "SBTi내 탄소크레딧 인정 범위",
+          "리스크 사례",
+          "리스크의 다각화",
+          "리스크의 다각화 (Safeguard Documents)",
+          "시장참여자 확대",
+          "이해관계자 상세 맵",
+          "리스크 최소화를 위한 국제 기준 채택",
+          "그럼에도 각 Framework별 리스크 존재",
+          "이중계상 방지",
+          "탄소시장 개요 v2"
+        ];
+
+        this.ws = null;
+        this.init();
+      }
+
+      init() {
+        setTimeout(() => {
+          if (typeof WebSlides !== 'undefined') {
+            this.ws = new WebSlides();
+            this.setupNavigation();
+          } else {
+            this.init();
+          }
+        }, 500);
+      }
+
+      setupNavigation() {
+        this.slides = document.querySelectorAll('#webslides section');
+        this.totalSlides = this.slides.length;
+
+        const totalSlidesEl = document.getElementById('total-slides');
+        if (totalSlidesEl) totalSlidesEl.textContent = this.totalSlides;
+
+        this.createSlideIndicators();
+        this.bindEvents();
+        this.updateNavigation();
+
+        if (this.ws) {
+          document.addEventListener('ws:slide-change', (e) => {
+            this.currentSlide = e.detail.slides;
+            this.updateNavigation();
+          });
+        }
+      }
+
+      createSlideIndicators() {
+        const indicators = document.getElementById('slide-indicators');
+        if (!indicators) return;
+
+        indicators.innerHTML = '';
+
+        for (let i = 0; i < this.totalSlides; i++) {
+          const indicator = document.createElement('div');
+          indicator.className = 'slide-indicator';
+          indicator.addEventListener('click', () => this.goToSlide(i));
+          indicator.title = `슬라이드 ${i + 1}: ${this.slideNames[i] || ''}`;
+          indicators.appendChild(indicator);
+        }
+      }
+
+      bindEvents() {
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const firstBtn = document.getElementById('first-btn');
+        const lastBtn = document.getElementById('last-btn');
+        const navToggle = document.getElementById('nav-toggle');
+
+        if (prevBtn) prevBtn.addEventListener('click', () => this.previousSlide());
+        if (nextBtn) nextBtn.addEventListener('click', () => this.nextSlide());
+        if (firstBtn) firstBtn.addEventListener('click', () => this.goToSlide(0));
+        if (lastBtn) lastBtn.addEventListener('click', () => this.goToSlide(this.totalSlides - 1));
+        if (navToggle) navToggle.addEventListener('click', () => this.toggleNavPanel());
+
+        document.addEventListener('keydown', (e) => this.handleKeyboard(e));
+        this.setupTouchGestures();
+      }
+
+      handleKeyboard(e) {
+        switch (e.key) {
+          case 'ArrowLeft':
+            e.preventDefault();
+            this.previousSlide();
+            break;
+          case 'ArrowRight':
+          case ' ':
+            e.preventDefault();
+            this.nextSlide();
+            break;
+          case 'Home':
+            e.preventDefault();
+            this.goToSlide(0);
+            break;
+          case 'End':
+            e.preventDefault();
+            this.goToSlide(this.totalSlides - 1);
+            break;
+          case 'f':
+          case 'F':
+            e.preventDefault();
+            this.toggleFullscreen();
+            break;
+          case 'Escape':
+            if (document.fullscreenElement) {
+              document.exitFullscreen();
+            }
+            break;
+        }
+      }
+
+      setupTouchGestures() {
+        let startX = 0;
+        let startY = 0;
+
+        document.addEventListener('touchstart', (e) => {
+          startX = e.touches[0].clientX;
+          startY = e.touches[0].clientY;
+        });
+
+        document.addEventListener('touchend', (e) => {
+          if (!startX || !startY) return;
+
+          const endX = e.changedTouches[0].clientX;
+          const endY = e.changedTouches[0].clientY;
+
+          const deltaX = startX - endX;
+          const deltaY = startY - endY;
+
+          if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 50) {
+            if (deltaX > 0) {
+              this.nextSlide();
+            } else {
+              this.previousSlide();
+            }
+          }
+
+          startX = 0;
+          startY = 0;
+        });
+      }
+
+      updateNavigation() {
+        const currentSlideEl = document.getElementById('current-slide');
+        if (currentSlideEl) currentSlideEl.textContent = this.currentSlide + 1;
+
+        const progressFill = document.getElementById('slide-progress-fill');
+        if (progressFill) {
+          const progress = ((this.currentSlide + 1) / this.totalSlides) * 100;
+          progressFill.style.width = progress + '%';
+        }
+
+        const indicators = document.querySelectorAll('.slide-indicator');
+        indicators.forEach((indicator, index) => {
+          indicator.classList.toggle('active', index === this.currentSlide);
+        });
+
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+
+        if (prevBtn) prevBtn.disabled = this.currentSlide === 0;
+        if (nextBtn) nextBtn.disabled = this.currentSlide === this.totalSlides - 1;
+
+        const breadcrumbText = document.getElementById('breadcrumb-text');
+        if (breadcrumbText) {
+          const slideName = this.slideNames[this.currentSlide] || `슬라이드 ${this.currentSlide + 1}`;
+          breadcrumbText.textContent = slideName;
+        }
+      }
+
+      toggleNavPanel() {
+        const panel = document.getElementById('nav-panel');
+        if (panel) {
+          panel.classList.toggle('collapsed');
+        }
+      }
+
+      toggleFullscreen() {
+        if (!document.fullscreenElement) {
+          document.documentElement.requestFullscreen();
+        } else {
+          document.exitFullscreen();
+        }
+      }
+
+      previousSlide() {
+        if (this.ws && this.currentSlide > 0) {
+          this.ws.goToPrev();
+        }
+      }
+
+      nextSlide() {
+        if (this.ws && this.currentSlide < this.totalSlides - 1) {
+          this.ws.goToNext();
+        }
+      }
+
+      goToSlide(index) {
+        if (this.ws && index >= 0 && index < this.totalSlides) {
+          this.ws.goToSlide(index + 1);
+        }
+      }
+    }
+
+    // Initialize enhanced navigation
+    document.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => new EnhancedNavigation(), 1000);
+    });
+  </script>
+
+</body>
+</html>
+                <svg viewBox="0 0 1200 600" style="width: 100%; height: auto; background: white; border: 1px solid #e1e5e9;" role="img" aria-labelledby="ecosystem-title" aria-describedby="ecosystem-desc">
+                  <title id="ecosystem-title">탄소시장 생태계 구조도</title>
+                  <desc id="ecosystem-desc">탄소시장의 수요(Demand), 공급(Supply), 방법론(Methodology)을 연결하는 생태계 다이어그램</desc>
+
+                  <!-- Background -->
+                  <rect width="1200" height="600" fill="white"/>
+
+                  <!-- Section Headers -->
+                  <text x="150" y="40" font-size="24" font-weight="bold" text-anchor="middle" fill="#666">Demand</text>
+                  <text x="600" y="40" font-size="24" font-weight="bold" text-anchor="middle" fill="#666">Supply</text>
+                  <text x="1000" y="40" font-size="24" font-weight="bold" text-anchor="middle" fill="#666">Methodology</text>
+
+                  <!-- Demand Section (Left) -->
+                  <g id="demand-section">
+                    <!-- Domestic/Regional Box (Red dotted border) -->
+                    <rect x="30" y="60" width="240" height="200" fill="none" stroke="#e74c3c" stroke-width="2" stroke-dasharray="8,4" rx="4"/>
+                    <text x="40" y="85" font-size="14" font-weight="bold" fill="#2C3E50">Domestic / Regional</text>
+
+                    <!-- Demand boxes with cleaner layout -->
+                    <rect x="50" y="100" width="90" height="35" fill="#ecf0f1" stroke="#2C3E50" stroke-width="1" rx="2"/>
+                    <text x="95" y="122" font-size="11" text-anchor="middle" fill="#2C3E50">NDC Directly</text>
+
+                    <rect x="50" y="145" width="90" height="35" fill="#ecf0f1" stroke="#2C3E50" stroke-width="1" rx="2"/>
+                    <text x="95" y="167" font-size="11" text-anchor="middle" fill="#2C3E50">Carbon Tax</text>
+
+                    <rect x="150" y="145" width="90" height="35" fill="#ecf0f1" stroke="#2C3E50" stroke-width="1" rx="2"/>
+                    <text x="195" y="167" font-size="11" text-anchor="middle" fill="#2C3E50">Cap &amp; Trade</text>
+
+                    <!-- International Box (Red dotted border) -->
+                    <rect x="30" y="280" width="240" height="170" fill="none" stroke="#e74c3c" stroke-width="2" stroke-dasharray="8,4" rx="4"/>
+                    <text x="40" y="305" font-size="14" font-weight="bold" fill="#2C3E50">International</text>
+
+                    <!-- International boxes -->
+                    <rect x="50" y="320" width="90" height="45" fill="#ecf0f1" stroke="#2C3E50" stroke-width="1" rx="2"/>
+                    <text x="95" y="338" font-size="10" text-anchor="middle" fill="#2C3E50">Net Zero</text>
+                    <text x="95" y="350" font-size="10" text-anchor="middle" fill="#2C3E50">Corporate</text>
+                    <text x="95" y="362" font-size="10" text-anchor="middle" fill="#2C3E50">Commitments</text>
+
+                    <rect x="150" y="320" width="90" height="45" fill="#ecf0f1" stroke="#2C3E50" stroke-width="1" rx="2"/>
+                    <text x="195" y="338" font-size="10" text-anchor="middle" fill="#2C3E50">Individual-level</text>
+                    <text x="195" y="355" font-size="10" text-anchor="middle" fill="#2C3E50">Offsetting</text>
+
+                    <rect x="100" y="375" width="90" height="35" fill="#ecf0f1" stroke="#2C3E50" stroke-width="1" rx="2"/>
+                    <text x="145" y="397" font-size="11" text-anchor="middle" fill="#2C3E50">CORSIA(ICAO)</text>
+                  </g>
+
+                  <!-- Central Processing (Adjusted boxes) -->
+                  <g id="central-processing">
+                    <!-- Corresponding Adjusted -->
+                    <rect x="330" y="150" width="120" height="50" fill="#74b9ff" stroke="#2C3E50" stroke-width="1" rx="4"/>
+                    <text x="390" y="170" font-size="12" text-anchor="middle" fill="white">Corresponding</text>
+                    <text x="390" y="185" font-size="12" text-anchor="middle" fill="white">adjusted</text>
+
+                    <!-- Non-corresponding Adjusted -->
+                    <rect x="330" y="330" width="120" height="50" fill="#74b9ff" stroke="#2C3E50" stroke-width="1" rx="4"/>
+                    <text x="390" y="350" font-size="12" text-anchor="middle" fill="white">Non-</text>
+                    <text x="390" y="365" font-size="12" text-anchor="middle" fill="white">corresponding</text>
+                    <text x="390" y="380" font-size="12" text-anchor="middle" fill="white">adjusted</text>
+                  </g>
+
+                  <!-- Supply Section (Center) -->
+                  <g id="supply-section">
+                    <!-- Supply boxes stacked vertically -->
+                    <rect x="500" y="70" width="200" height="35" fill="#ecf0f1" stroke="#2C3E50" stroke-width="1" rx="2"/>
+                    <text x="600" y="92" font-size="14" text-anchor="middle" fill="#2C3E50">CDM</text>
+
+                    <rect x="500" y="115" width="200" height="50" fill="#ecf0f1" stroke="#2C3E50" stroke-width="1" rx="2"/>
+                    <text x="600" y="135" font-size="12" text-anchor="middle" fill="#2C3E50">Independent</text>
+                    <text x="600" y="150" font-size="12" text-anchor="middle" fill="#2C3E50">International Baseline-</text>
+                    <text x="600" y="162" font-size="12" text-anchor="middle" fill="#2C3E50">and-credit</text>
+
+                    <rect x="500" y="175" width="200" height="50" fill="#ecf0f1" stroke="#2C3E50" stroke-width="1" rx="2"/>
+                    <text x="600" y="195" font-size="12" text-anchor="middle" fill="#2C3E50">(non compliance)</text>
+                    <text x="600" y="210" font-size="12" text-anchor="middle" fill="#2C3E50">Domestic</text>
+                    <text x="600" y="222" font-size="12" text-anchor="middle" fill="#2C3E50">Baseline-and-credit</text>
+
+                    <rect x="500" y="235" width="200" height="50" fill="#ecf0f1" stroke="#2C3E50" stroke-width="1" rx="2"/>
+                    <text x="600" y="255" font-size="12" text-anchor="middle" fill="#2C3E50">(compliance)</text>
+                    <text x="600" y="270" font-size="12" text-anchor="middle" fill="#2C3E50">Domestic</text>
+                    <text x="600" y="282" font-size="12" text-anchor="middle" fill="#2C3E50">Baseline-and-credit</text>
+
+                    <rect x="500" y="295" width="200" height="35" fill="#ecf0f1" stroke="#2C3E50" stroke-width="1" rx="2"/>
+                    <text x="600" y="317" font-size="14" text-anchor="middle" fill="#2C3E50">ITMO (PA6.2)</text>
+
+                    <rect x="500" y="340" width="200" height="35" fill="#ecf0f1" stroke="#2C3E50" stroke-width="1" rx="2"/>
+                    <text x="600" y="362" font-size="14" text-anchor="middle" fill="#2C3E50">PACM (PA6.4)</text>
+
+                    <rect x="500" y="385" width="200" height="35" fill="#ecf0f1" stroke="#2C3E50" stroke-width="1" rx="2"/>
+                    <text x="600" y="407" font-size="14" text-anchor="middle" fill="#2C3E50">Article 5</text>
+                  </g>
+
+                  <!-- Methodology Section (Right) -->
+                  <g id="methodology-section">
+                    <!-- Reduction box -->
+                    <rect x="800" y="70" width="200" height="80" fill="#ecf0f1" stroke="#2C3E50" stroke-width="1" rx="2"/>
+                    <text x="900" y="120" font-size="16" text-anchor="middle" fill="#2C3E50">Reduction</text>
+
+                    <!-- Nature based and Technology based side by side -->
+                    <rect x="800" y="170" width="95" height="60" fill="#ecf0f1" stroke="#2C3E50" stroke-width="1" rx="2"/>
+                    <text x="847" y="195" font-size="12" text-anchor="middle" fill="#2C3E50">Nature</text>
+                    <text x="847" y="210" font-size="12" text-anchor="middle" fill="#2C3E50">based</text>
+
+                    <rect x="905" y="170" width="95" height="60" fill="#ecf0f1" stroke="#2C3E50" stroke-width="1" rx="2"/>
+                    <text x="952" y="195" font-size="12" text-anchor="middle" fill="#2C3E50">Technology</text>
+                    <text x="952" y="210" font-size="12" text-anchor="middle" fill="#2C3E50">based</text>
+
+                    <!-- Removal -->
+                    <text x="900" y="270" font-size="16" text-anchor="middle" fill="#2C3E50">Removal</text>
+
+                    <!-- REDD+ -->
+                    <rect x="800" y="290" width="200" height="40" fill="#ecf0f1" stroke="#2C3E50" stroke-width="1" rx="2"/>
+                    <text x="900" y="315" font-size="16" text-anchor="middle" fill="#2C3E50">REDD+</text>
+                  </g>
+
+                  <!-- Clean Connections (No Arrows) -->
+                  <g id="connections" stroke="#2C3E50" stroke-width="1" fill="none" opacity="0.6">
+                    <!-- Domestic to Corresponding Adjusted -->
+                    <path d="M 270 120 L 330 165" stroke="#2C3E50" stroke-width="1"/>
+                    <path d="M 270 162 L 330 175" stroke="#2C3E50" stroke-width="1"/>
+                    <path d="M 270 162 L 330 185" stroke="#2C3E50" stroke-width="1"/>
+
+                    <!-- International to Non-corresponding Adjusted -->
+                    <path d="M 270 342 L 330 345" stroke="#2C3E50" stroke-width="1"/>
+                    <path d="M 270 342 L 330 355" stroke="#2C3E50" stroke-width="1"/>
+                    <path d="M 270 392 L 330 365" stroke="#2C3E50" stroke-width="1"/>
+
+                    <!-- Corresponding Adjusted to Supply -->
+                    <path d="M 450 165 L 500 95" stroke="#2C3E50" stroke-width="1"/>
+                    <path d="M 450 175 L 500 145" stroke="#2C3E50" stroke-width="1"/>
+                    <path d="M 450 185 L 500 260" stroke="#2C3E50" stroke-width="1"/>
+                    <path d="M 450 185 L 500 312" stroke="#2C3E50" stroke-width="1"/>
+                    <path d="M 450 185 L 500 357" stroke="#2C3E50" stroke-width="1"/>
+
+                    <!-- Non-corresponding Adjusted to Supply -->
+                    <path d="M 450 345 L 500 95" stroke="#2C3E50" stroke-width="1"/>
+                    <path d="M 450 355 L 500 145" stroke="#2C3E50" stroke-width="1"/>
+                    <path d="M 450 365 L 500 205" stroke="#2C3E50" stroke-width="1"/>
+                    <path d="M 450 365 L 500 402" stroke="#2C3E50" stroke-width="1"/>
+
+                    <!-- Supply to Methodology (clean curved line) -->
+                    <path d="M 700 200 Q 740 180 800 200" stroke="#2C3E50" stroke-width="1" stroke-dasharray="3,3"/>
+                  </g>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+
+    </article>
+  </main>
+
+  <!-- WebSlides JavaScript -->
+  <script src="https://webslides.tv/static/js/webslides.js"></script>
+
+
+  <!-- Embedded Professional Interactions -->
+  <script>
+    // Simple progress bar update
+    function updateProgress() {
+      const slides = document.querySelectorAll('section');
+      const currentSlide = document.querySelector('.current') || slides[0];
+      const currentIndex = Array.from(slides).indexOf(currentSlide);
+      const progress = ((currentIndex + 1) / slides.length) * 100;
+      const progressFill = document.getElementById('progress-fill');
+      if (progressFill) {
+        progressFill.style.width = progress + '%';
+      }
+    }
+
+    // Initialize WebSlides and add event listeners
+    document.addEventListener('DOMContentLoaded', function() {
+      window.ws = new WebSlides();
+
+      // Fix scroll position on slide change
+      window.ws.el.addEventListener('ws:slide-change', function() {
+        // Reset scroll position to top for each slide
+        setTimeout(() => {
+          const currentSlide = document.querySelector('.current .wrap');
+          if (currentSlide) {
+            currentSlide.scrollTop = 0;
+          }
+          // Also ensure the section itself is properly positioned
+          const currentSection = document.querySelector('.current');
+          if (currentSection) {
+            currentSection.scrollIntoView({ behavior: 'instant', block: 'start' });
+          }
+        }, 10);
+      });
+
+      // Add progress tracking
+      setInterval(updateProgress, 100);
+
+      // Add keyboard navigation
+      document.addEventListener('keydown', function(e) {
+        switch(e.key) {
+          case 'ArrowRight':
+          case ' ':
+            e.preventDefault();
+            window.ws.goNext();
+            break;
+          case 'ArrowLeft':
+            e.preventDefault();
+            window.ws.goPrev();
+            break;
+          case 'Home':
+            e.preventDefault();
+            window.ws.goToSlide(1);
+            break;
+          case 'End':
+            e.preventDefault();
+            window.ws.goToSlide(window.ws.slides.length);
+            break;
+        }
+      });
+
+      // Add metric animation
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -100px 0px'
+      };
+
+      const observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }
+        });
+      }, observerOptions);
+
+      // Observe all metric cards
+      document.querySelectorAll('.mckinsey-metric, .mckinsey-card').forEach(function(el) {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(20px)';
+        el.style.transition = 'all 0.6s ease';
+        observer.observe(el);
+      });
+
+      console.log('McKinsey-style presentation loaded successfully');
+    });
+
+
+    // Animation Controller for Standards Visualization
+    class StandardsAnimationController {
+      constructor() {
+        this.initializeAnimations();
+        this.initializeBubbleInteractions();
+        this.initializeCounters();
+      }
+
+      initializeAnimations() {
+        // GSAP Timeline for entrance animations
+        const tl = gsap.timeline();
+
+        // Animate metrics counters
+        tl.from('.korean-metric', {
+          duration: 0.8,
+          y: 30,
+          opacity: 0,
+          stagger: 0.2,
+          ease: "power2.out"
+        });
+
+        // Animate bubble visualization
+        tl.from('.category-bubble', {
+          duration: 1,
+          scale: 0,
+          opacity: 0,
+          stagger: 0.15,
+          ease: "back.out(1.7)"
+        }, "-=0.4");
+
+        // Animate legend
+        tl.from('.legend-item', {
+          duration: 0.6,
+          x: -20,
+          opacity: 0,
+          stagger: 0.1,
+          ease: "power2.out"
+        }, "-=0.5");
+      }
+
+      initializeBubbleInteractions() {
+        const bubbles = document.querySelectorAll('.category-bubble');
+
+        bubbles.forEach(bubble => {
+          const originalScale = 1;
+
+          bubble.addEventListener('mouseenter', () => {
+            gsap.to(bubble, {
+              duration: 0.3,
+              scale: 1.15,
+              ease: "power2.out"
+            });
+
+            // Show tooltip with examples
+            this.showTooltip(bubble);
+          });
+
+          bubble.addEventListener('mouseleave', () => {
+            gsap.to(bubble, {
+              duration: 0.3,
+              scale: originalScale,
+              ease: "power2.out"
+            });
+
+            this.hideTooltip();
+          });
+
+          bubble.addEventListener('click', () => {
+            // Pulse animation on click
+            gsap.to(bubble, {
+              duration: 0.1,
+              scale: 0.95,
+              ease: "power2.inOut",
+              yoyo: true,
+              repeat: 1
+            });
+          });
+        });
+      }
+
+      showTooltip(bubble) {
+        const category = bubble.getAttribute('data-category');
+        const count = bubble.getAttribute('data-count');
+        const examples = bubble.getAttribute('data-examples');
+
+        // Remove existing tooltip
+        this.hideTooltip();
+
+        // Create tooltip
+        const tooltip = document.createElement('div');
+        tooltip.className = 'bubble-tooltip';
+        tooltip.innerHTML = `
+          <h4>${category}</h4>
+          <p><strong>${count}개 표준</strong></p>
+          <p>예시: ${examples}</p>
+        `;
+
+        tooltip.style.cssText = `
+          position: absolute;
+          background: var(--korean-navy);
+          color: white;
+          padding: 1rem;
+          border-radius: 8px;
+          font-size: 0.85rem;
+          box-shadow: 0 8px 25px rgba(0,0,0,0.2);
+          z-index: 1000;
+          max-width: 200px;
+          pointer-events: none;
+          opacity: 0;
+          transform: translateY(10px);
+          transition: all 0.3s ease;
+        `;
+
+        document.body.appendChild(tooltip);
+
+        // Position tooltip
+        const rect = bubble.getBoundingClientRect();
+        tooltip.style.left = (rect.left + rect.width / 2 - tooltip.offsetWidth / 2) + 'px';
+        tooltip.style.top = (rect.top - tooltip.offsetHeight - 10) + 'px';
+
+        // Animate in
+        requestAnimationFrame(() => {
+          tooltip.style.opacity = '1';
+          tooltip.style.transform = 'translateY(0)';
+        });
+      }
+
+      hideTooltip() {
+        const existing = document.querySelector('.bubble-tooltip');
+        if (existing) {
+          existing.remove();
+        }
+      }
+
+      initializeCounters() {
+        const counters = document.querySelectorAll('.animated-counter');
+
+        const animateCounter = (counter) => {
+          const target = parseInt(counter.getAttribute('data-target'));
+          const duration = 2000; // 2 seconds
+          const increment = target / (duration / 16); // 60 FPS
+          let current = 0;
+
+          const updateCounter = () => {
+            current += increment;
+            if (current < target) {
+              counter.textContent = Math.floor(current);
+              requestAnimationFrame(updateCounter);
+            } else {
+              counter.textContent = target;
+            }
+          };
+
+          updateCounter();
+        };
+
+        // Intersection Observer for counter animation
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const counter = entry.target.querySelector('.animated-counter');
+              if (counter && !counter.classList.contains('animated')) {
+                counter.classList.add('animated');
+                setTimeout(() => animateCounter(counter), 500);
+              }
+            }
+          });
+        }, { threshold: 0.5 });
+
+        counters.forEach(counter => {
+          observer.observe(counter.closest('.korean-metric'));
+        });
+      }
+    }
+
+    // Simple fallback animation system
+    function initSimpleAnimations() {
+      // Animate counters
+      const counters = document.querySelectorAll('.animated-counter');
+      counters.forEach(counter => {
+        const target = parseInt(counter.getAttribute('data-target'));
+        let current = 0;
+        const increment = target / 60; // 1 second animation
+
+        const timer = setInterval(() => {
+          current += increment;
+          if (current >= target) {
+            counter.textContent = target;
+            clearInterval(timer);
+          } else {
+            counter.textContent = Math.floor(current);
+          }
+        }, 16);
+      });
+
+      // Add hover effects to bubbles
+      const bubbles = document.querySelectorAll('.category-bubble');
+      bubbles.forEach(bubble => {
+        bubble.addEventListener('mouseenter', function() {
+          this.style.transform = 'scale(1.1)';
+          this.style.transition = 'transform 0.3s ease';
+        });
+
+        bubble.addEventListener('mouseleave', function() {
+          this.style.transform = 'scale(1)';
+        });
+      });
+    }
+
+    // Initialize animations when slide becomes active
+    window.ws.el.addEventListener('ws:slide-change', function(event) {
+      const currentSlide = event.detail.slide;
+      if (currentSlide.querySelector('.standards-visualization')) {
+        setTimeout(() => {
+          // Try advanced animations first, fallback to simple ones
+          try {
+            new StandardsAnimationController();
+          } catch(e) {
+            console.log('Using fallback animations');
+            initSimpleAnimations();
+          }
+        }, 300);
+      }
+    });
+
+    // Also initialize on page load
+    document.addEventListener('DOMContentLoaded', function() {
+      setTimeout(() => {
+        const visualization = document.querySelector('.standards-visualization');
+        if (visualization) {
+          try {
+            new StandardsAnimationController();
+          } catch(e) {
+            console.log('Using fallback animations on load');
+            initSimpleAnimations();
+          }
+        }
+      }, 1000);
+    });
+
+  </script>
+
+
+  <!-- Enhanced Navigation JavaScript -->
+  <script>
+    class EnhancedNavigation {
+      constructor() {
+        this.currentSlide = 0;
+        this.totalSlides = 0;
+        this.slides = [];
+        this.slideNames = [
+          "목차",
+          "탄소시장 개요",
+          "2025년 글로벌 기업 상쇄 규모순위",
+          "CDP 질의서",
+          "CDP 질문 변경으로 본 마켓 트렌드 1: 용어의 규격화",
+          "Cancellation 예시",
+          "CDP 질문 변경으로 본 마켓 트렌드 2: 국가단위의 Baseline 설정 방법론 대두",
+          "Baseline & Credit의 구분",
+          "다양한 탄소크레딧 공급 통로",
+          "탄소 스탠다드의 다변화, 다각화",
+          "탄소 스탠다드 생태계 시각화 (1/2)",
+          "탄소 스탠다드 생태계 시각화 (2/2)",
+          "SBTi내 탄소크레딧 인정 범위",
+          "리스크 사례",
+          "리스크의 다각화",
+          "리스크의 다각화 (Safeguard Documents)",
+          "시장참여자 확대",
+          "이해관계자 상세 맵",
+          "리스크 최소화를 위한 국제 기준 채택",
+          "그럼에도 각 Framework별 리스크 존재",
+          "이중계상 방지",
+          "탄소시장 개요 v2"
+        ];
+
+        this.ws = null;
+        this.init();
+      }
+
+      init() {
+        setTimeout(() => {
+          if (typeof WebSlides !== 'undefined') {
+            this.ws = new WebSlides();
+            this.setupNavigation();
+          } else {
+            this.init();
+          }
+        }, 500);
+      }
+
+      setupNavigation() {
+        this.slides = document.querySelectorAll('#webslides section');
+        this.totalSlides = this.slides.length;
+
+        const totalSlidesEl = document.getElementById('total-slides');
+        if (totalSlidesEl) totalSlidesEl.textContent = this.totalSlides;
+
+        this.createSlideIndicators();
+        this.bindEvents();
+        this.updateNavigation();
+
+        if (this.ws) {
+          document.addEventListener('ws:slide-change', (e) => {
+            this.currentSlide = e.detail.slides;
+            this.updateNavigation();
+          });
+        }
+      }
+
+      createSlideIndicators() {
+        const indicators = document.getElementById('slide-indicators');
+        if (!indicators) return;
+
+        indicators.innerHTML = '';
+
+        for (let i = 0; i < this.totalSlides; i++) {
+          const indicator = document.createElement('div');
+          indicator.className = 'slide-indicator';
+          indicator.addEventListener('click', () => this.goToSlide(i));
+          indicator.title = `슬라이드 ${i + 1}: ${this.slideNames[i] || ''}`;
+          indicators.appendChild(indicator);
+        }
+      }
+
+      bindEvents() {
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+        const firstBtn = document.getElementById('first-btn');
+        const lastBtn = document.getElementById('last-btn');
+        const navToggle = document.getElementById('nav-toggle');
+
+        if (prevBtn) prevBtn.addEventListener('click', () => this.previousSlide());
+        if (nextBtn) nextBtn.addEventListener('click', () => this.nextSlide());
+        if (firstBtn) firstBtn.addEventListener('click', () => this.goToSlide(0));
+        if (lastBtn) lastBtn.addEventListener('click', () => this.goToSlide(this.totalSlides - 1));
+        if (navToggle) navToggle.addEventListener('click', () => this.toggleNavPanel());
+
+        document.addEventListener('keydown', (e) => this.handleKeyboard(e));
+        this.setupTouchGestures();
+      }
+
+      handleKeyboard(e) {
+        switch (e.key) {
+          case 'ArrowLeft':
+            e.preventDefault();
+            this.previousSlide();
+            break;
+          case 'ArrowRight':
+          case ' ':
+            e.preventDefault();
+            this.nextSlide();
+            break;
+          case 'Home':
+            e.preventDefault();
+            this.goToSlide(0);
+            break;
+          case 'End':
+            e.preventDefault();
+            this.goToSlide(this.totalSlides - 1);
+            break;
+          case 'f':
+          case 'F':
+            e.preventDefault();
+            this.toggleFullscreen();
+            break;
+          case 'Escape':
+            if (document.fullscreenElement) {
+              document.exitFullscreen();
+            }
+            break;
+        }
+      }
+
+      setupTouchGestures() {
+        let startX = 0;
+        let startY = 0;
+
+        document.addEventListener('touchstart', (e) => {
+          startX = e.touches[0].clientX;
+          startY = e.touches[0].clientY;
+        });
+
+        document.addEventListener('touchend', (e) => {
+          if (!startX || !startY) return;
+
+          const endX = e.changedTouches[0].clientX;
+          const endY = e.changedTouches[0].clientY;
+
+          const deltaX = startX - endX;
+          const deltaY = startY - endY;
+
+          if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 50) {
+            if (deltaX > 0) {
+              this.nextSlide();
+            } else {
+              this.previousSlide();
+            }
+          }
+
+          startX = 0;
+          startY = 0;
+        });
+      }
+
+      updateNavigation() {
+        const currentSlideEl = document.getElementById('current-slide');
+        if (currentSlideEl) currentSlideEl.textContent = this.currentSlide + 1;
+
+        const progressFill = document.getElementById('slide-progress-fill');
+        if (progressFill) {
+          const progress = ((this.currentSlide + 1) / this.totalSlides) * 100;
+          progressFill.style.width = progress + '%';
+        }
+
+        const indicators = document.querySelectorAll('.slide-indicator');
+        indicators.forEach((indicator, index) => {
+          indicator.classList.toggle('active', index === this.currentSlide);
+        });
+
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+
+        if (prevBtn) prevBtn.disabled = this.currentSlide === 0;
+        if (nextBtn) nextBtn.disabled = this.currentSlide === this.totalSlides - 1;
+
+        const breadcrumbText = document.getElementById('breadcrumb-text');
+        if (breadcrumbText) {
+          const slideName = this.slideNames[this.currentSlide] || `슬라이드 ${this.currentSlide + 1}`;
+          breadcrumbText.textContent = slideName;
+        }
+      }
+
+      toggleNavPanel() {
+        const panel = document.getElementById('nav-panel');
+        if (panel) {
+          panel.classList.toggle('collapsed');
+        }
+      }
+
+      toggleFullscreen() {
+        if (!document.fullscreenElement) {
+          document.documentElement.requestFullscreen();
+        } else {
+          document.exitFullscreen();
+        }
+      }
+
+      previousSlide() {
+        if (this.ws && this.currentSlide > 0) {
+          this.ws.goToPrev();
+        }
+      }
+
+      nextSlide() {
+        if (this.ws && this.currentSlide < this.totalSlides - 1) {
+          this.ws.goToNext();
+        }
+      }
+
+      goToSlide(index) {
+        if (this.ws && index >= 0 && index < this.totalSlides) {
+          this.ws.goToSlide(index + 1);
+        }
+      }
+    }
+
+    // Initialize enhanced navigation
+    document.addEventListener('DOMContentLoaded', () => {
+      setTimeout(() => new EnhancedNavigation(), 1000);
+    });
+  </script>
+
+</body>
+</html>
