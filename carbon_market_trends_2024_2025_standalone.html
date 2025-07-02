@@ -47,6 +47,13 @@
       font-weight: 400;
     }
 
+    /* Global list reset to prevent checkbox-like patterns */
+    ul, ol {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
     /* Korean Typography System */
     .korean-font {
       font-family: var(--korean-font-primary);
@@ -68,7 +75,7 @@
     .bg-primary {
       background: var(--korean-navy);
       color: var(--korean-white);
-      padding: 4rem 0;
+      padding: 0.5rem 0;
     }
 
     .bg-secondary {
@@ -130,7 +137,7 @@
     .korean-section-header {
       text-align: left;
       border-bottom: 3px solid var(--korean-black);
-      padding-bottom: 1.5rem;
+      padding-bottom: 0.75rem;
       margin-top: 0;
       margin-bottom: 3rem;
       position: relative;
@@ -161,7 +168,7 @@
     .mckinsey-section-header {
       text-align: left;
       border-bottom: 3px solid var(--korean-black);
-      padding-bottom: 1.5rem;
+      padding-bottom: 0.75rem;
       margin-top: 0;
       margin-bottom: 3rem;
       position: relative;
@@ -189,10 +196,10 @@
 
     /* WebSlides-compatible consistent positioning */
     section .wrap {
-      padding: 2rem 2% !important;
+      padding: 0.5rem 1% !important;
       max-width: 1400px;
       margin: 0 auto;
-      width: 96%;
+      width: 98%;
     }
 
     /* Fixed header positioning using WebSlides structure */
@@ -215,7 +222,7 @@
     /* Korean Metrics */
     .korean-metric, .mckinsey-metric {
       text-align: center;
-      padding: 2rem 1.5rem;
+      padding: 0.75rem 1rem;
       background: var(--korean-white);
       border: 1px solid var(--korean-border);
       border-radius: 4px;
@@ -291,7 +298,7 @@
       background: var(--korean-white);
       border: 1px solid var(--korean-border);
       border-radius: 4px;
-      padding: 2rem;
+      padding: 0.75rem;
       margin: 1rem 0;
       box-shadow: none;
       transition: all 0.2s ease;
@@ -345,18 +352,13 @@
       padding: 0.75rem 0;
       border-bottom: 1px solid var(--korean-border);
       position: relative;
-      padding-left: 1.5rem;
+      padding-left: 0.75rem;
       font-size: 1.6rem;
       line-height: 1.6;
     }
 
     .mckinsey-list li::before, .korean-list li::before {
-      content: '•';
-      position: absolute;
-      left: 0;
-      color: var(--korean-dark-gray);
-      font-weight: normal;
-      font-size: 1rem;
+      display: none; /* Remove bullet points to prevent checkbox-like appearance */
     }
 
     .mckinsey-list li:last-child, .korean-list li:last-child {
@@ -439,7 +441,7 @@
     .key-insight {
       background: var(--korean-light-gray);
       color: var(--korean-black);
-      padding: 2rem;
+      padding: 0.75rem;
       border-radius: 2px;
       margin: 2rem 0;
       position: relative;
@@ -461,7 +463,7 @@
     .highlight-box {
       background: var(--korean-light-gray);
       border-left: 2px solid var(--korean-accent);
-      padding: 1.5rem;
+      padding: 0.5rem;
       border-radius: 0 2px 2px 0;
       margin: 1.5rem 0;
       border-top: 1px solid var(--korean-border);
@@ -474,7 +476,7 @@
       background: var(--korean-light-gray);
       border: 1px solid var(--korean-border);
       border-radius: 2px;
-      padding: 2rem;
+      padding: 0.75rem;
       margin: 2rem 0;
     }
 
@@ -486,22 +488,23 @@
     }
 
     /* Korean Description Lists */
+    .description {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
     .description li {
       padding: 0.75rem 0;
       border-bottom: 1px solid var(--korean-border);
       position: relative;
-      padding-left: 1.5rem;
+      padding-left: 0.75rem;
       font-size: 0.95rem;
       line-height: 1.6;
     }
 
     .description li:before {
-      content: "•";
-      position: absolute;
-      left: 0;
-      color: var(--korean-dark-gray);
-      font-weight: normal;
-      font-size: 1rem;
+      display: none; /* Remove bullet points to prevent checkbox-like appearance */
     }
 
     .description li:last-child {
@@ -597,12 +600,12 @@
 
       .korean-card, .mckinsey-card {
         margin: 0.5rem 0;
-        padding: 1.5rem;
+        padding: 0.5rem;
       }
 
       .korean-metric, .mckinsey-metric {
         margin: 0.5rem;
-        padding: 1.5rem 1rem;
+        padding: 0.5rem 0.75rem;
       }
     }
 
@@ -844,7 +847,7 @@
 
     .wrap {
       width: 100%;
-      padding: 2rem 4rem;
+      padding: 0.5rem 1rem;
       box-sizing: border-box;
       height: 100vh;
       display: flex;
@@ -909,7 +912,7 @@
       }
 
       .wrap {
-        padding: 2rem 3rem;
+        padding: 0.5rem 1.5rem;
       }
 
       .korean-grid {
@@ -936,7 +939,7 @@
       }
 
       .wrap {
-        padding: 1.5rem 2.5rem;
+        padding: 0.5rem 1rem;
       }
 
       .korean-grid {
@@ -966,6 +969,7 @@
         <div class="wrap korean-font alignleft">
           <div class="korean-section-header">
             <h2>CDP 질문 변경으로 본 마켓 트렌드 1: 용어의 규격화</h2>
+            <div class="subtitle">########</div>
           </div>
 
           <div class="korean-grid one-col">
@@ -980,7 +984,7 @@
               </div>
 
               <h4 style="margin-top: 2rem;">cancellation의 예시</h4>
-              <div style="background: var(--korean-light-gray); padding: 1.5rem; border-radius: 4px; margin-top: 1rem;">
+              <div style="background: var(--korean-light-gray); padding: 0.75rem; border-radius: 4px; margin-top: 1rem;">
                 <p style="font-size: 1.4rem; font-weight: 500; margin: 0; text-align: center;">
                   <strong>CDM → VCS(Verra)</strong> || <strong>CDM → CTX(exchange)</strong> || <strong>ACS → VCS(Verra)</strong>
                 </p>
@@ -995,17 +999,13 @@
         <div class="wrap korean-font alignleft">
           <div class="korean-section-header">
             <h2>CDP 질문 변경으로 본 마켓 트렌드 2: 용어의 규격화</h2>
+            <div class="subtitle">########</div>
           </div>
 
           <div class="korean-grid one-col">
             <div class="korean-card">
               <h3>예) 프로젝트 기반 크레딧 vs Sectoral 크레딧</h3>
               <h4>cf) sectoral 크레딧은 기업용으로 사용 가능한가?</h4>
-              <div style="margin-top: 2rem; padding: 1.5rem; border: 1px solid var(--korean-border); border-radius: 4px;">
-                <p style="font-size: 1.2rem; color: var(--korean-dark-gray); margin: 0; line-height: 1.6;">
-                  프로젝트 기반 크레딧과 섹터별 크레딧 간의 차별화된 접근 방식과 기업 활용 가능성에 대한 명확한 규정이 필요합니다.
-                </p>
-              </div>
 
               <!-- Appendix Section -->
               <div style="margin-top: 2rem; padding: 1rem; background: var(--korean-light-gray); border-radius: 4px; border-left: 3px solid var(--korean-accent);">
@@ -1031,1600 +1031,6 @@
             <!-- CDP Dropdown List (70%) -->
             <div class="korean-card">
               <h3>CDP dropdown list</h3>
-              <div style="background: var(--korean-white); padding: 1.5rem; border-radius: 4px; border: 1px solid var(--korean-border);">
+              <div style="background: var(--korean-white); padding: 0.75rem; border-radius: 4px; border: 1px solid var(--korean-border);">
                 <!-- CDP Dropdown List - Actual Image -->
-                <img src="https://raw.githubusercontent.com/samseburn/carbon-market-cdp/main/cdp-dropdown-image.png" 
-                     alt="CDP Carbon Standards Dropdown List" 
-                     style="width: 100%; height: auto; border: 1px solid var(--korean-border); border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-                <p style="font-size: 1.2rem; font-weight: 600; color: var(--korean-navy); margin: 1rem 0 0 0; text-align: center;">
-                  실제로는 <strong>이보다 훨씬 많음</strong>
-                </p>
-              </div>
-            </div>
-
-            <!-- Metrics Column (30%) -->
-            <div style="display: flex; flex-direction: column; gap: 1rem;">
-              <div class="korean-metric fade-in-up">
-                <div class="korean-metric-value trend-up">
-                  <span class="animated-counter" data-target="135" data-suffix="+">135</span>+
-                </div>
-                <div class="korean-metric-label">총 탄소 표준 수</div>
-              </div>
-              <div class="korean-metric fade-in-up">
-                <div class="korean-metric-value trend-up">
-                  <span class="animated-counter" data-target="6" data-suffix="개">6</span>개
-                </div>
-                <div class="korean-metric-label">주요 카테고리</div>
-              </div>
-              <div class="korean-metric fade-in-up">
-                <div class="korean-metric-value trend-up">
-                  <span class="animated-counter" data-target="50" data-suffix="+">50</span>+
-                </div>
-                <div class="korean-metric-label">국가/지역</div>
-              </div>
-              <div class="korean-metric fade-in-up">
-                <div class="korean-metric-value trend-up">
-                  <span class="animated-counter" data-target="15" data-suffix="+">15</span>+
-                </div>
-                <div class="korean-metric-label">CORSIA 승인</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Slide 4B: 탄소 스탠다드 생태계 시각화 -->
-      <section>
-        <div class="wrap korean-font alignleft">
-          <div class="korean-section-header">
-            <h2>탄소 스탠다드 생태계 시각화</h2>
-            <div class="subtitle">6개 주요 카테고리별 분포 및 특성</div>
-          </div>
-
-          <!-- Interactive Standards Ecosystem Visualization -->
-          <div class="standards-visualization" style="position: relative; height: 400px; background: #ffffff; border: 1px solid #e1e5e9; border-radius: 4px; margin: 2rem 0;">
-            <!-- Fallback content that loads immediately -->
-            <div class="category-bubble bubble-independent"
-                 style="position: absolute; width: 120px; height: 120px; top: 50px; left: 50px; border-radius: 50%; background: linear-gradient(135deg, #2C3E50 0%, #34495e 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 0.9rem; font-weight: 600; text-align: center; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"
-                 data-category="독립 국제기관"
-                 data-count="45"
-                 data-examples="VCS, Gold Standard, CAR">
-              독립 국제기관<br><strong>45개</strong>
-            </div>
-
-            <div class="category-bubble bubble-government"
-                 style="position: absolute; width: 100px; height: 100px; top: 80px; right: 100px; border-radius: 50%; background: linear-gradient(135deg, #27AE60 0%, #2ecc71 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 0.9rem; font-weight: 600; text-align: center; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"
-                 data-category="정부 기반 표준"
-                 data-count="35"
-                 data-examples="CCER, K-Offset, California">
-              정부 기반<br><strong>35개</strong>
-            </div>
-
-            <div class="category-bubble bubble-sector"
-                 style="position: absolute; width: 90px; height: 90px; bottom: 100px; left: 150px; border-radius: 50%; background: linear-gradient(135deg, #4A90E2 0%, #5dade2 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 0.9rem; font-weight: 600; text-align: center; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"
-                 data-category="특화 섹터"
-                 data-count="25"
-                 data-examples="Isometric, NCX, Regenagri">
-              특화 섹터<br><strong>25개</strong>
-            </div>
-
-            <div class="category-bubble bubble-intergovernmental"
-                 style="position: absolute; width: 80px; height: 80px; top: 200px; right: 50px; border-radius: 50%; background: linear-gradient(135deg, #F39C12 0%, #f8c471 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 0.9rem; font-weight: 600; text-align: center; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"
-                 data-category="국제기구"
-                 data-count="15"
-                 data-examples="CDM, Article 6.4">
-              국제기구<br><strong>15개</strong>
-            </div>
-
-            <div class="category-bubble bubble-industry"
-                 style="position: absolute; width: 70px; height: 70px; bottom: 50px; right: 200px; border-radius: 50%; background: linear-gradient(135deg, #8e44ad 0%, #a569bd 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 0.9rem; font-weight: 600; text-align: center; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"
-                 data-category="산업협회"
-                 data-count="10"
-                 data-examples="KCCI, Industry Groups">
-              산업협회<br><strong>10개</strong>
-            </div>
-
-            <div class="category-bubble bubble-iplc"
-                 style="position: absolute; width: 60px; height: 60px; bottom: 150px; right: 300px; border-radius: 50%; background: linear-gradient(135deg, #d35400 0%, #e67e22 100%); display: flex; align-items: center; justify-content: center; color: white; font-size: 0.9rem; font-weight: 600; text-align: center; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.15);"
-                 data-category="IPLC"
-                 data-count="5"
-                 data-examples="Indigenous Projects">
-              IPLC<br><strong>5개</strong>
-            </div>
-
-            <!-- Connection lines -->
-            <svg style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1;">
-              <defs>
-                <linearGradient id="connectionGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                  <stop offset="0%" style="stop-color:#2C3E50;stop-opacity:0.2" />
-                  <stop offset="100%" style="stop-color:#2C3E50;stop-opacity:0" />
-                </linearGradient>
-              </defs>
-              <!-- Simple connecting lines -->
-              <line x1="170" y1="110" x2="250" y2="130" stroke="url(#connectionGradient)" stroke-width="1" opacity="0.3"/>
-              <line x1="210" y1="190" x2="280" y2="170" stroke="url(#connectionGradient)" stroke-width="1" opacity="0.3"/>
-              <line x1="320" y1="180" x2="380" y2="200" stroke="url(#connectionGradient)" stroke-width="1" opacity="0.3"/>
-            </svg>
-          </div>
-
-          <!-- Animated Category Legend -->
-          <div class="category-legend fade-in-up">
-            <div class="legend-item">
-              <div class="legend-color" style="background: linear-gradient(135deg, #2C3E50 0%, #34495e 100%);"></div>
-              독립 국제기관 (33%)
-            </div>
-            <div class="legend-item">
-              <div class="legend-color" style="background: linear-gradient(135deg, #27AE60 0%, #2ecc71 100%);"></div>
-              정부 기반 표준 (26%)
-            </div>
-            <div class="legend-item">
-              <div class="legend-color" style="background: linear-gradient(135deg, #4A90E2 0%, #5dade2 100%);"></div>
-              특화 섹터 (19%)
-            </div>
-            <div class="legend-item">
-              <div class="legend-color" style="background: linear-gradient(135deg, #F39C12 0%, #f8c471 100%);"></div>
-              국제기구 (11%)
-            </div>
-            <div class="legend-item">
-              <div class="legend-color" style="background: linear-gradient(135deg, #8e44ad 0%, #a569bd 100%);"></div>
-              산업협회 (7%)
-            </div>
-            <div class="legend-item">
-              <div class="legend-color" style="background: linear-gradient(135deg, #d35400 0%, #e67e22 100%);"></div>
-              IPLC (4%)
-            </div>
-          </div>
-
-          <!-- Main Categories -->
-          <div class="korean-grid three-col">
-            <div class="korean-card">
-              <h3>독립 국제기관 <span class="korean-status high-growth">주도적</span></h3>
-              <div class="korean-list">
-                <li><strong>VCS (Verra):</strong> 전 세계 가장 널리 사용</li>
-                <li><strong>Gold Standard:</strong> SDGs 중심, CORSIA 승인</li>
-                <li><strong>Climate Action Reserve:</strong> 신뢰성 높은 레지스트리</li>
-                <li><strong>ART/TREES:</strong> REDD+ 관할 구역 표준</li>
-                <li><strong>CCB Standards:</strong> 지역사회-생물다양성 혜택</li>
-              </div>
-            </div>
-
-            <div class="korean-card">
-              <h3>정부 기반 표준 <span class="korean-status high-growth">확산</span></h3>
-              <div class="korean-list">
-                <li><strong>국가 단위:</strong> 중국 CCER, 한국 K-Offset</li>
-                <li><strong>지역 단위:</strong> California, Quebec, BC</li>
-                <li><strong>국제기구:</strong> UNFCCC CDM, Article 6.4</li>
-                <li><strong>EU CRCF:</strong> 탄소 제거 인증 프레임워크</li>
-                <li><strong>Label Bas Carbone:</strong> 프랑스 공식 자발적 제도</li>
-              </div>
-            </div>
-
-            <div class="korean-card">
-              <h3>특화 섹터 표준 <span class="korean-status high-growth">신규</span></h3>
-              <div class="korean-list">
-                <li><strong>Isometric:</strong> 장기 탄소 제거 (CDR) 전문</li>
-                <li><strong>Puro.earth:</strong> 산업 탄소 제거</li>
-                <li><strong>City Forest Credits:</strong> 도시 산림 전문</li>
-                <li><strong>NCX:</strong> 산림 수확 연기 (1년 단위)</li>
-                <li><strong>Regenagri:</strong> 재생농업 및 토양 건강</li>
-              </div>
-            </div>
-          </div>
-
-          <!-- Enhanced Governance, Registry Requirements -->
-          <div class="korean-grid two-col">
-            <div class="korean-card fade-in-up">
-              <h3>거버넌스, 이해상충 문제</h3>
-              <div class="korean-list">
-                <li><strong>Verra case study:</strong> 이사회 구성의 독립성 검토</li>
-                <li><strong>표준 개발 주체:</strong> 비영리 vs 영리 vs 정부 간 역할 분담</li>
-                <li><strong>IPLC 참여:</strong> 원주민 및 지역사회 권익 보호</li>
-                <li><strong>투명성 강화:</strong> 의사결정 과정 및 이해관계자 공개</li>
-              </div>
-            </div>
-
-            <div class="korean-card fade-in-up">
-              <h3>레지스트리 요건 강화</h3>
-              <h4>IT & TI (Information Transparency & Technology Infrastructure)</h4>
-              <div class="korean-list">
-                <li><strong>블록체인 도입:</strong> BioCarbon (LACCHAIN) 등</li>
-                <li><strong>MRV 플랫폼:</strong> Isometric Certify 등 과학적 엄밀성</li>
-                <li><strong>데이터 품질:</strong> Climate Action Data Trust 통합</li>
-                <li><strong>실시간 추적:</strong> 이중 계상 방지 시스템</li>
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </section>
-
-      <!-- Slide 5: 리스크의 다각화 -->
-      <section>
-        <div class="wrap korean-font alignleft">
-          <div class="korean-section-header">
-            <h2>리스크의 다각화</h2>
-          </div>
-
-          <div class="korean-grid two-col">
-            <div class="korean-card">
-              <h3>기존의 경제성, 발급과정</h3>
-              <h4>(탄소시장 직접적인 이해관계자)</h4>
-              <div class="korean-list">
-                <li><strong>경제성 리스크:</strong> 프로젝트 수익성 및 비용 효율성</li>
-                <li><strong>발급과정 리스크:</strong> 크레딧 생성 및 검증 과정의 불확실성</li>
-                <li><strong>기술적 리스크:</strong> 프로젝트 기술의 성능 및 지속가능성</li>
-                <li><strong>시장 리스크:</strong> 가격 변동성 및 유동성 문제</li>
-                <li>주로 탄소시장 직접 참여자들의 이해관계에 초점</li>
-              </div>
-            </div>
-            <div class="korean-card">
-              <h3>현재 Social, Environmental Safeguards 까지</h3>
-              <h4>(이해관계자 범위 확대)</h4>
-              <div class="korean-list">
-                <li><strong>사회적 보호장치:</strong> 지역 공동체 권리 보호</li>
-                <li><strong>환경적 보호장치:</strong> 생물다양성 및 생태계 보전</li>
-                <li><strong>인권 고려:</strong> 원주민 및 지역주민 권익 보호</li>
-                <li><strong>투명성 강화:</strong> 이해관계자 참여 및 정보 공개</li>
-                <li>이해관계자 범위가 탄소시장을 넘어 광범위하게 확대</li>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Slide 6: 시장참여자 확대 -->
-      <section>
-        <div class="wrap korean-font alignleft">
-          <div class="korean-section-header">
-            <h2>시장참여자 확대</h2>
-          </div>
-
-          <div class="korean-grid one-col">
-            <div class="korean-card">
-              <h3>이해관계자 Map</h3>
-              
-              <!-- Version Selection Tabs (for demonstration) -->
-              <div style="display: flex; gap: 1rem; margin-bottom: 1.5rem; border-bottom: 2px solid var(--korean-border);">
-                <button onclick="showMapVersion('circular')" id="btn-circular" style="padding: 0.5rem 1rem; border: none; background: var(--korean-navy); color: white; font-weight: 600; cursor: pointer; border-radius: 4px 4px 0 0;">
-                  원형 생태계
-                </button>
-                <button onclick="showMapVersion('network')" id="btn-network" style="padding: 0.5rem 1rem; border: none; background: var(--korean-light-gray); color: var(--korean-black); font-weight: 600; cursor: pointer; border-radius: 4px 4px 0 0;">
-                  네트워크 다이어그램
-                </button>
-                <button onclick="showMapVersion('matrix')" id="btn-matrix" style="padding: 0.5rem 1rem; border: none; background: var(--korean-light-gray); color: var(--korean-black); font-weight: 600; cursor: pointer; border-radius: 4px 4px 0 0;">
-                  매트릭스 박스
-                </button>
-              </div>
-              
-              <!-- Version 1: Circular Ecosystem (Default) -->
-              <div id="map-circular" class="korean-chart-container">
-                <svg viewBox="0 0 1000 450" style="width: 100%; height: auto; max-height: 300px;">
-                  <!-- Background -->
-                  <rect width="1000" height="450" fill="#ffffff"/>
-                  
-                  <!-- Central Hub -->
-                  <circle cx="500" cy="225" r="45" fill="#2C3E50" stroke="#ffffff" stroke-width="2"/>
-                  <text x="500" y="220" font-size="12" font-weight="bold" fill="#ffffff" text-anchor="middle">탄소</text>
-                  <text x="500" y="235" font-size="12" font-weight="bold" fill="#ffffff" text-anchor="middle">크레딧</text>
-                  
-                  <!-- TRADITIONAL STAKEHOLDERS (Solid circles, darker colors) -->
-                  <!-- Project Developers -->
-                  <circle cx="300" cy="150" r="35" fill="#2C3E50" stroke="#ffffff" stroke-width="2"/>
-                  <text x="300" y="147" font-size="10" font-weight="600" fill="#ffffff" text-anchor="middle">프로젝트</text>
-                  <text x="300" y="158" font-size="10" font-weight="600" fill="#ffffff" text-anchor="middle">개발자</text>
-                  
-                  <!-- Credit Buyers -->
-                  <circle cx="700" cy="150" r="35" fill="#2C3E50" stroke="#ffffff" stroke-width="2"/>
-                  <text x="700" y="147" font-size="10" font-weight="600" fill="#ffffff" text-anchor="middle">크레딧</text>
-                  <text x="700" y="158" font-size="10" font-weight="600" fill="#ffffff" text-anchor="middle">구매자</text>
-                  
-                  <!-- Verification Agencies -->
-                  <circle cx="500" cy="100" r="30" fill="#2C3E50" stroke="#ffffff" stroke-width="2"/>
-                  <text x="500" y="97" font-size="9" font-weight="600" fill="#ffffff" text-anchor="middle">검증</text>
-                  <text x="500" y="108" font-size="9" font-weight="600" fill="#ffffff" text-anchor="middle">기관</text>
-                  
-                  <!-- Registry Operators -->
-                  <circle cx="850" cy="225" r="30" fill="#2C3E50" stroke="#ffffff" stroke-width="2"/>
-                  <text x="850" y="222" font-size="9" font-weight="600" fill="#ffffff" text-anchor="middle">레지스트리</text>
-                  <text x="850" y="233" font-size="9" font-weight="600" fill="#ffffff" text-anchor="middle">운영</text>
-                  
-                  <!-- Intermediaries -->
-                  <circle cx="700" cy="300" r="35" fill="#2C3E50" stroke="#ffffff" stroke-width="2"/>
-                  <text x="700" y="297" font-size="10" font-weight="600" fill="#ffffff" text-anchor="middle">중개업체</text>
-                  <text x="700" y="308" font-size="10" font-weight="600" fill="#ffffff" text-anchor="middle">거래소</text>
-                  
-                  <!-- Regulators -->
-                  <circle cx="500" cy="350" r="30" fill="#2C3E50" stroke="#ffffff" stroke-width="2"/>
-                  <text x="500" y="347" font-size="9" font-weight="600" fill="#ffffff" text-anchor="middle">규제</text>
-                  <text x="500" y="358" font-size="9" font-weight="600" fill="#ffffff" text-anchor="middle">기관</text>
-                  
-                  <!-- Financial Services -->
-                  <circle cx="150" cy="225" r="30" fill="#2C3E50" stroke="#ffffff" stroke-width="2"/>
-                  <text x="150" y="222" font-size="9" font-weight="600" fill="#ffffff" text-anchor="middle">금융</text>
-                  <text x="150" y="233" font-size="9" font-weight="600" fill="#ffffff" text-anchor="middle">서비스</text>
-                  
-                  <!-- Technology Providers -->
-                  <circle cx="300" cy="300" r="35" fill="#2C3E50" stroke="#ffffff" stroke-width="2"/>
-                  <text x="300" y="297" font-size="10" font-weight="600" fill="#ffffff" text-anchor="middle">기술</text>
-                  <text x="300" y="308" font-size="10" font-weight="600" fill="#ffffff" text-anchor="middle">제공업체</text>
-                  
-                  <!-- NEW/NASCENT STAKEHOLDERS (Dashed border, bright colors) -->
-                  <!-- Assessment Agencies -->
-                  <circle cx="650" cy="180" r="22" fill="#4A90E2" stroke="#ffffff" stroke-width="2" stroke-dasharray="3,3"/>
-                  <text x="650" y="177" font-size="8" font-weight="600" fill="#ffffff" text-anchor="middle">평가</text>
-                  <text x="650" y="186" font-size="8" font-weight="600" fill="#ffffff" text-anchor="middle">기관</text>
-                  
-                  <!-- Fintech Solutions -->
-                  <circle cx="350" cy="180" r="22" fill="#27AE60" stroke="#ffffff" stroke-width="2" stroke-dasharray="3,3"/>
-                  <text x="350" y="177" font-size="8" font-weight="600" fill="#ffffff" text-anchor="middle">핀테크</text>
-                  <text x="350" y="186" font-size="8" font-weight="600" fill="#ffffff" text-anchor="middle">솔루션</text>
-                  
-                  <!-- Private Funds -->
-                  <circle cx="650" cy="270" r="22" fill="#F39C12" stroke="#ffffff" stroke-width="2" stroke-dasharray="3,3"/>
-                  <text x="650" y="267" font-size="8" font-weight="600" fill="#ffffff" text-anchor="middle">사모</text>
-                  <text x="650" y="276" font-size="8" font-weight="600" fill="#ffffff" text-anchor="middle">펀드</text>
-                  
-                  <!-- Insurance Providers -->
-                  <circle cx="350" cy="270" r="22" fill="#E74C3C" stroke="#ffffff" stroke-width="2" stroke-dasharray="3,3"/>
-                  <text x="350" y="267" font-size="8" font-weight="600" fill="#ffffff" text-anchor="middle">보험</text>
-                  <text x="350" y="276" font-size="8" font-weight="600" fill="#ffffff" text-anchor="middle">업체</text>
-                  
-                  <!-- Data Service Providers -->
-                  <circle cx="550" cy="180" r="22" fill="#9B59B6" stroke="#ffffff" stroke-width="2" stroke-dasharray="3,3"/>
-                  <text x="550" y="177" font-size="8" font-weight="600" fill="#ffffff" text-anchor="middle">데이터</text>
-                  <text x="550" y="186" font-size="8" font-weight="600" fill="#ffffff" text-anchor="middle">서비스</text>
-                  
-                  <!-- Connection Lines (Traditional - solid, New - dashed) -->
-                  <!-- Traditional connections -->
-                  <line x1="500" y1="225" x2="300" y2="150" stroke="#505050" stroke-width="1.5" opacity="0.6"/>
-                  <line x1="500" y1="225" x2="700" y2="150" stroke="#505050" stroke-width="1.5" opacity="0.6"/>
-                  <line x1="500" y1="225" x2="500" y2="100" stroke="#505050" stroke-width="1.5" opacity="0.6"/>
-                  <line x1="500" y1="225" x2="850" y2="225" stroke="#505050" stroke-width="1.5" opacity="0.6"/>
-                  <line x1="500" y1="225" x2="700" y2="300" stroke="#505050" stroke-width="1.5" opacity="0.6"/>
-                  <line x1="500" y1="225" x2="500" y2="350" stroke="#505050" stroke-width="1.5" opacity="0.6"/>
-                  <line x1="500" y1="225" x2="150" y2="225" stroke="#505050" stroke-width="1.5" opacity="0.6"/>
-                  <line x1="500" y1="225" x2="300" y2="300" stroke="#505050" stroke-width="1.5" opacity="0.6"/>
-                  
-                  <!-- New stakeholder connections (dashed) -->
-                  <line x1="500" y1="225" x2="650" y2="180" stroke="#4A90E2" stroke-width="1" opacity="0.5" stroke-dasharray="2,2"/>
-                  <line x1="500" y1="225" x2="350" y2="180" stroke="#27AE60" stroke-width="1" opacity="0.5" stroke-dasharray="2,2"/>
-                  <line x1="500" y1="225" x2="650" y2="270" stroke="#F39C12" stroke-width="1" opacity="0.5" stroke-dasharray="2,2"/>
-                  <line x1="500" y1="225" x2="350" y2="270" stroke="#E74C3C" stroke-width="1" opacity="0.5" stroke-dasharray="2,2"/>
-                  <line x1="500" y1="225" x2="550" y2="180" stroke="#9B59B6" stroke-width="1" opacity="0.5" stroke-dasharray="2,2"/>
-                  
-                  <!-- Title -->
-                  <text x="500" y="30" font-size="16" font-weight="bold" fill="#2C3E50" text-anchor="middle">
-                    이해관계자 생태계
-                  </text>
-                </svg>
-              </div>
-              
-              <!-- Compact Legend -->
-              <div class="category-legend" style="gap: 0.5rem; margin: 1rem 0;">
-                <div class="legend-item" style="padding: 0.25rem 0.75rem; font-size: 0.8rem;">
-                  <div class="legend-color" style="background-color: #2C3E50; border: 2px solid #2C3E50;"></div>
-                  <span>기존 이해관계자</span>
-                </div>
-                <div class="legend-item" style="padding: 0.25rem 0.75rem; font-size: 0.8rem;">
-                  <div class="legend-color" style="background-color: #4A90E2; border: 2px dashed #4A90E2;"></div>
-                  <span>신규/부상 이해관계자</span>
-                </div>
-              </div>
-              
-              <!-- Version 2: Network Diagram (Hidden by default) -->
-              <div id="map-network" class="korean-chart-container" style="display: none;">
-                <svg viewBox="0 0 1000 400" style="width: 100%; height: auto; max-height: 300px;">
-                  <!-- Background -->
-                  <rect width="1000" height="400" fill="#ffffff"/>
-                  
-                  <!-- Central Network Hub -->
-                  <rect x="400" y="150" width="200" height="100" fill="#2C3E50" stroke="#ffffff" stroke-width="2" rx="10"/>
-                  <text x="500" y="190" font-size="16" font-weight="bold" fill="#ffffff" text-anchor="middle">탄소크레딧</text>
-                  <text x="500" y="210" font-size="16" font-weight="bold" fill="#ffffff" text-anchor="middle">거래 생태계</text>
-                  
-                  <!-- Traditional Stakeholders (Connected with solid lines) -->
-                  <rect x="50" y="50" width="120" height="60" fill="#2C3E50" stroke="#ffffff" stroke-width="1" rx="5"/>
-                  <text x="110" y="75" font-size="11" font-weight="600" fill="#ffffff" text-anchor="middle">프로젝트</text>
-                  <text x="110" y="90" font-size="11" font-weight="600" fill="#ffffff" text-anchor="middle">개발자</text>
-                  
-                  <rect x="200" y="20" width="100" height="50" fill="#2C3E50" stroke="#ffffff" stroke-width="1" rx="5"/>
-                  <text x="250" y="40" font-size="11" font-weight="600" fill="#ffffff" text-anchor="middle">검증기관</text>
-                  <text x="250" y="55" font-size="11" font-weight="600" fill="#ffffff" text-anchor="middle">인증기관</text>
-                  
-                  <rect x="700" y="20" width="100" height="50" fill="#2C3E50" stroke="#ffffff" stroke-width="1" rx="5"/>
-                  <text x="750" y="40" font-size="11" font-weight="600" fill="#ffffff" text-anchor="middle">크레딧</text>
-                  <text x="750" y="55" font-size="11" font-weight="600" fill="#ffffff" text-anchor="middle">구매자</text>
-                  
-                  <rect x="830" y="80" width="120" height="60" fill="#2C3E50" stroke="#ffffff" stroke-width="1" rx="5"/>
-                  <text x="890" y="105" font-size="11" font-weight="600" fill="#ffffff" text-anchor="middle">레지스트리</text>
-                  <text x="890" y="120" font-size="11" font-weight="600" fill="#ffffff" text-anchor="middle">운영기관</text>
-                  
-                  <rect x="830" y="280" width="120" height="60" fill="#2C3E50" stroke="#ffffff" stroke-width="1" rx="5"/>
-                  <text x="890" y="305" font-size="11" font-weight="600" fill="#ffffff" text-anchor="middle">중개업체</text>
-                  <text x="890" y="320" font-size="11" font-weight="600" fill="#ffffff" text-anchor="middle">거래소</text>
-                  
-                  <rect x="700" y="330" width="100" height="50" fill="#2C3E50" stroke="#ffffff" stroke-width="1" rx="5"/>
-                  <text x="750" y="350" font-size="11" font-weight="600" fill="#ffffff" text-anchor="middle">규제기관</text>
-                  <text x="750" y="365" font-size="11" font-weight="600" fill="#ffffff" text-anchor="middle">정책입안자</text>
-                  
-                  <rect x="200" y="330" width="100" height="50" fill="#2C3E50" stroke="#ffffff" stroke-width="1" rx="5"/>
-                  <text x="250" y="350" font-size="11" font-weight="600" fill="#ffffff" text-anchor="middle">기술</text>
-                  <text x="250" y="365" font-size="11" font-weight="600" fill="#ffffff" text-anchor="middle">제공업체</text>
-                  
-                  <rect x="50" y="280" width="120" height="60" fill="#2C3E50" stroke="#ffffff" stroke-width="1" rx="5"/>
-                  <text x="110" y="305" font-size="11" font-weight="600" fill="#ffffff" text-anchor="middle">금융서비스</text>
-                  <text x="110" y="320" font-size="11" font-weight="600" fill="#ffffff" text-anchor="middle">보험업체</text>
-                  
-                  <!-- New/Nascent Stakeholders (Connected with dashed lines) -->
-                  <rect x="350" y="80" width="80" height="40" fill="#4A90E2" stroke="#ffffff" stroke-width="1" rx="5" stroke-dasharray="3,3"/>
-                  <text x="390" y="95" font-size="10" font-weight="600" fill="#ffffff" text-anchor="middle">평가기관</text>
-                  <text x="390" y="108" font-size="10" font-weight="600" fill="#ffffff" text-anchor="middle">데이터서비스</text>
-                  
-                  <rect x="570" y="80" width="80" height="40" fill="#27AE60" stroke="#ffffff" stroke-width="1" rx="5" stroke-dasharray="3,3"/>
-                  <text x="610" y="95" font-size="10" font-weight="600" fill="#ffffff" text-anchor="middle">핀테크</text>
-                  <text x="610" y="108" font-size="10" font-weight="600" fill="#ffffff" text-anchor="middle">솔루션</text>
-                  
-                  <rect x="350" y="280" width="80" height="40" fill="#E74C3C" stroke="#ffffff" stroke-width="1" rx="5" stroke-dasharray="3,3"/>
-                  <text x="390" y="295" font-size="10" font-weight="600" fill="#ffffff" text-anchor="middle">보험업체</text>
-                  <text x="390" y="308" font-size="10" font-weight="600" fill="#ffffff" text-anchor="middle">사모펀드</text>
-                  
-                  <rect x="570" y="280" width="80" height="40" fill="#F39C12" stroke="#ffffff" stroke-width="1" rx="5" stroke-dasharray="3,3"/>
-                  <text x="610" y="295" font-size="10" font-weight="600" fill="#ffffff" text-anchor="middle">블록체인</text>
-                  <text x="610" y="308" font-size="10" font-weight="600" fill="#ffffff" text-anchor="middle">플랫폼</text>
-                  
-                  <!-- Connection Lines -->
-                  <!-- Traditional (solid lines) -->
-                  <line x1="170" y1="80" x2="400" y2="180" stroke="#2C3E50" stroke-width="2" opacity="0.7"/>
-                  <line x1="300" y1="45" x2="400" y2="180" stroke="#2C3E50" stroke-width="2" opacity="0.7"/>
-                  <line x1="700" y1="45" x2="600" y2="180" stroke="#2C3E50" stroke-width="2" opacity="0.7"/>
-                  <line x1="830" y1="110" x2="600" y2="180" stroke="#2C3E50" stroke-width="2" opacity="0.7"/>
-                  <line x1="830" y1="310" x2="600" y2="220" stroke="#2C3E50" stroke-width="2" opacity="0.7"/>
-                  <line x1="700" y1="355" x2="600" y2="250" stroke="#2C3E50" stroke-width="2" opacity="0.7"/>
-                  <line x1="300" y1="355" x2="400" y2="250" stroke="#2C3E50" stroke-width="2" opacity="0.7"/>
-                  <line x1="170" y1="310" x2="400" y2="220" stroke="#2C3E50" stroke-width="2" opacity="0.7"/>
-                  
-                  <!-- New stakeholders (dashed lines) -->
-                  <line x1="390" y1="120" x2="450" y2="150" stroke="#4A90E2" stroke-width="1.5" opacity="0.6" stroke-dasharray="5,3"/>
-                  <line x1="610" y1="120" x2="550" y2="150" stroke="#27AE60" stroke-width="1.5" opacity="0.6" stroke-dasharray="5,3"/>
-                  <line x1="390" y1="280" x2="450" y2="250" stroke="#E74C3C" stroke-width="1.5" opacity="0.6" stroke-dasharray="5,3"/>
-                  <line x1="610" y1="280" x2="550" y2="250" stroke="#F39C12" stroke-width="1.5" opacity="0.6" stroke-dasharray="5,3"/>
-                  
-                  <!-- Title -->
-                  <text x="500" y="25" font-size="16" font-weight="bold" fill="#2C3E50" text-anchor="middle">
-                    네트워크 기반 이해관계자 구조
-                  </text>
-                </svg>
-              </div>
-              
-              <!-- Version 3: Matrix Box Layout (Hidden by default) -->
-              <div id="map-matrix" class="korean-chart-container" style="display: none;">
-                <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; padding: 1rem;">
-                  <div style="text-align: center; font-weight: bold; color: var(--korean-navy); grid-column: 1/-1; margin-bottom: 1rem; font-size: 16px;">
-                    매트릭스 기반 이해관계자 분류
-                  </div>
-                  
-                  <!-- Traditional Stakeholders Row -->
-                  <div style="background: var(--korean-navy); color: white; padding: 1rem; border-radius: 8px; text-align: center; font-weight: 600; font-size: 12px;">
-                    <div style="margin-bottom: 0.5rem;">🏢</div>
-                    <div>프로젝트</div>
-                    <div>개발자</div>
-                    <div style="margin-top: 0.5rem; font-size: 10px; opacity: 0.8;">기존</div>
-                  </div>
-                  
-                  <div style="background: var(--korean-navy); color: white; padding: 1rem; border-radius: 8px; text-align: center; font-weight: 600; font-size: 12px;">
-                    <div style="margin-bottom: 0.5rem;">✅</div>
-                    <div>검증</div>
-                    <div>인증기관</div>
-                    <div style="margin-top: 0.5rem; font-size: 10px; opacity: 0.8;">기존</div>
-                  </div>
-                  
-                  <div style="background: var(--korean-navy); color: white; padding: 1rem; border-radius: 8px; text-align: center; font-weight: 600; font-size: 12px;">
-                    <div style="margin-bottom: 0.5rem;">🛒</div>
-                    <div>크레딧</div>
-                    <div>구매자</div>
-                    <div style="margin-top: 0.5rem; font-size: 10px; opacity: 0.8;">기존</div>
-                  </div>
-                  
-                  <div style="background: var(--korean-navy); color: white; padding: 1rem; border-radius: 8px; text-align: center; font-weight: 600; font-size: 12px;">
-                    <div style="margin-bottom: 0.5rem;">📋</div>
-                    <div>레지스트리</div>
-                    <div>운영기관</div>
-                    <div style="margin-top: 0.5rem; font-size: 10px; opacity: 0.8;">기존</div>
-                  </div>
-                  
-                  <div style="background: var(--korean-navy); color: white; padding: 1rem; border-radius: 8px; text-align: center; font-weight: 600; font-size: 12px;">
-                    <div style="margin-bottom: 0.5rem;">🔄</div>
-                    <div>중개업체</div>
-                    <div>거래소</div>
-                    <div style="margin-top: 0.5rem; font-size: 10px; opacity: 0.8;">기존</div>
-                  </div>
-                  
-                  <div style="background: var(--korean-navy); color: white; padding: 1rem; border-radius: 8px; text-align: center; font-weight: 600; font-size: 12px;">
-                    <div style="margin-bottom: 0.5rem;">⚖️</div>
-                    <div>규제기관</div>
-                    <div>정책입안자</div>
-                    <div style="margin-top: 0.5rem; font-size: 10px; opacity: 0.8;">기존</div>
-                  </div>
-                  
-                  <div style="background: var(--korean-navy); color: white; padding: 1rem; border-radius: 8px; text-align: center; font-weight: 600; font-size: 12px;">
-                    <div style="margin-bottom: 0.5rem;">💰</div>
-                    <div>금융서비스</div>
-                    <div>보험업체</div>
-                    <div style="margin-top: 0.5rem; font-size: 10px; opacity: 0.8;">기존</div>
-                  </div>
-                  
-                  <div style="background: var(--korean-navy); color: white; padding: 1rem; border-radius: 8px; text-align: center; font-weight: 600; font-size: 12px;">
-                    <div style="margin-bottom: 0.5rem;">⚙️</div>
-                    <div>기술</div>
-                    <div>제공업체</div>
-                    <div style="margin-top: 0.5rem; font-size: 10px; opacity: 0.8;">기존</div>
-                  </div>
-                  
-                  <!-- New/Nascent Stakeholders Row -->
-                  <div style="background: linear-gradient(135deg, #4A90E2, #357ABD); color: white; padding: 1rem; border-radius: 8px; text-align: center; font-weight: 600; font-size: 12px; border: 2px dashed #ffffff;">
-                    <div style="margin-bottom: 0.5rem;">📊</div>
-                    <div>평가기관</div>
-                    <div>데이터서비스</div>
-                    <div style="margin-top: 0.5rem; font-size: 10px; opacity: 0.8;">신규</div>
-                  </div>
-                  
-                  <div style="background: linear-gradient(135deg, #27AE60, #1E8449); color: white; padding: 1rem; border-radius: 8px; text-align: center; font-weight: 600; font-size: 12px; border: 2px dashed #ffffff;">
-                    <div style="margin-bottom: 0.5rem;">📱</div>
-                    <div>핀테크</div>
-                    <div>솔루션</div>
-                    <div style="margin-top: 0.5rem; font-size: 10px; opacity: 0.8;">신규</div>
-                  </div>
-                  
-                  <div style="background: linear-gradient(135deg, #E74C3C, #C0392B); color: white; padding: 1rem; border-radius: 8px; text-align: center; font-weight: 600; font-size: 12px; border: 2px dashed #ffffff;">
-                    <div style="margin-bottom: 0.5rem;">🛡️</div>
-                    <div>전문보험</div>
-                    <div>리스크관리</div>
-                    <div style="margin-top: 0.5rem; font-size: 10px; opacity: 0.8;">신규</div>
-                  </div>
-                  
-                  <div style="background: linear-gradient(135deg, #F39C12, #D68910); color: white; padding: 1rem; border-radius: 8px; text-align: center; font-weight: 600; font-size: 12px; border: 2px dashed #ffffff;">
-                    <div style="margin-bottom: 0.5rem;">🔗</div>
-                    <div>블록체인</div>
-                    <div>플랫폼</div>
-                    <div style="margin-top: 0.5rem; font-size: 10px; opacity: 0.8;">신규</div>
-                  </div>
-                </div>
-              </div>
-              
-              <!-- JavaScript for Tab Switching -->
-              <script>
-                function showMapVersion(version) {
-                  // Hide all versions
-                  document.getElementById('map-circular').style.display = 'none';
-                  document.getElementById('map-network').style.display = 'none';
-                  document.getElementById('map-matrix').style.display = 'none';
-                  
-                  // Reset all button styles
-                  document.getElementById('btn-circular').style.background = 'var(--korean-light-gray)';
-                  document.getElementById('btn-circular').style.color = 'var(--korean-black)';
-                  document.getElementById('btn-network').style.background = 'var(--korean-light-gray)';
-                  document.getElementById('btn-network').style.color = 'var(--korean-black)';
-                  document.getElementById('btn-matrix').style.background = 'var(--korean-light-gray)';
-                  document.getElementById('btn-matrix').style.color = 'var(--korean-black)';
-                  
-                  // Show selected version and update button
-                  if (version === 'circular') {
-                    document.getElementById('map-circular').style.display = 'block';
-                    document.getElementById('btn-circular').style.background = 'var(--korean-navy)';
-                    document.getElementById('btn-circular').style.color = 'white';
-                  } else if (version === 'network') {
-                    document.getElementById('map-network').style.display = 'block';
-                    document.getElementById('btn-network').style.background = 'var(--korean-navy)';
-                    document.getElementById('btn-network').style.color = 'white';
-                  } else if (version === 'matrix') {
-                    document.getElementById('map-matrix').style.display = 'block';
-                    document.getElementById('btn-matrix').style.background = 'var(--korean-navy)';
-                    document.getElementById('btn-matrix').style.color = 'white';
-                  }
-                }
-              </script>
-            </div>
-          </div>
-
-          <div class="korean-grid two-col">
-            <div class="korean-card">
-              <h3>현존하는 가이드라인</h3>
-              <div class="korean-list">
-                <li><strong>IOSCO</strong></li>
-                <li><strong>G20</strong></li>
-                <li><strong>개별정부</strong></li>
-                <li><strong>금융 부문 규제기관</strong></li>
-                <li><strong>자율 규제 기구</strong></li>
-              </div>
-            </div>
-
-            <div class="korean-card">
-              <h3>새로운 이해관계자 범주 등장</h3>
-              <div class="korean-list">
-                <li><strong>보험 제공업체:</strong> 프로젝트 개발자와 구매자에게 종합적 위험 보장 제공</li>
-                <li><strong>데이터 서비스 제공업체:</strong> 기준선 설정 방법론 개선 및 환경 무결성 강화</li>
-                <li><strong>평가 기관:</strong> 탄소 크레딧의 환경 무결성에 대한 정보 비대칭성 완화</li>
-                <li><strong>핀테크 솔루션:</strong> 디지털 MRV 시스템 강화 및 투명성 제고</li>
-                <li><strong>민간 펀드:</strong> 기후 중심 자산 포트폴리오 다변화 및 프로젝트 금융</li>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Slide 7: 리스크 최소화를 위한 국제 기준 채택 -->
-      <section>
-        <div class="wrap korean-font alignleft">
-          <div class="korean-section-header">
-            <h2>리스크 최소화를 위한 국제 기준 채택</h2>
-          </div>
-
-          <div class="korean-grid three-col">
-            <div class="korean-card">
-              <h3>Article 6</h3>
-              <div class="korean-list">
-                <li>파리협정 제6조 메커니즘</li>
-                <li>국가 간 탄소 크레딧 이전 규정</li>
-                <li>이중계상 방지 요구사항</li>
-                <li>지속가능발전 기여 확보</li>
-              </div>
-            </div>
-            <div class="korean-card">
-              <h3>SBTi Net-Zero</h3>
-              <div class="korean-list">
-                <li>과학기반 넷제로 목표 설정</li>
-                <li>기업 탄소중립 경로 가이드라인</li>
-                <li>크레딧 사용 제한 및 우선순위</li>
-                <li>장기 감축 목표와 연계</li>
-              </div>
-            </div>
-            <div class="korean-card">
-              <h3>ICVCM CCP</h3>
-              <div class="korean-list">
-                <li>핵심 탄소 원칙 프레임워크</li>
-                <li>고품질 크레딧 인증 기준</li>
-                <li>추가성, 지속성, 정량화 요구</li>
-                <li>시장 신뢰성 제고 목적</li>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Slide 8: 그럼에도 각 Framework별 리스크 존재 -->
-      <section>
-        <div class="wrap korean-font alignleft">
-          <div class="korean-section-header">
-            <h2>그럼에도 각 Framework별 리스크 존재</h2>
-          </div>
-
-          <div class="korean-grid three-col">
-            <div class="korean-card">
-              <h3>Article 6</h3>
-              <div class="korean-list">
-                <!-- Content to be added here -->
-              </div>
-            </div>
-            <div class="korean-card">
-              <h3>SBTi Net-Zero</h3>
-              <div class="korean-list">
-                <!-- Content to be added here -->
-              </div>
-            </div>
-            <div class="korean-card">
-              <h3>ICVCM CCP</h3>
-              <div class="korean-list">
-                <!-- Content to be added here -->
-              </div>
-            </div>
-          </div>
-
-          <div style="margin-top: 3rem; padding: 1rem; border-top: 1px solid #e1e5e9;">
-            <p style="font-size: 0.9rem; color: #666; line-height: 1.4; margin: 0;">
-              <strong>*</strong> Article 6 리스크: 상응조정 미적용, ITMO 전환 복잡성, 국가별 상이한 해석 |
-              SBTi Net-Zero 리스크: 목표 설정 방법론 변경, 크레딧 인정 범위 제한 |
-              ICVCM CCP 리스크: 핵심탄소원칙 적용 기준 엄격화, 기존 크레딧 재평가 |
-              2차 시장 리스크: 시장 조작, 이해상충, 투명성 부족, 공평한 정보 접근 제한 |
-              탄소 Rating 필요성: 제3자 평가 시스템을 통한 신뢰성 보완
-            </p>
-          </div>
-        </div>
-      </section>
-
-      <!-- Slide 9: 다양한 탄소크레딧 공급 통로 -->
-      <section>
-        <div class="wrap korean-font alignleft">
-          <div class="korean-section-header">
-            <h2>다양한 탄소크레딧 공급 통로</h2>
-          </div>
-
-          <div class="korean-grid one-col">
-            <div class="korean-card">
-              <h3>이중계상의 종류</h3>
-              <div class="korean-list">
-                <li><strong>이중발급 (Double Issuance):</strong> 동일한 감축량에 대해 여러 레지스트리에서 중복 크레딧 발급</li>
-                <li><strong>이중사용 (Double Use):</strong> 발급된 단일 크레딧을 동일 주체가 서로 다른 목적으로 중복 사용</li>
-                <li><strong>이중청구/계상 (Double Claiming/Counting):</strong> 동일한 감축량을 호스트국과 구매국이 각각의 NDC에 중복 계상</li>
-              </div>
-
-              <div class="korean-highlight">
-                <p style="font-size: 1.4rem; font-weight: 500; margin: 0;">파리협정 Article 6의 상응조정(Corresponding Adjustments) 메커니즘으로 이중계상 방지를 목적으로 하나, 현재 이를 실현하기 위해선 VCM발 크레딧 사용에 대한 정확한 정보가 필요함</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="korean-grid two-col">
-            <div class="korean-card">
-              <h3>국가단위의, 파리협정에서의 이중계상 방지를 위한 최소한의 요건: 정보공개</h3>
-              <div class="korean-list">
-                <li>파리협정 제6조 하에서 국가 간 크레딧 이전 시 투명성 확보</li>
-                <li>NDC 달성을 위한 국제 크레딧 사용 현황 공개</li>
-                <li>해당조정(Corresponding Adjustment) 적용 의무</li>
-                <li>정기적 보고 및 검토 체계 구축</li>
-                <li>국제 레지스트리를 통한 추적 시스템 운영</li>
-              </div>
-            </div>
-            <div class="korean-card">
-              <h3>국가별 이중계상에 대한 입장 차이</h3>
-              <div class="korean-list">
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-
-
-      <!-- Slide 10: Baseline & Credit의 구분 -->
-      <section>
-        <div class="wrap korean-font alignleft">
-          <div class="korean-section-header">
-            <h2>Baseline & Credit의 구분</h2>
-          </div>
-
-          <div class="korean-grid three-col">
-            <div class="korean-card">
-              <h3>Removal & Mitigation & "Avoidance"</h3>
-              <div class="korean-list">
-                <li><strong>Removal:</strong> 대기 중 이산화탄소 직접 제거</li>
-                <li><strong>Mitigation:</strong> 배출 감소 또는 방지</li>
-                <li><strong>Avoidance:</strong> 배출 회피 (정의 논란)</li>
-              </div>
-            </div>
-            <div class="korean-card">
-              <h3>국가별 입장</h3>
-              <div class="korean-list">
-                <li>[콘텐츠 추가 예정]</li>
-              </div>
-            </div>
-            <div class="korean-card">
-              <h3>스탠다드별 입장</h3>
-              <div class="korean-list">
-                <li>[콘텐츠 추가 예정]</li>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-
-    </article>
-  </main>
-
-  <!-- WebSlides JavaScript -->
-  <script src="https://webslides.tv/static/js/webslides.js"></script>
-
-
-  <!-- Embedded Professional Interactions -->
-  <script>
-    // Simple progress bar update
-    function updateProgress() {
-      const slides = document.querySelectorAll('section');
-      const currentSlide = document.querySelector('.current') || slides[0];
-      const currentIndex = Array.from(slides).indexOf(currentSlide);
-      const progress = ((currentIndex + 1) / slides.length) * 100;
-      const progressFill = document.getElementById('progress-fill');
-      if (progressFill) {
-        progressFill.style.width = progress + '%';
-      }
-    }
-
-    // Initialize WebSlides and add event listeners
-    document.addEventListener('DOMContentLoaded', function() {
-      window.ws = new WebSlides({
-        autoslide: false,
-        changeOnClick: true,
-        loop: false,
-        minWheelDelta: 40,
-        navigateOnScroll: false,
-        scrollWait: 450,
-        slideOffset: 50,
-        showIndex: false
-      });
-
-      // Update progress on slide change
-      window.ws.el.addEventListener('ws:slide-change', updateProgress);
-
-      // Enhanced slide navigation for Korean presentation
-      window.ws.el.addEventListener('ws:slide-change', function() {
-        setTimeout(() => {
-          const currentSlide = document.querySelector('.current .wrap');
-          if (currentSlide) {
-            currentSlide.scrollTop = 0;
-          }
-        }, 10);
-      });
-
-      // Korean-specific smooth scroll enhancements
-      const elements = document.querySelectorAll('.fade-in-up');
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-          }
-        });
-      });
-
-      elements.forEach(el => {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'all 0.6s ease';
-        observer.observe(el);
-      });
-
-      console.log('McKinsey-style presentation loaded successfully');
-    });
-
-    // Export functionality
-    function exportToPDF() {
-      window.print();
-    }
-
-    // Animation Controller for Standards Visualization
-    class StandardsAnimationController {
-      constructor() {
-        this.initializeAnimations();
-        this.initializeBubbleInteractions();
-        this.initializeCounters();
-      }
-
-      initializeAnimations() {
-        // GSAP Timeline for entrance animations
-        const tl = gsap.timeline();
-
-        // Animate metrics counters
-        tl.from('.korean-metric', {
-          duration: 0.8,
-          y: 30,
-          opacity: 0,
-          stagger: 0.2,
-          ease: "power2.out"
-        });
-
-        // Animate bubble visualization
-        tl.from('.category-bubble', {
-          duration: 1,
-          scale: 0,
-          opacity: 0,
-          stagger: 0.15,
-          ease: "back.out(1.7)"
-        }, "-=0.4");
-
-        // Animate legend
-        tl.from('.legend-item', {
-          duration: 0.6,
-          x: -20,
-          opacity: 0,
-          stagger: 0.1,
-          ease: "power2.out"
-        }, "-=0.5");
-      }
-
-      initializeBubbleInteractions() {
-        const bubbles = document.querySelectorAll('.category-bubble');
-
-        bubbles.forEach(bubble => {
-          const originalScale = 1;
-
-          bubble.addEventListener('mouseenter', () => {
-            gsap.to(bubble, {
-              duration: 0.3,
-              scale: 1.15,
-              ease: "power2.out"
-            });
-
-            // Show tooltip with examples
-            this.showTooltip(bubble);
-          });
-
-          bubble.addEventListener('mouseleave', () => {
-            gsap.to(bubble, {
-              duration: 0.3,
-              scale: originalScale,
-              ease: "power2.out"
-            });
-
-            this.hideTooltip();
-          });
-
-          bubble.addEventListener('click', () => {
-            // Pulse animation on click
-            gsap.to(bubble, {
-              duration: 0.1,
-              scale: 0.95,
-              ease: "power2.inOut",
-              yoyo: true,
-              repeat: 1
-            });
-          });
-        });
-      }
-
-      showTooltip(bubble) {
-        const category = bubble.getAttribute('data-category');
-        const count = bubble.getAttribute('data-count');
-        const examples = bubble.getAttribute('data-examples');
-
-        // Remove existing tooltip
-        this.hideTooltip();
-
-        // Create tooltip
-        const tooltip = document.createElement('div');
-        tooltip.className = 'bubble-tooltip';
-        tooltip.innerHTML = `
-          <h4>${category}</h4>
-          <p><strong>${count}개 표준</strong></p>
-          <p>예시: ${examples}</p>
-        `;
-
-        tooltip.style.cssText = `
-          position: absolute;
-          background: var(--korean-navy);
-          color: white;
-          padding: 1rem;
-          border-radius: 8px;
-          font-size: 0.85rem;
-          box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-          z-index: 1000;
-          max-width: 200px;
-          pointer-events: none;
-          opacity: 0;
-          transform: translateY(10px);
-          transition: all 0.3s ease;
-        `;
-
-        document.body.appendChild(tooltip);
-
-        // Position tooltip
-        const rect = bubble.getBoundingClientRect();
-        tooltip.style.left = (rect.left + rect.width / 2 - tooltip.offsetWidth / 2) + 'px';
-        tooltip.style.top = (rect.top - tooltip.offsetHeight - 10) + 'px';
-
-        // Animate in
-        requestAnimationFrame(() => {
-          tooltip.style.opacity = '1';
-          tooltip.style.transform = 'translateY(0)';
-        });
-      }
-
-      hideTooltip() {
-        const existing = document.querySelector('.bubble-tooltip');
-        if (existing) {
-          existing.remove();
-        }
-      }
-
-      initializeCounters() {
-        const counters = document.querySelectorAll('.animated-counter');
-
-        const animateCounter = (counter) => {
-          const target = parseInt(counter.getAttribute('data-target'));
-          const duration = 2000; // 2 seconds
-          const increment = target / (duration / 16); // 60 FPS
-          let current = 0;
-
-          const updateCounter = () => {
-            current += increment;
-            if (current < target) {
-              counter.textContent = Math.floor(current);
-              requestAnimationFrame(updateCounter);
-            } else {
-              counter.textContent = target;
-            }
-          };
-
-          updateCounter();
-        };
-
-        // Intersection Observer for counter animation
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              const counter = entry.target.querySelector('.animated-counter');
-              if (counter && !counter.classList.contains('animated')) {
-                counter.classList.add('animated');
-                setTimeout(() => animateCounter(counter), 500);
-              }
-            }
-          });
-        }, { threshold: 0.5 });
-
-        counters.forEach(counter => {
-          observer.observe(counter.closest('.korean-metric'));
-        });
-      }
-    }
-
-    // Simple fallback animation system
-    function initSimpleAnimations() {
-      // Animate counters
-      const counters = document.querySelectorAll('.animated-counter');
-      counters.forEach(counter => {
-        const target = parseInt(counter.getAttribute('data-target'));
-        let current = 0;
-        const increment = target / 60; // 1 second animation
-
-        const timer = setInterval(() => {
-          current += increment;
-          if (current >= target) {
-            counter.textContent = target;
-            clearInterval(timer);
-          } else {
-            counter.textContent = Math.floor(current);
-          }
-        }, 16);
-      });
-
-      // Add hover effects to bubbles
-      const bubbles = document.querySelectorAll('.category-bubble');
-      bubbles.forEach(bubble => {
-        bubble.addEventListener('mouseenter', function() {
-          this.style.transform = 'scale(1.1)';
-          this.style.transition = 'transform 0.3s ease';
-        });
-
-        bubble.addEventListener('mouseleave', function() {
-          this.style.transform = 'scale(1)';
-        });
-      });
-    }
-
-    // Initialize animations when slide becomes active
-    window.ws.el.addEventListener('ws:slide-change', function(event) {
-      const currentSlide = event.detail.slide;
-      if (currentSlide.querySelector('.standards-visualization')) {
-        setTimeout(() => {
-          // Try advanced animations first, fallback to simple ones
-          try {
-            new StandardsAnimationController();
-          } catch(e) {
-            console.log('Using fallback animations');
-            initSimpleAnimations();
-          }
-        }, 300);
-      }
-    });
-
-    // Also initialize on page load
-    document.addEventListener('DOMContentLoaded', function() {
-      setTimeout(() => {
-        const visualization = document.querySelector('.standards-visualization');
-        if (visualization) {
-          try {
-            new StandardsAnimationController();
-          } catch(e) {
-            console.log('Using fallback animations on load');
-            initSimpleAnimations();
-          }
-        }
-      }, 1000);
-    });
-
-  </script>
-
-  <!-- Export Controls -->
-  <div style="position: fixed; top: 1rem; right: 1rem; z-index: 1000; background: white; padding: 0.5rem; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-    <button onclick="exportToPDF()" style="margin: 0.25rem; padding: 0.5rem 1rem; background: var(--mckinsey-blue); color: white; border: none; border-radius: 4px; cursor: pointer;">PDF</button>
-  </div>
-
-</body>
-</html>
-                <svg viewBox="0 0 1200 600" style="width: 100%; height: auto; background: white; border: 1px solid #e1e5e9;" role="img" aria-labelledby="ecosystem-title" aria-describedby="ecosystem-desc">
-                  <title id="ecosystem-title">탄소시장 생태계 구조도</title>
-                  <desc id="ecosystem-desc">탄소시장의 수요(Demand), 공급(Supply), 방법론(Methodology)을 연결하는 생태계 다이어그램</desc>
-
-                  <!-- Background -->
-                  <rect width="1200" height="600" fill="white"/>
-
-                  <!-- Section Headers -->
-                  <text x="150" y="40" font-size="24" font-weight="bold" text-anchor="middle" fill="#666">Demand</text>
-                  <text x="600" y="40" font-size="24" font-weight="bold" text-anchor="middle" fill="#666">Supply</text>
-                  <text x="1000" y="40" font-size="24" font-weight="bold" text-anchor="middle" fill="#666">Methodology</text>
-
-                  <!-- Demand Section (Left) -->
-                  <g id="demand-section">
-                    <!-- Domestic/Regional Box (Red dotted border) -->
-                    <rect x="30" y="60" width="240" height="200" fill="none" stroke="#e74c3c" stroke-width="2" stroke-dasharray="8,4" rx="4"/>
-                    <text x="40" y="85" font-size="14" font-weight="bold" fill="#2C3E50">Domestic / Regional</text>
-
-                    <!-- Demand boxes with cleaner layout -->
-                    <rect x="50" y="100" width="90" height="35" fill="#ecf0f1" stroke="#2C3E50" stroke-width="1" rx="2"/>
-                    <text x="95" y="122" font-size="11" text-anchor="middle" fill="#2C3E50">NDC Directly</text>
-
-                    <rect x="50" y="145" width="90" height="35" fill="#ecf0f1" stroke="#2C3E50" stroke-width="1" rx="2"/>
-                    <text x="95" y="167" font-size="11" text-anchor="middle" fill="#2C3E50">Carbon Tax</text>
-
-                    <rect x="150" y="145" width="90" height="35" fill="#ecf0f1" stroke="#2C3E50" stroke-width="1" rx="2"/>
-                    <text x="195" y="167" font-size="11" text-anchor="middle" fill="#2C3E50">Cap &amp; Trade</text>
-
-                    <!-- International Box (Red dotted border) -->
-                    <rect x="30" y="280" width="240" height="170" fill="none" stroke="#e74c3c" stroke-width="2" stroke-dasharray="8,4" rx="4"/>
-                    <text x="40" y="305" font-size="14" font-weight="bold" fill="#2C3E50">International</text>
-
-                    <!-- International boxes -->
-                    <rect x="50" y="320" width="90" height="45" fill="#ecf0f1" stroke="#2C3E50" stroke-width="1" rx="2"/>
-                    <text x="95" y="338" font-size="10" text-anchor="middle" fill="#2C3E50">Net Zero</text>
-                    <text x="95" y="350" font-size="10" text-anchor="middle" fill="#2C3E50">Corporate</text>
-                    <text x="95" y="362" font-size="10" text-anchor="middle" fill="#2C3E50">Commitments</text>
-
-                    <rect x="150" y="320" width="90" height="45" fill="#ecf0f1" stroke="#2C3E50" stroke-width="1" rx="2"/>
-                    <text x="195" y="338" font-size="10" text-anchor="middle" fill="#2C3E50">Individual-level</text>
-                    <text x="195" y="355" font-size="10" text-anchor="middle" fill="#2C3E50">Offsetting</text>
-
-                    <rect x="100" y="375" width="90" height="35" fill="#ecf0f1" stroke="#2C3E50" stroke-width="1" rx="2"/>
-                    <text x="145" y="397" font-size="11" text-anchor="middle" fill="#2C3E50">CORSIA(ICAO)</text>
-                  </g>
-
-                  <!-- Central Processing (Adjusted boxes) -->
-                  <g id="central-processing">
-                    <!-- Corresponding Adjusted -->
-                    <rect x="330" y="150" width="120" height="50" fill="#74b9ff" stroke="#2C3E50" stroke-width="1" rx="4"/>
-                    <text x="390" y="170" font-size="12" text-anchor="middle" fill="white">Corresponding</text>
-                    <text x="390" y="185" font-size="12" text-anchor="middle" fill="white">adjusted</text>
-
-                    <!-- Non-corresponding Adjusted -->
-                    <rect x="330" y="330" width="120" height="50" fill="#74b9ff" stroke="#2C3E50" stroke-width="1" rx="4"/>
-                    <text x="390" y="350" font-size="12" text-anchor="middle" fill="white">Non-</text>
-                    <text x="390" y="365" font-size="12" text-anchor="middle" fill="white">corresponding</text>
-                    <text x="390" y="380" font-size="12" text-anchor="middle" fill="white">adjusted</text>
-                  </g>
-
-                  <!-- Supply Section (Center) -->
-                  <g id="supply-section">
-                    <!-- Supply boxes stacked vertically -->
-                    <rect x="500" y="70" width="200" height="35" fill="#ecf0f1" stroke="#2C3E50" stroke-width="1" rx="2"/>
-                    <text x="600" y="92" font-size="14" text-anchor="middle" fill="#2C3E50">CDM</text>
-
-                    <rect x="500" y="115" width="200" height="50" fill="#ecf0f1" stroke="#2C3E50" stroke-width="1" rx="2"/>
-                    <text x="600" y="135" font-size="12" text-anchor="middle" fill="#2C3E50">Independent</text>
-                    <text x="600" y="150" font-size="12" text-anchor="middle" fill="#2C3E50">International Baseline-</text>
-                    <text x="600" y="162" font-size="12" text-anchor="middle" fill="#2C3E50">and-credit</text>
-
-                    <rect x="500" y="175" width="200" height="50" fill="#ecf0f1" stroke="#2C3E50" stroke-width="1" rx="2"/>
-                    <text x="600" y="195" font-size="12" text-anchor="middle" fill="#2C3E50">(non compliance)</text>
-                    <text x="600" y="210" font-size="12" text-anchor="middle" fill="#2C3E50">Domestic</text>
-                    <text x="600" y="222" font-size="12" text-anchor="middle" fill="#2C3E50">Baseline-and-credit</text>
-
-                    <rect x="500" y="235" width="200" height="50" fill="#ecf0f1" stroke="#2C3E50" stroke-width="1" rx="2"/>
-                    <text x="600" y="255" font-size="12" text-anchor="middle" fill="#2C3E50">(compliance)</text>
-                    <text x="600" y="270" font-size="12" text-anchor="middle" fill="#2C3E50">Domestic</text>
-                    <text x="600" y="282" font-size="12" text-anchor="middle" fill="#2C3E50">Baseline-and-credit</text>
-
-                    <rect x="500" y="295" width="200" height="35" fill="#ecf0f1" stroke="#2C3E50" stroke-width="1" rx="2"/>
-                    <text x="600" y="317" font-size="14" text-anchor="middle" fill="#2C3E50">ITMO (PA6.2)</text>
-
-                    <rect x="500" y="340" width="200" height="35" fill="#ecf0f1" stroke="#2C3E50" stroke-width="1" rx="2"/>
-                    <text x="600" y="362" font-size="14" text-anchor="middle" fill="#2C3E50">PACM (PA6.4)</text>
-
-                    <rect x="500" y="385" width="200" height="35" fill="#ecf0f1" stroke="#2C3E50" stroke-width="1" rx="2"/>
-                    <text x="600" y="407" font-size="14" text-anchor="middle" fill="#2C3E50">Article 5</text>
-                  </g>
-
-                  <!-- Methodology Section (Right) -->
-                  <g id="methodology-section">
-                    <!-- Reduction box -->
-                    <rect x="800" y="70" width="200" height="80" fill="#ecf0f1" stroke="#2C3E50" stroke-width="1" rx="2"/>
-                    <text x="900" y="120" font-size="16" text-anchor="middle" fill="#2C3E50">Reduction</text>
-
-                    <!-- Nature based and Technology based side by side -->
-                    <rect x="800" y="170" width="95" height="60" fill="#ecf0f1" stroke="#2C3E50" stroke-width="1" rx="2"/>
-                    <text x="847" y="195" font-size="12" text-anchor="middle" fill="#2C3E50">Nature</text>
-                    <text x="847" y="210" font-size="12" text-anchor="middle" fill="#2C3E50">based</text>
-
-                    <rect x="905" y="170" width="95" height="60" fill="#ecf0f1" stroke="#2C3E50" stroke-width="1" rx="2"/>
-                    <text x="952" y="195" font-size="12" text-anchor="middle" fill="#2C3E50">Technology</text>
-                    <text x="952" y="210" font-size="12" text-anchor="middle" fill="#2C3E50">based</text>
-
-                    <!-- Removal -->
-                    <text x="900" y="270" font-size="16" text-anchor="middle" fill="#2C3E50">Removal</text>
-
-                    <!-- REDD+ -->
-                    <rect x="800" y="290" width="200" height="40" fill="#ecf0f1" stroke="#2C3E50" stroke-width="1" rx="2"/>
-                    <text x="900" y="315" font-size="16" text-anchor="middle" fill="#2C3E50">REDD+</text>
-                  </g>
-
-                  <!-- Clean Connections (No Arrows) -->
-                  <g id="connections" stroke="#2C3E50" stroke-width="1" fill="none" opacity="0.6">
-                    <!-- Domestic to Corresponding Adjusted -->
-                    <path d="M 270 120 L 330 165" stroke="#2C3E50" stroke-width="1"/>
-                    <path d="M 270 162 L 330 175" stroke="#2C3E50" stroke-width="1"/>
-                    <path d="M 270 162 L 330 185" stroke="#2C3E50" stroke-width="1"/>
-
-                    <!-- International to Non-corresponding Adjusted -->
-                    <path d="M 270 342 L 330 345" stroke="#2C3E50" stroke-width="1"/>
-                    <path d="M 270 342 L 330 355" stroke="#2C3E50" stroke-width="1"/>
-                    <path d="M 270 392 L 330 365" stroke="#2C3E50" stroke-width="1"/>
-
-                    <!-- Corresponding Adjusted to Supply -->
-                    <path d="M 450 165 L 500 95" stroke="#2C3E50" stroke-width="1"/>
-                    <path d="M 450 175 L 500 145" stroke="#2C3E50" stroke-width="1"/>
-                    <path d="M 450 185 L 500 260" stroke="#2C3E50" stroke-width="1"/>
-                    <path d="M 450 185 L 500 312" stroke="#2C3E50" stroke-width="1"/>
-                    <path d="M 450 185 L 500 357" stroke="#2C3E50" stroke-width="1"/>
-
-                    <!-- Non-corresponding Adjusted to Supply -->
-                    <path d="M 450 345 L 500 95" stroke="#2C3E50" stroke-width="1"/>
-                    <path d="M 450 355 L 500 145" stroke="#2C3E50" stroke-width="1"/>
-                    <path d="M 450 365 L 500 205" stroke="#2C3E50" stroke-width="1"/>
-                    <path d="M 450 365 L 500 402" stroke="#2C3E50" stroke-width="1"/>
-
-                    <!-- Supply to Methodology (clean curved line) -->
-                    <path d="M 700 200 Q 740 180 800 200" stroke="#2C3E50" stroke-width="1" stroke-dasharray="3,3"/>
-                  </g>
-                </svg>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-
-
-    </article>
-  </main>
-
-  <!-- WebSlides JavaScript -->
-  <script src="https://webslides.tv/static/js/webslides.js"></script>
-
-
-  <!-- Embedded Professional Interactions -->
-  <script>
-    // Simple progress bar update
-    function updateProgress() {
-      const slides = document.querySelectorAll('section');
-      const currentSlide = document.querySelector('.current') || slides[0];
-      const currentIndex = Array.from(slides).indexOf(currentSlide);
-      const progress = ((currentIndex + 1) / slides.length) * 100;
-      const progressFill = document.getElementById('progress-fill');
-      if (progressFill) {
-        progressFill.style.width = progress + '%';
-      }
-    }
-
-    // Initialize WebSlides and add event listeners
-    document.addEventListener('DOMContentLoaded', function() {
-      window.ws = new WebSlides();
-
-      // Fix scroll position on slide change
-      window.ws.el.addEventListener('ws:slide-change', function() {
-        // Reset scroll position to top for each slide
-        setTimeout(() => {
-          const currentSlide = document.querySelector('.current .wrap');
-          if (currentSlide) {
-            currentSlide.scrollTop = 0;
-          }
-          // Also ensure the section itself is properly positioned
-          const currentSection = document.querySelector('.current');
-          if (currentSection) {
-            currentSection.scrollIntoView({ behavior: 'instant', block: 'start' });
-          }
-        }, 10);
-      });
-
-      // Add progress tracking
-      setInterval(updateProgress, 100);
-
-      // Add keyboard navigation
-      document.addEventListener('keydown', function(e) {
-        switch(e.key) {
-          case 'ArrowRight':
-          case ' ':
-            e.preventDefault();
-            window.ws.goNext();
-            break;
-          case 'ArrowLeft':
-            e.preventDefault();
-            window.ws.goPrev();
-            break;
-          case 'Home':
-            e.preventDefault();
-            window.ws.goToSlide(1);
-            break;
-          case 'End':
-            e.preventDefault();
-            window.ws.goToSlide(window.ws.slides.length);
-            break;
-        }
-      });
-
-      // Add metric animation
-      const observerOptions = {
-        threshold: 0.1,
-        rootMargin: '0px 0px -100px 0px'
-      };
-
-      const observer = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-          if (entry.isIntersecting) {
-            entry.target.style.opacity = '1';
-            entry.target.style.transform = 'translateY(0)';
-          }
-        });
-      }, observerOptions);
-
-      // Observe all metric cards
-      document.querySelectorAll('.mckinsey-metric, .mckinsey-card').forEach(function(el) {
-        el.style.opacity = '0';
-        el.style.transform = 'translateY(20px)';
-        el.style.transition = 'all 0.6s ease';
-        observer.observe(el);
-      });
-
-      console.log('McKinsey-style presentation loaded successfully');
-    });
-
-    // Export functionality
-    function exportToPDF() {
-      window.print();
-    }
-
-    // Animation Controller for Standards Visualization
-    class StandardsAnimationController {
-      constructor() {
-        this.initializeAnimations();
-        this.initializeBubbleInteractions();
-        this.initializeCounters();
-      }
-
-      initializeAnimations() {
-        // GSAP Timeline for entrance animations
-        const tl = gsap.timeline();
-
-        // Animate metrics counters
-        tl.from('.korean-metric', {
-          duration: 0.8,
-          y: 30,
-          opacity: 0,
-          stagger: 0.2,
-          ease: "power2.out"
-        });
-
-        // Animate bubble visualization
-        tl.from('.category-bubble', {
-          duration: 1,
-          scale: 0,
-          opacity: 0,
-          stagger: 0.15,
-          ease: "back.out(1.7)"
-        }, "-=0.4");
-
-        // Animate legend
-        tl.from('.legend-item', {
-          duration: 0.6,
-          x: -20,
-          opacity: 0,
-          stagger: 0.1,
-          ease: "power2.out"
-        }, "-=0.5");
-      }
-
-      initializeBubbleInteractions() {
-        const bubbles = document.querySelectorAll('.category-bubble');
-
-        bubbles.forEach(bubble => {
-          const originalScale = 1;
-
-          bubble.addEventListener('mouseenter', () => {
-            gsap.to(bubble, {
-              duration: 0.3,
-              scale: 1.15,
-              ease: "power2.out"
-            });
-
-            // Show tooltip with examples
-            this.showTooltip(bubble);
-          });
-
-          bubble.addEventListener('mouseleave', () => {
-            gsap.to(bubble, {
-              duration: 0.3,
-              scale: originalScale,
-              ease: "power2.out"
-            });
-
-            this.hideTooltip();
-          });
-
-          bubble.addEventListener('click', () => {
-            // Pulse animation on click
-            gsap.to(bubble, {
-              duration: 0.1,
-              scale: 0.95,
-              ease: "power2.inOut",
-              yoyo: true,
-              repeat: 1
-            });
-          });
-        });
-      }
-
-      showTooltip(bubble) {
-        const category = bubble.getAttribute('data-category');
-        const count = bubble.getAttribute('data-count');
-        const examples = bubble.getAttribute('data-examples');
-
-        // Remove existing tooltip
-        this.hideTooltip();
-
-        // Create tooltip
-        const tooltip = document.createElement('div');
-        tooltip.className = 'bubble-tooltip';
-        tooltip.innerHTML = `
-          <h4>${category}</h4>
-          <p><strong>${count}개 표준</strong></p>
-          <p>예시: ${examples}</p>
-        `;
-
-        tooltip.style.cssText = `
-          position: absolute;
-          background: var(--korean-navy);
-          color: white;
-          padding: 1rem;
-          border-radius: 8px;
-          font-size: 0.85rem;
-          box-shadow: 0 8px 25px rgba(0,0,0,0.2);
-          z-index: 1000;
-          max-width: 200px;
-          pointer-events: none;
-          opacity: 0;
-          transform: translateY(10px);
-          transition: all 0.3s ease;
-        `;
-
-        document.body.appendChild(tooltip);
-
-        // Position tooltip
-        const rect = bubble.getBoundingClientRect();
-        tooltip.style.left = (rect.left + rect.width / 2 - tooltip.offsetWidth / 2) + 'px';
-        tooltip.style.top = (rect.top - tooltip.offsetHeight - 10) + 'px';
-
-        // Animate in
-        requestAnimationFrame(() => {
-          tooltip.style.opacity = '1';
-          tooltip.style.transform = 'translateY(0)';
-        });
-      }
-
-      hideTooltip() {
-        const existing = document.querySelector('.bubble-tooltip');
-        if (existing) {
-          existing.remove();
-        }
-      }
-
-      initializeCounters() {
-        const counters = document.querySelectorAll('.animated-counter');
-
-        const animateCounter = (counter) => {
-          const target = parseInt(counter.getAttribute('data-target'));
-          const duration = 2000; // 2 seconds
-          const increment = target / (duration / 16); // 60 FPS
-          let current = 0;
-
-          const updateCounter = () => {
-            current += increment;
-            if (current < target) {
-              counter.textContent = Math.floor(current);
-              requestAnimationFrame(updateCounter);
-            } else {
-              counter.textContent = target;
-            }
-          };
-
-          updateCounter();
-        };
-
-        // Intersection Observer for counter animation
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach(entry => {
-            if (entry.isIntersecting) {
-              const counter = entry.target.querySelector('.animated-counter');
-              if (counter && !counter.classList.contains('animated')) {
-                counter.classList.add('animated');
-                setTimeout(() => animateCounter(counter), 500);
-              }
-            }
-          });
-        }, { threshold: 0.5 });
-
-        counters.forEach(counter => {
-          observer.observe(counter.closest('.korean-metric'));
-        });
-      }
-    }
-
-    // Simple fallback animation system
-    function initSimpleAnimations() {
-      // Animate counters
-      const counters = document.querySelectorAll('.animated-counter');
-      counters.forEach(counter => {
-        const target = parseInt(counter.getAttribute('data-target'));
-        let current = 0;
-        const increment = target / 60; // 1 second animation
-
-        const timer = setInterval(() => {
-          current += increment;
-          if (current >= target) {
-            counter.textContent = target;
-            clearInterval(timer);
-          } else {
-            counter.textContent = Math.floor(current);
-          }
-        }, 16);
-      });
-
-      // Add hover effects to bubbles
-      const bubbles = document.querySelectorAll('.category-bubble');
-      bubbles.forEach(bubble => {
-        bubble.addEventListener('mouseenter', function() {
-          this.style.transform = 'scale(1.1)';
-          this.style.transition = 'transform 0.3s ease';
-        });
-
-        bubble.addEventListener('mouseleave', function() {
-          this.style.transform = 'scale(1)';
-        });
-      });
-    }
-
-    // Initialize animations when slide becomes active
-    window.ws.el.addEventListener('ws:slide-change', function(event) {
-      const currentSlide = event.detail.slide;
-      if (currentSlide.querySelector('.standards-visualization')) {
-        setTimeout(() => {
-          // Try advanced animations first, fallback to simple ones
-          try {
-            new StandardsAnimationController();
-          } catch(e) {
-            console.log('Using fallback animations');
-            initSimpleAnimations();
-          }
-        }, 300);
-      }
-    });
-
-    // Also initialize on page load
-    document.addEventListener('DOMContentLoaded', function() {
-      setTimeout(() => {
-        const visualization = document.querySelector('.standards-visualization');
-        if (visualization) {
-          try {
-            new StandardsAnimationController();
-          } catch(e) {
-            console.log('Using fallback animations on load');
-            initSimpleAnimations();
-          }
-        }
-      }, 1000);
-    });
-
-  </script>
-
-  <!-- Export Controls -->
-  <div style="position: fixed; top: 1rem; right: 1rem; z-index: 1000; background: white; padding: 0.5rem; border-radius: 4px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-    <button onclick="exportToPDF()" style="margin: 0.25rem; padding: 0.5rem 1rem; background: var(--mckinsey-blue); color: white; border: none; border-radius: 4px; cursor: pointer;">PDF</button>
-  </div>
-
-</body>
-</html>
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABGIAAANVCAYAAAAgCIwmAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAuIwAALiMBeKU/dgAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAACAASURBVHic7N0JdFT1+Qfw77xJJpksJCEQCAmELWwJ+76DyL6JaEVFrVo9tVpta7V6bO1pbWut51Q92lZbrbW11VpbQVFBUVQWZV9kXyQsAYGEJWwJCQnZl3n3/zOZTJZJJsnM3Hszk+/nHCEzycy998578813Jvd5j8VqtVqJiIiIiIiIiIg0ZzS6AiIiIiIiIiIiihfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiItIJO2KIiIiIiIiIiIh0wo4YIiIiIiIiIiIinbAjhoiIiIiIiIiISCfsiCEiIiIiIiIiIt
