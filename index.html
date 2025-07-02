@@ -1,11 +1,188 @@
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="0; url=carbon_market_trends_2024_2025_standalone.html">
-    <title>Redirecting to CDP Carbon Market Presentation</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carbon Market CDP - Research & Analysis Platform</title>
+    <meta name="description" content="CDP 설문 트렌드 분석 및 탄소시장 동향 연구 플랫폼">
+    
+    <style>
+        :root {
+            --korean-navy: #2C3E50;
+            --korean-light-gray: #F8F9FA;
+            --korean-accent: #4A90E2;
+            --korean-border: #E1E5E9;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: var(--korean-light-gray);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .header {
+            background: var(--korean-navy);
+            color: white;
+            padding: 3rem 0;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .header h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .header p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+        
+        .presentation-card {
+            background: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            margin-bottom: 2rem;
+            border-left: 4px solid var(--korean-accent);
+        }
+        
+        .presentation-card h2 {
+            color: var(--korean-navy);
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+        }
+        
+        .presentation-card p {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+        
+        .launch-btn {
+            display: inline-block;
+            background: var(--korean-accent);
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .launch-btn:hover {
+            background: #357abd;
+            transform: translateY(-2px);
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+        }
+        
+        .stat-item {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 6px;
+            text-align: center;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--korean-accent);
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 0.9rem;
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 2rem 0;
+            color: #666;
+            border-top: 1px solid var(--korean-border);
+            margin-top: 3rem;
+        }
+        
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .container {
+                padding: 1rem;
+            }
+        }
+    </style>
 </head>
 <body>
-    <p>If you are not automatically redirected, <a href="carbon_market_trends_2024_2025_standalone.html">click here</a>.</p>
+    <div class="header">
+        <div class="container">
+            <h1>Carbon Market CDP</h1>
+            <p>CDP 설문 트렌드 분석 및 탄소시장 동향 연구 플랫폼</p>
+        </div>
+    </div>
+    
+    <div class="container">
+        <div class="presentation-card">
+            <h2>🌍 탄소시장 트렌드 2024-2025</h2>
+            <p>CDP 설문조사 변경사항을 통해 살펴보는 글로벌 탄소시장의 최신 동향과 기업 대응 전략을 분석한 종합 프레젠테이션입니다.</p>
+            
+            <div class="stats">
+                <div class="stat-item">
+                    <div class="stat-number">22</div>
+                    <div class="stat-label">총 슬라이드</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">6</div>
+                    <div class="stat-label">주요 카테고리</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">137</div>
+                    <div class="stat-label">탄소 스탠다드</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">한국어 지원</div>
+                </div>
+            </div>
+            
+            <a href="carbon_market_trends_2024_2025_standalone.html" class="launch-btn">
+                🚀 프레젠테이션 시작하기
+            </a>
+        </div>
+        
+        <div class="footer">
+            <p>© 2024-2025 Carbon Market CDP Research Platform | 
+               <strong>Last Updated:</strong> <span id="lastUpdate"></span>
+            </p>
+        </div>
+    </div>
+    
+    <script>
+        // Auto-update last modified date
+        document.getElementById('lastUpdate').textContent = new Date().toLocaleDateString('ko-KR');
+        
+        // Simple analytics placeholder
+        console.log('Carbon Market CDP Platform - Presentation Access Logged');
+    </script>
 </body>
 </html>

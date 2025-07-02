@@ -1,0 +1,86 @@
+name: Deploy Carbon Market CDP Presentation to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        
+      - name: Setup Pages
+        uses: actions/configure-pages@v4
+        
+      - name: Prepare deployment files
+        run: |
+          # Create deployment directory
+          mkdir -p _site
+          
+          # Copy main presentation file as index.html for GitHub Pages
+          cp carbon_market_trends_2024_2025_standalone.html _site/index.html
+          
+          # Copy any additional assets
+          if [ -f "icvcm-elets-terminology-comparison.jpg" ]; then
+            cp icvcm-elets-terminology-comparison.jpg _site/
+          fi
+          
+          # Copy images directory if it exists
+          if [ -d "images" ]; then
+            cp -r images _site/
+          fi
+          
+          # Copy .nojekyll to ensure GitHub Pages doesn't process Jekyll
+          cp .nojekyll _site/
+          
+          # Create a simple redirect page for legacy URLs
+          cat > _site/presentation.html << 'EOF'
+          <!DOCTYPE html>
+          <html>
+          <head>
+            <meta http-equiv="refresh" content="0; url=./">
+            <title>Redirecting...</title>
+          </head>
+          <body>
+            <p>Redirecting to <a href="./">Carbon Market CDP Presentation</a>...</p>
+          </body>
+          </html>
+          EOF
+          
+          echo "✅ Deployment files prepared"
+          ls -la _site/
+        
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+        
+      - name: Deployment Success Notification
+        run: |
+          echo "🚀 Deployment successful!"
+          echo "📊 Presentation URL: ${{ steps.deployment.outputs.page_url }}"
+          echo "⏱️  Deployment completed at: $(date)"
