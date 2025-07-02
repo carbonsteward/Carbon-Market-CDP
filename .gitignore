@@ -1,0 +1,40 @@
+# Confidential Documents - Do NOT commit
+*.pdf
+*.docx
+*.xlsx
+*.pptx
+*.csv
+*.doc
+*.xls
+*.ppt
+
+# Backup directories
+backup/
+archives/
+
+# System files
+.DS_Store
+*.log
+*.tmp
+
+# Sensitive data patterns
+*confidential*
+*private*
+*internal*
+*secret*
+*sensitive*
+
+# Specific files to exclude
+ChatPDD*
+Corporate*
+CDP Retirement*
+Accounting for Carbon Credit*
+
+# Development files
+new.html
+*.sh
+multi-image-workflow.sh
+save-*.sh
+simple-image-helper.sh
+slide-manager.sh
+deploy-presentation.sh
