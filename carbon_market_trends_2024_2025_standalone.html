@@ -904,38 +904,7 @@
         </div>
       </section>
 
-      <!-- Slide 7: Baseline & Credit의 구분 -->
-      <section>
-        <div class="wrap korean-font alignleft">
-          <div class="korean-section-header">
-            <h2>Baseline & Credit의 구분</h2>
-          </div>
-
-          <div class="korean-grid three-col">
-            <div class="korean-card">
-              <h3>Removal & Mitigation & "Avoidance"</h3>
-              <div class="korean-list">
-                <li><strong>Removal:</strong> 대기 중 이산화탄소 직접 제거</li>
-                <li><strong>Mitigation:</strong> 배출 감소 또는 방지</li>
-                <li><strong>Avoidance:</strong> 배출 회피 (정의 논란)</li>
-              </div>
-            </div>
-            <div class="korean-card">
-              <h3>국가별 입장</h3>
-              <div class="korean-list">
-                <!-- Content to be added here -->
-              </div>
-            </div>
-            <div class="korean-card">
-              <h3>스탠다드별 입장</h3>
-              <div class="korean-list">
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- Slide 8: 이중계상 -->
+      <!-- Slide 7: 이중계상 -->
       <section>
         <div class="wrap korean-font alignleft">
           <div class="korean-section-header">
@@ -977,7 +946,7 @@
         </div>
       </section>
 
-      <!-- Slide 9: 탄소크레딧의 법적 지위 -->
+      <!-- Slide 8: 탄소크레딧의 법적 지위 -->
       <section>
         <div class="wrap korean-font alignleft">
           <div class="korean-section-header">
@@ -1023,7 +992,7 @@
         </div>
       </section>
 
-      <!-- Slide 10: 탄소크레딧 거래 루트 다양화 -->
+      <!-- Slide 9: 탄소크레딧 거래 루트 다양화 -->
       <section>
         <div class="wrap korean-font alignleft">
           <div class="korean-section-header">
@@ -1199,7 +1168,7 @@
         </div>
       </section>
 
-      <!-- Slide 11: 결론 -->
+      <!-- Slide 10: 결론 -->
       <section>
         <div class="wrap korean-font alignleft">
           <div class="korean-section-header">
@@ -1210,7 +1179,15 @@
             <div class="korean-card">
               <h3>탄소시장 생태계 구조도</h3>
               <div style="background: white; padding: 2rem; border-radius: 8px; margin: 1rem 0; border: 1px solid #e1e5e9;">
-                <div class="mermaid" style="text-align: center;">
+                <!-- Fallback image for Mermaid diagram -->
+                <div id="mermaid-fallback" style="text-align: center; display: none;">
+                  <img src="carbon-market-ecosystem.png" alt="탄소시장 생태계 구조도" style="max-width: 100%; height: auto;">
+                  <p style="font-size: 0.9rem; color: #666; margin-top: 1rem;">
+                    Mermaid diagram rendered as static image for compatibility.
+                  </p>
+                </div>
+                
+                <div class="mermaid" id="mermaid-diagram" style="text-align: center;">
 graph TD
     %% Demand Side - Domestic/Regional
     subgraph DR["🏠 Domestic / Regional"]
@@ -1307,6 +1284,37 @@ graph TD
         </div>
       </section>
 
+      <!-- Slide 11: Baseline & Credit의 구분 -->
+      <section>
+        <div class="wrap korean-font alignleft">
+          <div class="korean-section-header">
+            <h2>Baseline & Credit의 구분</h2>
+          </div>
+
+          <div class="korean-grid three-col">
+            <div class="korean-card">
+              <h3>Removal & Mitigation & "Avoidance"</h3>
+              <div class="korean-list">
+                <li><strong>Removal:</strong> 대기 중 이산화탄소 직접 제거</li>
+                <li><strong>Mitigation:</strong> 배출 감소 또는 방지</li>
+                <li><strong>Avoidance:</strong> 배출 회피 (정의 논란)</li>
+              </div>
+            </div>
+            <div class="korean-card">
+              <h3>국가별 입장</h3>
+              <div class="korean-list">
+                <!-- Content to be added here -->
+              </div>
+            </div>
+            <div class="korean-card">
+              <h3>스탠다드별 입장</h3>
+              <div class="korean-list">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
     </article>
   </main>
 
@@ -1334,17 +1342,49 @@ graph TD
     document.addEventListener('DOMContentLoaded', function() {
       window.ws = new WebSlides();
       
-      // Initialize Mermaid
-      mermaid.initialize({ 
-        startOnLoad: true,
-        theme: 'default',
-        themeVariables: {
-          primaryColor: '#74b9ff',
-          primaryTextColor: '#2C3E50',
-          primaryBorderColor: '#2C3E50',
-          lineColor: '#2C3E50'
+      // Initialize Mermaid with error handling
+      try {
+        mermaid.initialize({ 
+          startOnLoad: true,
+          theme: 'default',
+          themeVariables: {
+            primaryColor: '#74b9ff',
+            primaryTextColor: '#2C3E50',
+            primaryBorderColor: '#2C3E50',
+            lineColor: '#2C3E50'
+          }
+        });
+        
+        // Check if Mermaid rendered successfully after a delay
+        setTimeout(function() {
+          const mermaidDiagram = document.getElementById('mermaid-diagram');
+          const mermaidFallback = document.getElementById('mermaid-fallback');
+          
+          if (mermaidDiagram && mermaidFallback) {
+            // Check if Mermaid content is rendered
+            const hasRenderedContent = mermaidDiagram.querySelector('svg') || 
+                                     mermaidDiagram.innerHTML.includes('<svg');
+            
+            if (!hasRenderedContent) {
+              // Show fallback image if Mermaid failed to render
+              mermaidDiagram.style.display = 'none';
+              mermaidFallback.style.display = 'block';
+              console.log('Mermaid failed to render, showing fallback image');
+            }
+          }
+        }, 3000);
+        
+      } catch (error) {
+        console.error('Mermaid initialization failed:', error);
+        // Show fallback immediately if initialization fails
+        const mermaidDiagram = document.getElementById('mermaid-diagram');
+        const mermaidFallback = document.getElementById('mermaid-fallback');
+        
+        if (mermaidDiagram && mermaidFallback) {
+          mermaidDiagram.style.display = 'none';
+          mermaidFallback.style.display = 'block';
         }
-      });
+      }
 
       // Add progress tracking
       setInterval(updateProgress, 100);
