@@ -1,0 +1,40 @@
+CDP 질문 변경으로 본 마켓 트렌드 
+- 용어의 스탠다드화 
+    - 예) Retirement vs Cancellation 
+        - 2022: C11.2: "Has your organization originated or purchased any project-based carbon credits within the reporting period?"
+        - 2023: C11.2: "Has your organization canceled any project-based carbon credits within the reporting year?"
+        - 2024: 7.79: "Has your organization canceled any project-based carbon credits within the reporting year?"
+        - 2025: 7.79: "Has your organization retired any project-based carbon credits within the reporting year?"
+    - 예) 프로젝트 기반 크레딧 vs Sectoral 크레딧
+        - cf) sectoral 크레딧은 기업용으로 사용 가능한가? 
+- 탄소 스탠다드의 다변화, 다각화
+    - NGO, forprofit, Foundation, 산업협회, 국가, 지방정부, IPLC
+    - 거버넌스, 이해상충 문제 
+       - Verra case study
+       - ECRF case study
+    - 레지스트리 요건 강화
+        - IT & TI 
+- 리스크의 다각화 
+    - 기존의 경제성, 발급과정 에서 (탄소시장 직접적인 이해관계자)
+    - 현재 Social, Environmental Safeguards 까지 (이해관계자 범위 확대)
+- 리스크 최소화를 위한 국제 기준 채택
+    - Article 6
+    - SBTi Net‑Zero
+    - ICVCM CCP
+- 각 Framework를 준수해도 리스크는 존재 
+    - Article 6 예: 
+    - SBTi Net‑Zero 예: 
+    - ICVCM CCP 예:
+    - cf) 탄소 Rating 
+- Baseline & Credit의 구분
+    - Removal & Mitigation & "Avoidance"
+    - 국가별 입장
+    - 스탠다드별 입장 
+- 이중계상
+    - 이중계상의 종류 
+    - 국가단위의, 파리협정에서의 이중계상 방지를 위한 최소한의 요건: 정보공개
+    - 국가별 이중계상에 대한 입장 차이
+- 기타 트렌드
+    - Scope 3 credit의 개념
+    - 탄소크레딧의 법적 지위 
+
