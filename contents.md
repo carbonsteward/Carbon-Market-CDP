@@ -15,7 +15,7 @@ CDP 질문 변경으로 본 마켓 트렌드
     - 레지스트리 요건 강화
         - IT & TI 
 - 리스크의 다각화 
-    - 기존의 경제성, 발급과정 에서 (탄소시장 직접적인 이해관계자)
+    - 기존의 경제성, 발급과정 에서 (탄소시장 직접적인 이해관계자)
     - 현재 Social, Environmental Safeguards 까지 (이해관계자 범위 확대)
 - 리스크 최소화를 위한 국제 기준 채택
     - Article 6
@@ -26,9 +26,12 @@ CDP 질문 변경으로 본 마켓 트렌드
     - SBTi Net‑Zero 예: 
     - ICVCM CCP 예:
     - cf) 탄소 Rating 
+- 시장참여자 확대
+    - 현존하는 가이드라인: IOSCO, G20, 개별정부, 
+    - 이해관계자 Map
 - Baseline & Credit의 구분
     - Removal & Mitigation & "Avoidance"
-    - 국가별 입장
+    - 국가별 입장: 
     - 스탠다드별 입장 
 - 이중계상
     - 이중계상의 종류 
@@ -37,4 +40,3 @@ CDP 질문 변경으로 본 마켓 트렌드
 - 기타 트렌드
     - Scope 3 credit의 개념
     - 탄소크레딧의 법적 지위 
-
