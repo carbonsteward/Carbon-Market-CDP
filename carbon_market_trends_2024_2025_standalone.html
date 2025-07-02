@@ -680,30 +680,43 @@
     /* 16:9 Aspect Ratio Optimization for Standard PowerPoint Slides */
     section {
       min-height: 100vh;
+      max-height: 100vh;
       display: flex;
       align-items: flex-start;
       justify-content: center;
       box-sizing: border-box;
       padding: 0;
+      overflow: hidden;
+      position: relative;
     }
 
     .wrap {
       width: 100%;
       padding: 2rem 4rem;
       box-sizing: border-box;
-      min-height: 100vh;
+      height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: flex-start;
+      overflow-y: auto;
+      scroll-behavior: smooth;
     }
 
     /* Optimize content spacing for 16:9 ratio */
     .korean-section-header {
       margin-bottom: 2rem;
+      position: sticky;
+      top: 0;
+      background: white;
+      z-index: 10;
+      padding: 1rem 0;
+      border-bottom: 2px solid var(--korean-navy);
     }
 
     .korean-section-header h2 {
-      margin-bottom: 0.5rem;
+      margin-bottom: 0;
+      font-size: 3.5rem;
+      color: var(--korean-navy);
     }
 
     .korean-grid {
@@ -1302,6 +1315,21 @@
     document.addEventListener('DOMContentLoaded', function() {
       window.ws = new WebSlides();
       
+      // Fix scroll position on slide change
+      window.ws.el.addEventListener('ws:slide-change', function() {
+        // Reset scroll position to top for each slide
+        setTimeout(() => {
+          const currentSlide = document.querySelector('.current .wrap');
+          if (currentSlide) {
+            currentSlide.scrollTop = 0;
+          }
+          // Also ensure the section itself is properly positioned
+          const currentSection = document.querySelector('.current');
+          if (currentSection) {
+            currentSection.scrollIntoView({ behavior: 'instant', block: 'start' });
+          }
+        }, 10);
+      });
 
       // Add progress tracking
       setInterval(updateProgress, 100);
