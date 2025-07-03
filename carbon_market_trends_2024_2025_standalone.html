@@ -18,6 +18,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  
+  <!-- Mermaid for Diagrams -->
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10.6.1/dist/mermaid.min.js"></script>
 
   <style>
     /* Korean Corporate Presentation CSS - Clean Minimalist Style */
@@ -1454,15 +1457,41 @@
               </div>
             </div>
 
-            <!-- Right Side: Diagram Placeholder -->
-            <div class="korean-card" style="padding: 2rem; border: 2px dashed var(--korean-border); background: var(--korean-light-gray);">
-              <h3 style="font-size: 1.6rem; margin-bottom: 1.5rem; text-align: center; color: var(--korean-dark-gray);">다이어그램 영역</h3>
-              <div style="min-height: 400px; display: flex; align-items: center; justify-content: center; background: var(--korean-white); border-radius: 8px; border: 1px solid var(--korean-border);">
-                <div style="text-align: center; color: var(--korean-dark-gray);">
-                  <p style="font-size: 1.2rem; margin-bottom: 0.5rem;">📊 다이어그램 첨부 예정</p>
-                  <p style="font-size: 1rem;">Registry 간 전환 프로세스 시각화</p>
+            <!-- Right Side: Registry Transfer Process Diagram -->
+            <div class="korean-card" style="padding: 2rem; background: var(--korean-white);">
+              <h3 style="font-size: 1.6rem; margin-bottom: 1.5rem; text-align: center; color: var(--korean-navy);">Registry 간 전환 프로세스</h3>
+              <div style="background: var(--korean-white); border-radius: 8px; border: 1px solid var(--korean-border); padding: 1rem; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                <div class="mermaid" style="text-align: center;">
+flowchart LR
+    subgraph A[탄소 스탠다드 A]
+        RA[레지스트리 A]
+    end
+
+    subgraph B[탄소 스탠다드 B]
+        RB[레지스트리 B]
+    end
+
+    RA --> RegA[등록]
+    RB --> RegB[등록]
+
+    RegA --> ActiveA[활성 배출권]
+    RegB --> ActiveB[활성 배출권]
+
+    ActiveA --> OffA[상쇄]
+    ActiveA -.->|취소 후 재등록| RegB
+
+    OffA --> RetiredA[상쇄된 배출권]
+
+    ActiveB --> CancelB[취소]
+    CancelB -.->|이동 가능| RegA
+
+    style RA fill:#d0f0c0,stroke:#333,stroke-width:1px
+    style RB fill:#c0e0f0,stroke:#333,stroke-width:1px
                 </div>
               </div>
+              <p style="font-size: 0.9rem; color: var(--korean-dark-gray); text-align: center; margin-top: 1rem; font-style: italic;">
+                탄소 레지스트리 간 크레딧 전환 및 취소 프로세스 흐름도
+              </p>
             </div>
           </div>
         </div>
@@ -1538,25 +1567,108 @@
             <div class="subtitle">########</div>
           </div>
 
-          <div class="korean-grid three-col">
+          <!-- Enhanced Three-Column Layout for Baseline Classification -->
+          <div class="korean-grid three-col" style="margin-bottom: 2rem;">
+            <!-- Intensity-based Baseline -->
             <div class="korean-card">
-              <h3>Removal & Mitigation & "Avoidance"</h3>
-              <div class="korean-list">
-                <li><strong>Removal:</strong> 대기 중 이산화탄소 직접 제거</li>
-                <li><strong>Mitigation:</strong> 배출 감소 또는 방지</li>
-                <li><strong>Avoidance:</strong> 배출 회피 (정의 논란)</li>
+              <h3 style="color: var(--korean-navy); font-size: 1.4rem;">Intensity-based Baseline</h3>
+              <div class="korean-list" style="font-size: 1rem;">
+                <li><strong>목표:</strong> 탄소 집약도 감축</li>
+                <li><strong>기준:</strong> 허용 가능한 집약도 수준 설정</li>
+                <li><strong>예시:</strong> Alberta TIER Emission Performance Certificates</li>
               </div>
             </div>
+
+            <!-- Reduction-based Baseline -->
             <div class="korean-card">
-              <h3>국가별 입장</h3>
-              <div class="korean-list">
-                <li>[콘텐츠 추가 예정]</li>
+              <h3 style="color: var(--korean-navy); font-size: 1.4rem;">Reduction-based Baseline</h3>
+              <div class="korean-list" style="font-size: 1rem;">
+                <li><strong>목표:</strong> 절대 배출량 감축</li>
+                <li><strong>기준:</strong> 가상 시나리오 기준</li>
+                <li><strong>예시:</strong> Avoided Deforestation, Improved Forest Management</li>
               </div>
             </div>
+
+            <!-- Removal-based Baseline -->
             <div class="korean-card">
-              <h3>스탠다드별 입장</h3>
-              <div class="korean-list">
-                <li>[콘텐츠 추가 예정]</li>
+              <h3 style="color: var(--korean-navy); font-size: 1.4rem;">Removal-based Baseline</h3>
+              <div class="korean-list" style="font-size: 1rem;">
+                <li><strong>목표:</strong> 탄소 제거량 증가</li>
+                <li><strong>기준:</strong> 제로 베이스라인 적용</li>
+                <li><strong>예시:</strong> Afforestation, Direct Air Capture</li>
+              </div>
+            </div>
+          </div>
+
+          <!-- Policy Issues Section -->
+          <div class="korean-grid one-col">
+            <div class="korean-card" style="background: linear-gradient(135deg, #FFF9E6 0%, #FFFBF0 100%); border-left: 4px solid var(--korean-warning);">
+              <h3 style="color: var(--korean-navy); font-size: 1.6rem; margin-bottom: 1.5rem;">🚨 주요 정책 이슈</h3>
+              
+              <!-- Reduction vs Avoidance 논란 -->
+              <div style="margin-bottom: 2rem;">
+                <h4 style="color: var(--korean-navy); font-size: 1.3rem; margin-bottom: 1rem;">Reduction vs Avoidance 구분 논란</h4>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                  <div>
+                    <h5 style="color: var(--korean-danger); font-size: 1.1rem; margin-bottom: 0.5rem;">Verra 반대 입장</h5>
+                    <ul style="font-size: 0.95rem; line-height: 1.4; margin: 0; padding-left: 1rem;">
+                      <li>두 용어 분리에 대한 강한 반발</li>
+                      <li><strong>REDD+에 대한 직접적인 공격</strong>으로 인식</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h5 style="color: var(--korean-success); font-size: 1.1rem; margin-bottom: 0.5rem;">GS: 감축량 vs 회피량 구분필요 입장</h5>
+                    <ul style="font-size: 0.95rem; line-height: 1.4; margin: 0; padding-left: 1rem;">
+                      <li>회피(Avoidance)는 미래의 베이스라인을 가정</li>
+                      <li>객관성 확보 어려움</li>
+                      <li><strong>REDD+ 포함한 회피 크레딧은 취급하지 않음</strong></li>
+                    </ul>
+                  </div>
+                </div>
+                <p style="font-size: 0.9rem; color: var(--korean-dark-gray); margin-top: 0.8rem; font-style: italic;">
+                  **참고: SBTi는 3가지로 구분함
+                </p>
+              </div>
+
+              <!-- Article 6.2 ITMO 적용 이슈 -->
+              <div style="margin-bottom: 2rem;">
+                <h4 style="color: var(--korean-navy); font-size: 1.3rem; margin-bottom: 1rem;">Article 6.2 ITMO 적용 이슈</h4>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                  <div>
+                    <h5 style="color: var(--korean-warning); font-size: 1.1rem; margin-bottom: 0.5rem;">CMA(UNFCCC)의 유보적 입장</h5>
+                    <ul style="font-size: 0.95rem; line-height: 1.4; margin: 0; padding-left: 1rem;">
+                      <li>배출 회피량의 ITMO 포함 여부 결정 미룸</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h5 style="color: var(--korean-danger); font-size: 1.1rem; margin-bottom: 0.5rem;">국가 간 합의 도출의 어려움</h5>
+                    <ul style="font-size: 0.95rem; line-height: 1.4; margin: 0; padding-left: 1rem;">
+                      <li>개발도상국 vs 선진국 간 이해관계 상충</li>
+                      <li>탄소 시장 무결성과 접근성 균형 문제</li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+
+              <!-- 국가별 입장 차이 -->
+              <div>
+                <h4 style="color: var(--korean-navy); font-size: 1.3rem; margin-bottom: 1rem;">국가별 입장 차이</h4>
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem;">
+                  <div>
+                    <h5 style="color: var(--korean-success); font-size: 1.1rem; margin-bottom: 0.5rem;">필리핀의 적극적 옹호</h5>
+                    <ul style="font-size: 0.95rem; line-height: 1.4; margin: 0; padding-left: 1rem;">
+                      <li>회피 방법론 인정을 위한 지속적 로비</li>
+                      <li>산림 보전 프로젝트 확대 의지</li>
+                    </ul>
+                  </div>
+                  <div>
+                    <h5 style="color: var(--korean-warning); font-size: 1.1rem; margin-bottom: 0.5rem;">EU, 미국 등의 신중한 접근</h5>
+                    <ul style="font-size: 0.95rem; line-height: 1.4; margin: 0; padding-left: 1rem;">
+                      <li>환경 무결성 우선 원칙</li>
+                      <li>추가성 입증 강화 요구</li>
+                    </ul>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
@@ -1670,6 +1782,43 @@
               <line x1="500" y1="220" x2="550" y2="170" stroke="var(--korean-navy)" stroke-width="2" marker-end="url(#arrowhead)"/>
               <line x1="500" y1="280" x2="550" y2="330" stroke="var(--korean-navy)" stroke-width="2" marker-end="url(#arrowhead)"/>
             </svg>
+          </div>
+
+          <!-- Suriname REDD+ Case Study Section -->
+          <div class="korean-grid one-col">
+            <div class="korean-card" style="background: linear-gradient(135deg, #E8F5E8 0%, #F0FFF0 100%); border-left: 4px solid var(--korean-success);">
+              <h3 style="color: var(--korean-navy); font-size: 1.6rem; margin-bottom: 1.5rem;">🌳 수리남 REDD+ 사례</h3>
+              
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem;">
+                <!-- Left Column: Mechanism Details -->
+                <div>
+                  <h4 style="color: var(--korean-success); font-size: 1.3rem; margin-bottom: 1rem;">메커니즘 구조</h4>
+                  <div class="korean-list" style="font-size: 1.1rem; line-height: 1.6;">
+                    <li><strong>5조 메커니즘(REDD) + 6.2 메커니즘 활용</strong></li>
+                    <li>프로젝트 기반이 아닌 국가가 베이스라인인 <strong>"Nested approach"</strong></li>
+                    <li>5조는 크레딧 개념이 없지만, 6.2조의 폭넓은 해석을 활용</li>
+                  </div>
+                </div>
+
+                <!-- Right Column: Key Features -->
+                <div>
+                  <h4 style="color: var(--korean-success); font-size: 1.3rem; margin-bottom: 1rem;">핵심 특징</h4>
+                  <div class="korean-list" style="font-size: 1.1rem; line-height: 1.6;">
+                    <li><strong>국가 단위 베이스라인</strong> 설정</li>
+                    <li><strong>Article 5 + Article 6.2</strong> 결합 방식</li>
+                    <li><strong>대규모 ITMO 발행</strong> 가능성</li>
+                    <li><strong>새로운 공급 통로</strong> 모델 제시</li>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Bottom Note -->
+              <div style="margin-top: 1.5rem; padding: 1rem; background: rgba(255,255,255,0.7); border-radius: 6px; border: 1px dashed var(--korean-success);">
+                <p style="font-size: 0.95rem; color: var(--korean-dark-gray); margin: 0; font-style: italic; text-align: center;">
+                  <strong>주목:</strong> Article 5(REDD+)와 Article 6.2(국제협력) 메커니즘의 혁신적 결합 사례
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -1918,10 +2067,15 @@
 
           <!-- Image placeholder for User Image #3 -->
           <div class="korean-card" style="margin-bottom: 2rem; padding: 1.5rem; border: 2px solid var(--korean-warning); background: var(--korean-white);">
-            <h4 style="color: var(--korean-navy); margin-bottom: 1rem;">⚖️ 거버넌스 이슈 및 레지스트리 요건 (Image #3)</h4>
-            <p style="color: var(--korean-dark-gray); text-align: center; padding: 2rem; background: var(--korean-light-gray); border-radius: 4px;">
-              거버넌스, 이해상충 문제 | 레지스트리 요건 강화<br>
-              IT & TI (Information Transparency & Technology Infrastructure)
+            <h4 style="color: var(--korean-navy); margin-bottom: 1rem;">⚖️ 거버넌스 이슈 및 레지스트리 요건</h4>
+            <div style="background: var(--korean-white); border-radius: 8px; border: 1px solid var(--korean-border); overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+              <img src="world-bank-carbon-markets-infrastructure.jpg" 
+                   alt="World Bank 탄소시장 인프라 로드맵 - 안전하고 효율적이며 상호운용 가능한 탄소시장 인프라를 위한 로드맵" 
+                   style="width: 100%; height: auto; display: block;"
+                   loading="lazy">
+            </div>
+            <p style="font-size: 0.9rem; color: var(--korean-dark-gray); text-align: center; margin-top: 1rem; font-style: italic;">
+              출처: World Bank Group - Carbon Markets Infrastructure Working Group
             </p>
           </div>
 
@@ -2512,6 +2666,20 @@
       });
 
       console.log('McKinsey-style presentation loaded successfully');
+      
+      // Initialize Mermaid diagrams
+      mermaid.initialize({
+        startOnLoad: true,
+        theme: 'default',
+        themeVariables: {
+          primaryColor: '#2C3E50',
+          primaryTextColor: '#fff',
+          primaryBorderColor: '#34495e',
+          lineColor: '#34495e',
+          secondaryColor: '#d0f0c0',
+          tertiaryColor: '#c0e0f0'
+        }
+      });
     });
 
 
