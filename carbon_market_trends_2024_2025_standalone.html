@@ -1073,116 +1073,153 @@
             <div class="subtitle">탄소시장의 기본 구조와 주요 메커니즘</div>
           </div>
 
-          <!-- Carbon Market Structure Diagram - Clean Technical Version -->
-          <div style="text-align: center; margin: 2rem 0;">
-            <svg width="950" height="580" viewBox="0 0 950 580" style="max-width: 100%; height: auto; border: 1px solid var(--korean-border); background: var(--korean-white);">
+          <!-- Main Content Section: 6:4 vertical layout -->
+          <div style="display: grid; grid-template-columns: 6fr 4fr; gap: 2rem; margin: 2rem 0;">
+            
+            <!-- Left Column (60%): Carbon Market Structure Diagram -->
+            <div style="text-align: center;">
+              <svg width="950" height="580" viewBox="0 0 950 580" style="max-width: 100%; height: auto; border: 1px solid var(--korean-border); background: var(--korean-white);">
+                
+                <!-- Title -->
+                <text x="475" y="30" text-anchor="middle" font-size="16" font-weight="bold" fill="var(--korean-black)">Carbon Market Framework Overview</text>
+                
+                <!-- Left Section: Demand Frameworks -->
+                <g>
+                  <!-- Main Container -->
+                  <rect x="50" y="60" width="250" height="480" fill="none" stroke="var(--korean-border)" stroke-width="1" stroke-dasharray="5,5"/>
+                  <text x="175" y="80" text-anchor="middle" font-size="14" font-weight="bold" fill="var(--korean-black)">Demand Frameworks</text>
+                  
+                  <!-- Domestic/Regional Section -->
+                  <rect x="70" y="100" width="210" height="200" fill="none" stroke="var(--korean-navy)" stroke-width="1" stroke-dasharray="3,3"/>
+                  <text x="175" y="120" text-anchor="middle" font-size="12" font-weight="bold" fill="var(--korean-navy)">Domestic / Regional</text>
+                  
+                  <!-- Domestic boxes -->
+                  <rect x="90" y="140" width="170" height="40" fill="var(--korean-light-gray)" stroke="var(--korean-border)" stroke-width="1"/>
+                  <text x="175" y="163" text-anchor="middle" font-size="11" fill="var(--korean-black)">NDC Directly</text>
+                  
+                  <rect x="90" y="190" width="170" height="40" fill="var(--korean-light-gray)" stroke="var(--korean-border)" stroke-width="1"/>
+                  <text x="175" y="213" text-anchor="middle" font-size="11" fill="var(--korean-black)">Carbon Tax</text>
+                  
+                  <rect x="90" y="240" width="170" height="40" fill="var(--korean-light-gray)" stroke="var(--korean-border)" stroke-width="1"/>
+                  <text x="175" y="263" text-anchor="middle" font-size="11" fill="var(--korean-black)">Cap &amp; Trade</text>
+                  
+                  <!-- International Section -->
+                  <rect x="70" y="320" width="210" height="200" fill="none" stroke="var(--korean-navy)" stroke-width="1" stroke-dasharray="3,3"/>
+                  <text x="175" y="340" text-anchor="middle" font-size="12" font-weight="bold" fill="var(--korean-navy)">International</text>
+                  
+                  <!-- International boxes -->
+                  <rect x="90" y="360" width="170" height="50" fill="var(--korean-light-gray)" stroke="var(--korean-border)" stroke-width="1"/>
+                  <text x="175" y="380" text-anchor="middle" font-size="11" fill="var(--korean-black)">Net Zero Corporate</text>
+                  <text x="175" y="395" text-anchor="middle" font-size="11" fill="var(--korean-black)">Commitments</text>
+                  
+                  <rect x="90" y="420" width="170" height="40" fill="var(--korean-light-gray)" stroke="var(--korean-border)" stroke-width="1"/>
+                  <text x="175" y="435" text-anchor="middle" font-size="11" fill="var(--korean-black)">Individual-level</text>
+                  <text x="175" y="450" text-anchor="middle" font-size="11" fill="var(--korean-black)">Offsetting</text>
+                  
+                  <rect x="90" y="470" width="170" height="40" fill="var(--korean-light-gray)" stroke="var(--korean-border)" stroke-width="1"/>
+                  <text x="175" y="493" text-anchor="middle" font-size="11" fill="var(--korean-black)">CORSIA(ICAO)</text>
+                </g>
+                
+                <!-- Middle Section: Supply Crediting Mechanism -->
+                <g>
+                  <text x="475" y="80" text-anchor="middle" font-size="14" font-weight="bold" fill="var(--korean-black)">Supply Crediting Mechanism</text>
+                  
+                  <!-- Corresponding adjusted -->
+                  <rect x="370" y="200" width="210" height="40" fill="#b3d9ff" stroke="var(--korean-navy)" stroke-width="1"/>
+                  <text x="475" y="223" text-anchor="middle" font-size="11" fill="var(--korean-black)">Corresponding adjusted</text>
+                  
+                  <!-- Non-corresponding adjusted -->
+                  <rect x="370" y="300" width="210" height="40" fill="#b3d9ff" stroke="var(--korean-navy)" stroke-width="1"/>
+                  <text x="475" y="323" text-anchor="middle" font-size="11" fill="var(--korean-black)">Non-corresponding adjusted</text>
+                  
+                  <!-- Supply mechanism boxes -->
+                  <rect x="610" y="110" width="180" height="30" fill="var(--korean-light-gray)" stroke="var(--korean-border)" stroke-width="1"/>
+                  <text x="700" y="128" text-anchor="middle" font-size="11" fill="var(--korean-black)">CDM</text>
+                  
+                  <rect x="610" y="150" width="180" height="45" fill="var(--korean-light-gray)" stroke="var(--korean-border)" stroke-width="1"/>
+                  <text x="700" y="168" text-anchor="middle" font-size="10" fill="var(--korean-black)">Independent International</text>
+                  <text x="700" y="183" text-anchor="middle" font-size="10" fill="var(--korean-black)">Baseline-and-credit</text>
+                  
+                  <rect x="610" y="205" width="180" height="45" fill="var(--korean-light-gray)" stroke="var(--korean-border)" stroke-width="1"/>
+                  <text x="700" y="223" text-anchor="middle" font-size="10" fill="var(--korean-black)">(non compliance) Domestic</text>
+                  <text x="700" y="238" text-anchor="middle" font-size="10" fill="var(--korean-black)">Baseline-and-credit</text>
+                  
+                  <rect x="610" y="260" width="180" height="45" fill="var(--korean-light-gray)" stroke="var(--korean-border)" stroke-width="1"/>
+                  <text x="700" y="278" text-anchor="middle" font-size="10" fill="var(--korean-black)">(compliance) Domestic</text>
+                  <text x="700" y="293" text-anchor="middle" font-size="10" fill="var(--korean-black)">Baseline-and-credit</text>
+                  
+                  <rect x="610" y="315" width="180" height="30" fill="var(--korean-light-gray)" stroke="var(--korean-border)" stroke-width="1"/>
+                  <text x="700" y="333" text-anchor="middle" font-size="11" fill="var(--korean-black)">ITMO (PA 6.2)</text>
+                  
+                  <rect x="610" y="355" width="180" height="30" fill="var(--korean-light-gray)" stroke="var(--korean-border)" stroke-width="1"/>
+                  <text x="700" y="373" text-anchor="middle" font-size="11" fill="var(--korean-black)">PACM (PA 6.4)</text>
+                  
+                  <rect x="610" y="395" width="180" height="30" fill="var(--korean-light-gray)" stroke="var(--korean-border)" stroke-width="1"/>
+                  <text x="700" y="413" text-anchor="middle" font-size="11" fill="var(--korean-black)">UN REDD (PA 5)</text>
+                </g>
+                
+                <!-- Right Section: Methodology -->
+                <g>
+                  <text x="850" y="80" text-anchor="middle" font-size="14" font-weight="bold" fill="var(--korean-black)">Methodology</text>
+                  
+                  <!-- Reduction box -->
+                  <rect x="800" y="110" width="100" height="120" fill="var(--korean-light-gray)" stroke="var(--korean-border)" stroke-width="1"/>
+                  <text x="850" y="175" text-anchor="middle" font-size="12" font-weight="bold" fill="var(--korean-black)">Reduction</text>
+                  
+                  <!-- Removal section -->
+                  <text x="850" y="260" text-anchor="middle" font-size="12" font-weight="bold" fill="var(--korean-black)">Removal</text>
+                  
+                  <!-- Nature based -->
+                  <rect x="800" y="280" width="50" height="60" fill="var(--korean-light-gray)" stroke="var(--korean-border)" stroke-width="1"/>
+                  <text x="825" y="305" text-anchor="middle" font-size="10" fill="var(--korean-black)">Nature</text>
+                  <text x="825" y="318" text-anchor="middle" font-size="10" fill="var(--korean-black)">based</text>
+                  
+                  <!-- Technology based -->
+                  <rect x="860" y="280" width="50" height="60" fill="var(--korean-light-gray)" stroke="var(--korean-border)" stroke-width="1"/>
+                  <text x="885" y="305" text-anchor="middle" font-size="10" fill="var(--korean-black)">Technology</text>
+                  <text x="885" y="318" text-anchor="middle" font-size="10" fill="var(--korean-black)">based</text>
+                  
+                  <!-- REDD+ box -->
+                  <rect x="800" y="360" width="100" height="40" fill="var(--korean-light-gray)" stroke="var(--korean-border)" stroke-width="1"/>
+                  <text x="850" y="383" text-anchor="middle" font-size="11" fill="var(--korean-black)">REDD+</text>
+                  
+                </g>
+                
+              </svg>
+            </div>
+
+            <!-- Right Column (40%): Text Box -->
+            <div class="korean-card" style="background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%); border-left: 4px solid var(--korean-navy); height: fit-content; padding: 2rem;">
+              <h3 style="color: var(--korean-navy); font-size: 1.8rem; margin-bottom: 1.5rem;">📊 탄소시장 프레임워크 핵심 구조</h3>
               
-              <!-- Title -->
-              <text x="475" y="30" text-anchor="middle" font-size="16" font-weight="bold" fill="var(--korean-black)">Carbon Market Framework Overview</text>
-              
-              <!-- Left Section: Demand Frameworks -->
-              <g>
-                <!-- Main Container -->
-                <rect x="50" y="60" width="250" height="480" fill="none" stroke="var(--korean-border)" stroke-width="1" stroke-dasharray="5,5"/>
-                <text x="175" y="80" text-anchor="middle" font-size="14" font-weight="bold" fill="var(--korean-black)">Demand Frameworks</text>
-                
-                <!-- Domestic/Regional Section -->
-                <rect x="70" y="100" width="210" height="200" fill="none" stroke="var(--korean-navy)" stroke-width="1" stroke-dasharray="3,3"/>
-                <text x="175" y="120" text-anchor="middle" font-size="12" font-weight="bold" fill="var(--korean-navy)">Domestic / Regional</text>
-                
-                <!-- Domestic boxes -->
-                <rect x="90" y="140" width="170" height="40" fill="var(--korean-light-gray)" stroke="var(--korean-border)" stroke-width="1"/>
-                <text x="175" y="163" text-anchor="middle" font-size="11" fill="var(--korean-black)">NDC Directly</text>
-                
-                <rect x="90" y="190" width="170" height="40" fill="var(--korean-light-gray)" stroke="var(--korean-border)" stroke-width="1"/>
-                <text x="175" y="213" text-anchor="middle" font-size="11" fill="var(--korean-black)">Carbon Tax</text>
-                
-                <rect x="90" y="240" width="170" height="40" fill="var(--korean-light-gray)" stroke="var(--korean-border)" stroke-width="1"/>
-                <text x="175" y="263" text-anchor="middle" font-size="11" fill="var(--korean-black)">Cap &amp; Trade</text>
-                
-                <!-- International Section -->
-                <rect x="70" y="320" width="210" height="200" fill="none" stroke="var(--korean-navy)" stroke-width="1" stroke-dasharray="3,3"/>
-                <text x="175" y="340" text-anchor="middle" font-size="12" font-weight="bold" fill="var(--korean-navy)">International</text>
-                
-                <!-- International boxes -->
-                <rect x="90" y="360" width="170" height="50" fill="var(--korean-light-gray)" stroke="var(--korean-border)" stroke-width="1"/>
-                <text x="175" y="380" text-anchor="middle" font-size="11" fill="var(--korean-black)">Net Zero Corporate</text>
-                <text x="175" y="395" text-anchor="middle" font-size="11" fill="var(--korean-black)">Commitments</text>
-                
-                <rect x="90" y="420" width="170" height="40" fill="var(--korean-light-gray)" stroke="var(--korean-border)" stroke-width="1"/>
-                <text x="175" y="435" text-anchor="middle" font-size="11" fill="var(--korean-black)">Individual-level</text>
-                <text x="175" y="450" text-anchor="middle" font-size="11" fill="var(--korean-black)">Offsetting</text>
-                
-                <rect x="90" y="470" width="170" height="40" fill="var(--korean-light-gray)" stroke="var(--korean-border)" stroke-width="1"/>
-                <text x="175" y="493" text-anchor="middle" font-size="11" fill="var(--korean-black)">CORSIA(ICAO)</text>
-              </g>
-              
-              <!-- Middle Section: Supply Crediting Mechanism -->
-              <g>
-                <text x="475" y="80" text-anchor="middle" font-size="14" font-weight="bold" fill="var(--korean-black)">Supply Crediting Mechanism</text>
-                
-                <!-- Corresponding adjusted -->
-                <rect x="370" y="200" width="210" height="40" fill="#b3d9ff" stroke="var(--korean-navy)" stroke-width="1"/>
-                <text x="475" y="223" text-anchor="middle" font-size="11" fill="var(--korean-black)">Corresponding adjusted</text>
-                
-                <!-- Non-corresponding adjusted -->
-                <rect x="370" y="300" width="210" height="40" fill="#b3d9ff" stroke="var(--korean-navy)" stroke-width="1"/>
-                <text x="475" y="323" text-anchor="middle" font-size="11" fill="var(--korean-black)">Non-corresponding adjusted</text>
-                
-                <!-- Supply mechanism boxes -->
-                <rect x="610" y="110" width="180" height="30" fill="var(--korean-light-gray)" stroke="var(--korean-border)" stroke-width="1"/>
-                <text x="700" y="128" text-anchor="middle" font-size="11" fill="var(--korean-black)">CDM</text>
-                
-                <rect x="610" y="150" width="180" height="45" fill="var(--korean-light-gray)" stroke="var(--korean-border)" stroke-width="1"/>
-                <text x="700" y="168" text-anchor="middle" font-size="10" fill="var(--korean-black)">Independent International</text>
-                <text x="700" y="183" text-anchor="middle" font-size="10" fill="var(--korean-black)">Baseline-and-credit</text>
-                
-                <rect x="610" y="205" width="180" height="45" fill="var(--korean-light-gray)" stroke="var(--korean-border)" stroke-width="1"/>
-                <text x="700" y="223" text-anchor="middle" font-size="10" fill="var(--korean-black)">(non compliance) Domestic</text>
-                <text x="700" y="238" text-anchor="middle" font-size="10" fill="var(--korean-black)">Baseline-and-credit</text>
-                
-                <rect x="610" y="260" width="180" height="45" fill="var(--korean-light-gray)" stroke="var(--korean-border)" stroke-width="1"/>
-                <text x="700" y="278" text-anchor="middle" font-size="10" fill="var(--korean-black)">(compliance) Domestic</text>
-                <text x="700" y="293" text-anchor="middle" font-size="10" fill="var(--korean-black)">Baseline-and-credit</text>
-                
-                <rect x="610" y="315" width="180" height="30" fill="var(--korean-light-gray)" stroke="var(--korean-border)" stroke-width="1"/>
-                <text x="700" y="333" text-anchor="middle" font-size="11" fill="var(--korean-black)">ITMO (PA 6.2)</text>
-                
-                <rect x="610" y="355" width="180" height="30" fill="var(--korean-light-gray)" stroke="var(--korean-border)" stroke-width="1"/>
-                <text x="700" y="373" text-anchor="middle" font-size="11" fill="var(--korean-black)">PACM (PA 6.4)</text>
-                
-                <rect x="610" y="395" width="180" height="30" fill="var(--korean-light-gray)" stroke="var(--korean-border)" stroke-width="1"/>
-                <text x="700" y="413" text-anchor="middle" font-size="11" fill="var(--korean-black)">UN REDD (PA 5)</text>
-              </g>
-              
-              <!-- Right Section: Methodology -->
-              <g>
-                <text x="850" y="80" text-anchor="middle" font-size="14" font-weight="bold" fill="var(--korean-black)">Methodology</text>
-                
-                <!-- Reduction box -->
-                <rect x="800" y="110" width="100" height="120" fill="var(--korean-light-gray)" stroke="var(--korean-border)" stroke-width="1"/>
-                <text x="850" y="175" text-anchor="middle" font-size="12" font-weight="bold" fill="var(--korean-black)">Reduction</text>
-                
-                <!-- Removal section -->
-                <text x="850" y="260" text-anchor="middle" font-size="12" font-weight="bold" fill="var(--korean-black)">Removal</text>
-                
-                <!-- Nature based -->
-                <rect x="800" y="280" width="50" height="60" fill="var(--korean-light-gray)" stroke="var(--korean-border)" stroke-width="1"/>
-                <text x="825" y="305" text-anchor="middle" font-size="10" fill="var(--korean-black)">Nature</text>
-                <text x="825" y="318" text-anchor="middle" font-size="10" fill="var(--korean-black)">based</text>
-                
-                <!-- Technology based -->
-                <rect x="860" y="280" width="50" height="60" fill="var(--korean-light-gray)" stroke="var(--korean-border)" stroke-width="1"/>
-                <text x="885" y="305" text-anchor="middle" font-size="10" fill="var(--korean-black)">Technology</text>
-                <text x="885" y="318" text-anchor="middle" font-size="10" fill="var(--korean-black)">based</text>
-                
-                <!-- REDD+ box -->
-                <rect x="800" y="360" width="100" height="40" fill="var(--korean-light-gray)" stroke="var(--korean-border)" stroke-width="1"/>
-                <text x="850" y="383" text-anchor="middle" font-size="11" fill="var(--korean-black)">REDD+</text>
-                
-              </g>
-              
-            </svg>
+              <!-- Key Points -->
+              <div style="margin-bottom: 2rem;">
+                <h4 style="color: var(--korean-navy); font-size: 1.3rem; margin-bottom: 1rem;">핵심 구성 요소</h4>
+                <div class="korean-list" style="font-size: 1.1rem; line-height: 1.7;">
+                  <li><strong>수요 측면:</strong> 국가 단위 의무 이행과 국제적 자발적 상쇄 수요</li>
+                  <li><strong>공급 측면:</strong> 다양한 메커니즘을 통한 탄소크레딧 발행</li>
+                  <li><strong>방법론:</strong> 감축과 흡수 기반의 접근 방식</li>
+                </div>
+              </div>
+
+              <!-- Market Evolution -->
+              <div style="margin-bottom: 2rem;">
+                <h4 style="color: var(--korean-success); font-size: 1.3rem; margin-bottom: 1rem;">시장 발전 동향</h4>
+                <div class="korean-list" style="font-size: 1.1rem; line-height: 1.7;">
+                  <li><strong>상응조정:</strong> 이중계상 방지를 위한 핵심 메커니즘</li>
+                  <li><strong>다변화:</strong> CDM에서 Article 6 메커니즘으로 확장</li>
+                  <li><strong>품질 강화:</strong> REDD+ 및 기술 기반 솔루션 증가</li>
+                </div>
+              </div>
+
+              <!-- Future Outlook -->
+              <div style="padding: 1.2rem; background: rgba(44, 62, 80, 0.05); border-radius: 8px; border: 1px solid var(--korean-border);">
+                <h4 style="color: var(--korean-navy); font-size: 1.2rem; margin-bottom: 0.8rem;">📈 전망</h4>
+                <p style="font-size: 1rem; color: var(--korean-dark-gray); margin: 0; line-height: 1.6;">
+                  파리협정 제6조 시행과 기업 넷제로 공약 확산으로 탄소시장의 규모와 복잡성이 지속적으로 증가할 전망
+                </p>
+              </div>
+            </div>
           </div>
         </div>
       </section>
