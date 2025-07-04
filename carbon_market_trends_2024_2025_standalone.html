@@ -1483,7 +1483,7 @@
           </div>
 
           <!-- Main Content Area -->
-          <div class="korean-grid" style="grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem;">
+          <div class="korean-grid" style="grid-template-columns: 4fr 6fr; gap: 2rem; margin-bottom: 2rem;">
             <!-- Left Side: Cancellation Examples -->
             <div class="korean-card" style="padding: 2rem;">
               <h3 style="font-size: 1.8rem; margin-bottom: 1.5rem;">Registry 간 전환 사례</h3>
@@ -1524,10 +1524,10 @@
             <!-- Right Side: Registry Transfer Process Diagram -->
             <div class="korean-card" style="padding: 2rem; background: var(--korean-white);">
               <h3 style="font-size: 1.6rem; margin-bottom: 1.5rem; text-align: center; color: var(--korean-navy);">Registry 간 전환 프로세스</h3>
-              <div style="background: var(--korean-white); border-radius: 8px; border: 1px solid var(--korean-border); overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+              <div style="background: var(--korean-white); border-radius: 8px; border: 1px solid var(--korean-border); padding: 1rem; box-shadow: 0 4px 12px rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: center; min-height: 400px;">
                 <img src="CarbonFlow.svg" 
                      alt="탄소 레지스트리 간 크레딧 전환 및 취소 프로세스 흐름도" 
-                     style="width: 100%; height: auto; display: block;"
+                     style="max-width: 100%; max-height: 100%; width: auto; height: auto; display: block; object-fit: contain;"
                      loading="lazy">
               </div>
               <p style="font-size: 0.9rem; color: var(--korean-dark-gray); text-align: center; margin-top: 1rem; font-style: italic;">
@@ -1770,13 +1770,11 @@
                   </marker>
                 </defs>
 
-                <!-- Left to Center arrows -->
-                <line x1="250" y1="170" x2="300" y2="220" stroke="var(--korean-navy)" stroke-width="2" marker-end="url(#arrowhead)"/>
-                <line x1="250" y1="330" x2="300" y2="280" stroke="var(--korean-navy)" stroke-width="2" marker-end="url(#arrowhead)"/>
-
-                <!-- Center to Right arrows -->
-                <line x1="500" y1="220" x2="550" y2="170" stroke="var(--korean-navy)" stroke-width="2" marker-end="url(#arrowhead)"/>
-                <line x1="500" y1="280" x2="550" y2="330" stroke="var(--korean-navy)" stroke-width="2" marker-end="url(#arrowhead)"/>
+                <!-- Single arrow path: Article 5 → Corresponding Adjusted → Net Zero Corporate Commitments -->
+                <!-- Article 5 to Corresponding Adjusted -->
+                <line x1="570" y1="372" x2="480" y2="235" stroke="var(--korean-navy)" stroke-width="3" marker-end="url(#arrowhead)"/>
+                <!-- Corresponding Adjusted to Net Zero Corporate Commitments -->
+                <line x1="320" y1="235" x2="230" y2="307" stroke="var(--korean-navy)" stroke-width="3" marker-end="url(#arrowhead)"/>
               </svg>
             </div>
 
