@@ -1032,6 +1032,72 @@
         grid-template-columns: 1fr;
       }
     }
+
+    /* Print Styles - Each slide on separate page */
+    @media print {
+      body {
+        margin: 0;
+        padding: 0;
+        background: white !important;
+      }
+      
+      /* Hide navigation elements */
+      .progress-bar, .nav-controls, .nav-buttons {
+        display: none !important;
+      }
+      
+      /* Each section (slide) on separate page */
+      section {
+        page-break-before: always;
+        page-break-after: always;
+        page-break-inside: avoid;
+        width: 100vw;
+        height: 100vh;
+        margin: 0;
+        padding: 2rem;
+        box-sizing: border-box;
+        background: white !important;
+      }
+      
+      /* First slide doesn't need page break before */
+      section:first-of-type {
+        page-break-before: auto;
+      }
+      
+      /* Ensure text is readable in print */
+      * {
+        color: black !important;
+        background: white !important;
+      }
+      
+      h1, h2, h3, h4, h5, h6 {
+        color: #2C3E50 !important;
+      }
+      
+      /* Maintain slide layout */
+      .wrap {
+        width: 100% !important;
+        max-width: none !important;
+        height: 100% !important;
+      }
+      
+      /* Print-friendly images */
+      img {
+        max-width: 100% !important;
+        height: auto !important;
+        page-break-inside: avoid;
+      }
+      
+      /* Maintain grid layouts in print */
+      .korean-grid {
+        display: grid !important;
+      }
+      
+      /* Hide any overlay elements */
+      .overlay, .modal, .popup {
+        display: none !important;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1550,46 +1616,70 @@
             <div class="subtitle">REDD+, Transitional Credits 등 Baseline을 국가 단위로 설정해서 과다상계 방지목적의 크레딧 발행 중이며 기업 실 사용 사례도 등장</div>
           </div>
 
-          <!-- Dense layout for sectoral credits examples -->
-          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-bottom: 2rem;">
-            <!-- Left Column: Concept & Guyana -->
-            <div class="korean-card" style="padding: 1.2rem;">
-              <h3 style="font-size: 1.8rem; margin-bottom: 0.8rem;">🌍 국가단위(Sectoral)의 Baseline 적용 탄소크레딧으로 발급 방법론 예시</h3>
+          <!-- Two-column layout: content left, new section right -->
+          <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 2rem; margin-bottom: 2rem;">
+            <!-- Left Section: All existing content -->
+            <div>
+              <h3 style="font-size: 1.8rem; margin-bottom: 1rem;">🌍 국가단위(Sectoral)의 Baseline 적용 탄소크레딧으로 발급 방법론 예시</h3>
+              
+              <!-- Guyana Section -->
+              <div class="korean-card" style="padding: 1.2rem; margin-bottom: 1rem;">
+                <h4 style="font-size: 1.3rem; margin-bottom: 0.5rem; color: var(--korean-navy);">🇬🇾 가이아나 ART-TREES</h4>
+                <ul style="font-size: 1rem; line-height: 1.4; margin: 0; padding-left: 1rem;">
+                  <li>• <strong>2022년 12월:</strong> 전 국토 대상 3,347만 TREES 크레딧 발급</li>
+                  <li>• <strong>Hess Corporation:</strong> 2030년까지 3,750만 크레딧 구매 (~7.5억 달러)</li>
+                  <li>• <strong>2023-24년:</strong> Scope 1 배출 상쇄용으로 첫 상쇄 완료</li>
+                  <li>• <strong>세계 최초</strong> 관할권 단위 REDD+ 기업 활용 사례</li>
+                </ul>
+              </div>
 
-              <h4 style="font-size: 1.3rem; margin-bottom: 0.5rem; color: var(--korean-navy);">🇬🇾 가이아나 ART-TREES</h4>
-              <ul style="font-size: 1rem; line-height: 1.4; margin-bottom: 1rem; padding-left: 1rem;">
-                <li>• <strong>2022년 12월:</strong> 전 국토 대상 3,347만 TREES 크레딧 발급</li>
-                <li>• <strong>Hess Corporation:</strong> 2030년까지 3,750만 크레딧 구매 (~7.5억 달러)</li>
-                <li>• <strong>2023-24년:</strong> Scope 1 배출 상쇄용으로 첫 상쇄 완료</li>
-                <li>• <strong>세계 최초</strong> 관할권 단위 REDD+ 기업 활용 사례</li>
-              </ul>
+              <!-- Ghana Section -->
+              <div class="korean-card" style="padding: 1.2rem; margin-bottom: 1rem;">
+                <h4 style="font-size: 1.3rem; margin-bottom: 0.5rem; color: var(--korean-navy);">🇬🇭 가나 ART-TREES</h4>
+                <ul style="font-size: 1rem; line-height: 1.4; margin: 0; padding-left: 1rem;">
+                  <li>• <strong>2023년 11월:</strong> 590만 헥타르 대상 1,170만 크레딧 발급</li>
+                  <li>• <strong>South Pole:</strong> 2024년 3월 유럽 소비재 기업들 대신 구매·상쇄</li>
+                </ul>
+              </div>
 
-              <h4 style="font-size: 1.3rem; margin-bottom: 0.5rem; color: var(--korean-navy);">🇬🇭 가나 ART-TREES</h4>
-              <ul style="font-size: 1rem; line-height: 1.4; margin: 0; padding-left: 1rem;">
-                <li>• <strong>2023년 11월:</strong> 590만 헥타르 대상 1,170만 크레딧 발급</li>
-                <li>• <strong>South Pole:</strong> 2024년 3월 유럽 소비재 기업들 대신 구매·상쇄</li>
-              </ul>
+              <!-- Mozambique Section -->
+              <div class="korean-card" style="padding: 1.2rem; margin-bottom: 1rem;">
+                <h4 style="font-size: 1.3rem; margin-bottom: 0.5rem; color: var(--korean-navy);">🇲🇿 모잠비크 중첩형 REDD+</h4>
+                <ul style="font-size: 1rem; line-height: 1.4; margin: 0; padding-left: 1rem;">
+                  <li>• <strong>2024년:</strong> 정부 섹터별 베이스라인 내 개별 프로젝트 운영</li>
+                  <li>• <strong>Olam 등:</strong> 아프리카 공급망 배출 감축 명목으로 상쇄</li>
+                </ul>
+              </div>
+
+              <!-- Key Insights Section -->
+              <div class="korean-card" style="padding: 1.2rem; margin-bottom: 1rem;">
+                <h4 style="font-size: 1.3rem; margin-bottom: 0.5rem; color: var(--korean-success);">✅ 핵심 인사이트</h4>
+                <ul style="font-size: 1rem; line-height: 1.4; margin: 0; padding-left: 1rem;">
+                  <li>• <strong>관할권 REDD+ 크레딧</strong>이 이미 기업들에 의해 상쇄되고 있음</li>
+                  <li>• <strong>석유가스(Hess), 소비재</strong> 기업들이 고무결성 상쇄재 추구</li>
+                  <li>• <strong>ART-TREES</strong>가 유일한 대규모 섹터별 크레딧 공급원</li>
+                </ul>
+              </div>
+
+              <!-- Future Outlook Section -->
+              <div class="korean-card" style="padding: 1.2rem;">
+                <h4 style="font-size: 1.3rem; margin-bottom: 0.5rem; color: var(--korean-warning);">⚠️ 향후 전망</h4>
+                <ul style="font-size: 1rem; line-height: 1.4; margin: 0; padding-left: 1rem;">
+                  <li>• <strong>수십 개 열대국가들</strong>이 유사한 관할권 REDD+ 프로그램 준비 중</li>
+                  <li>• <strong>Article 6.4</strong> 2025년 이후 새로운 섹터별 크레딧 생성 예상</li>
+                  <li>• <strong>기업 활용 확대</strong> 가능성이 높아 CDP 질문 범위 확장 예정</li>
+                </ul>
+              </div>
             </div>
 
-            <!-- Right Column: Mozambique & Key Insights -->
-            <div class="korean-card" style="padding: 1.2rem;">
-              <h4 style="font-size: 1.3rem; margin-bottom: 0.5rem; color: var(--korean-navy);">🇲🇿 모잠비크 중첩형 REDD+</h4>
-              <ul style="font-size: 1rem; line-height: 1.4; margin-bottom: 1rem; padding-left: 1rem;">
-                <li>• <strong>2024년:</strong> 정부 섹터별 베이스라인 내 개별 프로젝트 운영</li>
-                <li>• <strong>Olam 등:</strong> 아프리카 공급망 배출 감축 명목으로 상쇄</li>
-              </ul>
-
-              <h4 style="font-size: 1.3rem; margin-bottom: 0.5rem; color: var(--korean-success);">✅ 핵심 인사이트</h4>
-              <ul style="font-size: 1rem; line-height: 1.4; margin-bottom: 1rem; padding-left: 1rem;">
-                <li>• <strong>관할권 REDD+ 크레딧</strong>이 이미 기업들에 의해 상쇄되고 있음</li>
-              </ul>
-
-              <h4 style="font-size: 1.3rem; margin-bottom: 0.5rem; color: var(--korean-warning);">⚠️ 향후 전망</h4>
-              <ul style="font-size: 1rem; line-height: 1.4; margin: 0; padding-left: 1rem;">
-                <li>• <strong>수십 개 열대국가들</strong>이 유사한 관할권 REDD+ 프로그램 준비 중</li>
-                <li>• <strong>Article 6.4</strong> 2025년 이후 새로운 섹터별 크레딧 생성 예상</li>
-                <li>• <strong>기업 활용 확대</strong> 가능성이 높아 CDP 질문 범위 확장 예정</li>
-              </ul>
+            <!-- Right Section: Empty space for new content -->
+            <div class="korean-card" style="padding: 1.5rem; background: var(--korean-light-gray); border: 2px dashed var(--korean-border);">
+              <h4 style="color: var(--korean-dark-gray); text-align: center; margin: 0; font-style: italic;">
+                새로운 콘텐츠 영역
+              </h4>
+              <p style="color: var(--korean-dark-gray); text-align: center; margin-top: 0.5rem; font-size: 0.9rem;">
+                오른쪽 섹션 추가 예정
+              </p>
             </div>
           </div>
 
