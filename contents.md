@@ -308,8 +308,8 @@ CDM의 Cancellation과 VCM의 Retirement는 동일한 행위(사용)를 지칭�
 ### 국가별 이중계상에 대한 입장 차이
 - [콘텐츠 추가 예정]
 
-## 11. Baseline & Credit의 구분
-### ########
+## 11. CDP 질문 변경으로 본 마켓 트렌드 3: Baseline 허용 범위에 대한 입장 차이 대립
+### Reduction vs Avoidance 구분 용어 사용에서 대립
 ### Removal & Mitigation & "Avoidance"
 - Removal: 대기 중 이산화탄소 직접 제거
 - Mitigation: 배출 감소 또는 방지
