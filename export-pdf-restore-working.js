@@ -5,21 +5,16 @@ const path = require('path');
 const fs = require('fs');
 
 /**
- * Fullscreen WebSlides PDF Export
- * Generates PDF that matches the exact appearance of F11 fullscreen mode
- * - Optimized viewport (1920x1080, 16:9 aspect ratio)
- * - Hidden navigation elements
- * - Fullscreen layout with centered content
- * - Proper page breaks for each slide
+ * Restored Working PDF Export
+ * Based on the version that successfully generated the 24-page PDF
  */
 
 async function exportToPDF() {
   const htmlFile = 'carbon_market_trends_2024_2025_standalone.html';
-  const outputFile = 'Carbon_Market_CDP_Presentation_Fullscreen.pdf';
+  const outputFile = 'Carbon_Market_CDP_Presentation_Restored.pdf';
   
-  console.log('🚀 Starting fullscreen PDF export (F11 mode simulation)...');
+  console.log('🚀 Starting restored PDF export...');
   
-  // Check if HTML file exists
   const htmlPath = path.resolve(__dirname, htmlFile);
   if (!fs.existsSync(htmlPath)) {
     console.error('❌ HTML file not found:', htmlPath);
@@ -28,21 +23,17 @@ async function exportToPDF() {
   
   let browser;
   try {
-    // Launch browser with file access permissions
     browser = await puppeteer.launch({
       headless: 'new',
       args: [
         '--no-sandbox', 
         '--disable-setuid-sandbox',
-        '--allow-file-access-from-files',
-        '--disable-web-security',
-        '--disable-features=VizDisplayCompositor'
+        '--allow-file-access-from-files'
       ]
     });
     
     const page = await browser.newPage();
     
-    // Set viewport for fullscreen presentation (16:9 aspect ratio)
     await page.setViewport({
       width: 1920,
       height: 1080,
@@ -52,61 +43,17 @@ async function exportToPDF() {
     const fileUrl = `file://${htmlPath}`;
     console.log(`📄 Loading: ${htmlFile}`);
     
-    // Load the page with proper error handling
     await page.goto(fileUrl, {
-      waitUntil: 'networkidle0',
+      waitUntil: 'networkidle2',
       timeout: 30000
     });
     
-    // Wait for content to render
     console.log('⏳ Waiting for content to load...');
     await page.waitForTimeout(5000);
     
-    // Ensure all images are loaded before proceeding
-    console.log('🖼️ Checking image loading status...');
-    await page.evaluate(() => {
-      return Promise.all(
-        Array.from(document.images).map(img => {
-          if (img.complete) {
-            return Promise.resolve();
-          } else {
-            return new Promise((resolve, reject) => {
-              img.addEventListener('load', resolve);
-              img.addEventListener('error', () => {
-                console.warn(`Failed to load image: ${img.src}`);
-                resolve(); // Continue even if image fails
-              });
-            });
-          }
-        })
-      );
-    });
-    
-    console.log('✅ All images processed');
-    
-    // Debug: List all image sources and their status
-    const imageStatus = await page.evaluate(() => {
-      const images = Array.from(document.images);
-      return images.map(img => ({
-        src: img.src,
-        complete: img.complete,
-        naturalWidth: img.naturalWidth,
-        naturalHeight: img.naturalHeight,
-        alt: img.alt
-      }));
-    });
-    
-    console.log('📋 Image status report:');
-    imageStatus.forEach((img, index) => {
-      const status = img.complete && img.naturalWidth > 0 ? '✅' : '❌';
-      console.log(`  ${status} ${img.alt || 'Unknown'}: ${img.src.split('/').pop()}`);
-    });
-    
-    // Apply fullscreen WebSlides styles
     console.log('🔄 Applying fullscreen mode styles...');
     await page.addStyleTag({
       content: `
-        /* Fullscreen WebSlides mode simulation */
         html, body {
           margin: 0 !important;
           padding: 0 !important;
@@ -140,7 +87,6 @@ async function exportToPDF() {
           margin: 0 auto !important;
         }
         
-        /* Override WebSlides positioning completely */
         #webslides {
           transform: none !important;
           transition: none !important;
@@ -157,13 +103,11 @@ async function exportToPDF() {
           position: relative !important;
         }
         
-        /* Hide navigation elements for fullscreen */
         .ws-nav, .ws-counter, .ws-pagination,
         .ws-ready .ws-nav, .ws-ready .ws-counter, .ws-ready .ws-pagination {
           display: none !important;
         }
         
-        /* Force each slide to be on separate page with aggressive CSS */
         @page {
           size: A4 landscape;
           margin: 0.2in;
@@ -202,7 +146,6 @@ async function exportToPDF() {
             break-after: avoid !important;
           }
           
-          /* Ensure content doesn't overflow */
           #webslides > section .wrap {
             height: auto !important;
             max-height: 90vh !important;
@@ -216,12 +159,10 @@ async function exportToPDF() {
       `
     });
     
-    // Remove navigation elements and force proper section layout
     await page.evaluate(() => {
       const navElements = document.querySelectorAll('.ws-nav, .ws-counter, .ws-pagination');
       navElements.forEach(el => el.remove());
       
-      // Force each section to be visible and properly spaced for PDF
       const sections = document.querySelectorAll('#webslides > section');
       sections.forEach((section, index) => {
         section.style.display = 'block';
@@ -230,8 +171,6 @@ async function exportToPDF() {
         section.style.height = '100vh';
         section.style.pageBreakAfter = 'always';
         section.style.pageBreakInside = 'avoid';
-        
-        // Clear any transform or positioning that might stack slides
         section.style.transform = 'none';
         section.style.left = '0';
         section.style.top = '0';
@@ -244,7 +183,6 @@ async function exportToPDF() {
       return sections.length;
     });
     
-    // Get and display slide count
     const slideCount = await page.evaluate(() => {
       return document.querySelectorAll('#webslides > section').length;
     });
@@ -252,7 +190,6 @@ async function exportToPDF() {
     console.log(`📊 Processing ${slideCount} slides for PDF generation...`);
     console.log('📖 Generating PDF...');
     
-    // Generate PDF with proper page handling
     await page.pdf({
       path: outputFile,
       format: 'A4',
@@ -275,15 +212,11 @@ async function exportToPDF() {
       `
     });
     
-    console.log(`✅ Fullscreen PDF exported successfully: ${outputFile}`);
+    console.log(`✅ PDF exported successfully: ${outputFile}`);
     console.log(`📊 Total slides exported: ${slideCount}`);
-    console.log('📐 Format: Matches F11 fullscreen mode appearance with optimized layout');
     
   } catch (error) {
     console.error('❌ Export failed:', error.message);
-    if (error.stack) {
-      console.error('Stack trace:', error.stack);
-    }
   } finally {
     if (browser) {
       await browser.close();
@@ -292,7 +225,6 @@ async function exportToPDF() {
   }
 }
 
-// Run the export
 exportToPDF().then(() => {
   console.log('🎉 Export process completed');
 }).catch((error) => {
