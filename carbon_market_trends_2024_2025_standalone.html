@@ -1737,10 +1737,10 @@
             <!-- Right Column: SBTi Image -->
             <div class="korean-card">
               <h3>SBTi 구분법</h3>
-              <div style="background: var(--korean-white); border-radius: 8px; border: 1px solid var(--korean-border); overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+              <div style="background: var(--korean-white); border-radius: 8px; border: 1px solid var(--korean-border); overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); max-height: 400px; display: flex; align-items: center; justify-content: center;">
                 <img src="sbti3.jpg"
                      alt="SBTi 구분법 - Emissions Reduction, Emissions Avoidance, Carbon Removals"
-                     style="width: 100%; height: auto; display: block; border-radius: 8px;"
+                     style="width: 100%; max-height: 380px; object-fit: contain; display: block; border-radius: 8px;"
                      loading="lazy">
               </div>
             </div>
@@ -2273,8 +2273,8 @@
             <div class="subtitle">리스크 다각화: 고려 대상 이해관계자 및 사회·환경요소 확대</div>
           </div>
 
-          <div class="korean-grid two-col" style="height: 60vh; max-height: 500px;">
-            <div class="korean-card" style="padding: 1.2rem; height: 100%; overflow-y: auto;">
+          <div class="korean-grid two-col" style="height: 40vh; max-height: 350px;">
+            <div class="korean-card" style="padding: 1rem; height: 100%; overflow-y: auto;">
               <h3 style="font-size: 1.3rem; margin-bottom: 0.8rem;">기존의 경제성, 발급과정</h3>
               <h4 style="font-size: 1rem; margin-bottom: 1rem;">(탄소시장 직접적인 이해관계자)</h4>
               <div class="korean-list" style="font-size: 0.9rem; line-height: 1.4;">
@@ -2285,7 +2285,7 @@
                 <li style="margin-top: 1rem; color: var(--korean-navy); font-weight: 600;"><strong>주로 탄소시장 직접 참여자들의 이해관계에 초점</strong></li>
               </div>
             </div>
-            <div class="korean-card" style="padding: 1.2rem; height: 100%; overflow-y: auto;">
+            <div class="korean-card" style="padding: 1rem; height: 100%; overflow-y: auto;">
               <h3 style="font-size: 1.3rem; margin-bottom: 0.8rem;">현재 Social, Environmental Safeguards 까지</h3>
               <h4 style="font-size: 1rem; margin-bottom: 1rem;">(이해관계자 범위 확대)</h4>
               <div class="korean-list" style="font-size: 0.9rem; line-height: 1.4;">
@@ -2595,66 +2595,69 @@
             <div class="subtitle">Carbon Market Framework Matrix</div>
           </div>
 
-          <!-- Matrix Diagram Recreation -->
-          <div style="display: flex; justify-content: center; align-items: center; height: 70vh; padding: 2rem;">
-            <div style="display: grid; grid-template-columns: 100px 450px 450px; grid-template-rows: 80px 250px 250px; gap: 0; font-family: Arial, sans-serif; border: 4px solid #000; background: #000;">
-
-              <!-- Top Left Corner (Empty) -->
-              <div style="background: #e0e0e0; border-right: 2px solid #000; border-bottom: 2px solid #000;"></div>
-
-              <!-- Top Headers -->
-              <div style="background: #000; color: white; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; font-weight: bold; border-right: 2px solid #000; border-bottom: 2px solid #000;">
-                Voluntary
-              </div>
-              <div style="background: #000; color: white; display: flex; align-items: center; justify-content: center; font-size: 1.8rem; font-weight: bold; border-bottom: 2px solid #000;">
-                Compliance
-              </div>
-
-              <!-- Left Side Headers -->
-              <div style="background: #000; color: white; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; font-weight: bold; writing-mode: vertical-rl; text-orientation: mixed; border-right: 2px solid #000; border-bottom: 2px solid #000;">
-                Domestic
-              </div>
-              <div style="background: #000; color: white; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; font-weight: bold; writing-mode: vertical-rl; text-orientation: mixed; border-bottom: 2px solid #000;">
-                International
-              </div>
-
-              <!-- Matrix Content Cells -->
-              <!-- Domestic + Voluntary -->
-              <div style="background: #e0e0e0; border-right: 2px solid #000; display: flex; align-items: center; justify-content: center; padding: 2rem;">
-                <div style="border: 2px solid #666; padding: 2rem; background: white; text-align: center; font-size: 1.2rem; font-weight: 500; min-width: 200px;">
-                  Domestic<br/>Baseline-and-<br/>credit
-                </div>
-              </div>
-
-              <!-- Domestic + Compliance -->
-              <div style="background: #e0e0e0; border-bottom: 2px solid #000; display: flex; flex-direction: column; justify-content: space-evenly; padding: 1.5rem; gap: 1rem;">
-                <div style="border: 2px solid #666; padding: 1rem; background: white; text-align: center; font-size: 1.1rem; font-weight: 500;">
-                  PACM (PA6.4)
-                </div>
-                <div style="border: 2px solid #666; padding: 1rem; background: white; text-align: center; font-size: 1.1rem; font-weight: 500;">
-                  Carbon Tax
-                </div>
-                <div style="border: 2px solid #666; padding: 1rem; background: white; text-align: center; font-size: 1.1rem; font-weight: 500;">
-                  Cap & Trade
-                </div>
-              </div>
-
-              <!-- International + Voluntary -->
-              <div style="background: #e0e0e0; border-right: 2px solid #000; display: flex; align-items: center; justify-content: center; padding: 2rem;">
-                <div style="border: 2px solid #666; padding: 2rem; background: white; text-align: center; font-size: 1.2rem; font-weight: 500; min-width: 200px;">
-                  Net Zero<br/>Corporate<br/>Commitments
-                </div>
-              </div>
-
-              <!-- International + Compliance -->
-              <div style="background: #e0e0e0; display: flex; flex-direction: column; justify-content: center; align-items: center; padding: 2rem; gap: 1.5rem;">
-                <div style="border: 2px solid #666; padding: 1.2rem; background: white; text-align: center; font-size: 1.1rem; font-weight: 500; width: 200px;">
-                  CORSIA(ICAO)
-                </div>
-                <div style="border: 2px solid #666; padding: 1.2rem; background: white; text-align: center; font-size: 1.1rem; font-weight: 500; width: 250px;">
-                  ITMO (PA6.2)
-                </div>
-              </div>
+          <!-- Carbon Market Framework Matrix Image -->
+          <div style="display: flex; justify-content: center; align-items: center; padding: 2rem;">
+            <div style="background: var(--korean-white); border-radius: 8px; border: 1px solid var(--korean-border); overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); max-width: 90%;">
+              <svg width="800" height="600" viewBox="0 0 800 600" style="max-width: 100%; height: auto;">
+                <!-- Background -->
+                <rect width="800" height="600" fill="#f5f5f5"/>
+                
+                <!-- Headers -->
+                <!-- Voluntary Header -->
+                <rect x="100" y="50" width="300" height="60" fill="#000000"/>
+                <text x="250" y="90" text-anchor="middle" font-size="28" font-weight="bold" fill="white" font-family="Arial, sans-serif">Voluntary</text>
+                
+                <!-- Compliance Header -->
+                <rect x="400" y="50" width="300" height="60" fill="#000000"/>
+                <text x="550" y="90" text-anchor="middle" font-size="28" font-weight="bold" fill="white" font-family="Arial, sans-serif">Compliance</text>
+                
+                <!-- Left Side Headers -->
+                <!-- Domestic -->
+                <rect x="20" y="110" width="80" height="220" fill="#000000"/>
+                <text x="60" y="220" text-anchor="middle" font-size="20" font-weight="bold" fill="white" font-family="Arial, sans-serif" transform="rotate(-90, 60, 220)">Domestic</text>
+                
+                <!-- International -->
+                <rect x="20" y="330" width="80" height="220" fill="#000000"/>
+                <text x="60" y="440" text-anchor="middle" font-size="20" font-weight="bold" fill="white" font-family="Arial, sans-serif" transform="rotate(-90, 60, 440)">International</text>
+                
+                <!-- Grid Lines -->
+                <line x1="100" y1="110" x2="700" y2="110" stroke="#000" stroke-width="2"/>
+                <line x1="100" y1="330" x2="700" y2="330" stroke="#000" stroke-width="2"/>
+                <line x1="100" y1="550" x2="700" y2="550" stroke="#000" stroke-width="2"/>
+                <line x1="100" y1="110" x2="100" y2="550" stroke="#000" stroke-width="2"/>
+                <line x1="400" y1="110" x2="400" y2="550" stroke="#000" stroke-width="2"/>
+                <line x1="700" y1="110" x2="700" y2="550" stroke="#000" stroke-width="2"/>
+                
+                <!-- Matrix Content -->
+                <!-- Domestic + Voluntary -->
+                <rect x="150" y="180" width="200" height="80" fill="white" stroke="#666" stroke-width="2"/>
+                <text x="250" y="210" text-anchor="middle" font-size="16" font-weight="500" font-family="Arial, sans-serif">Domestic</text>
+                <text x="250" y="230" text-anchor="middle" font-size="16" font-weight="500" font-family="Arial, sans-serif">Baseline-and-</text>
+                <text x="250" y="250" text-anchor="middle" font-size="16" font-weight="500" font-family="Arial, sans-serif">credit</text>
+                
+                <!-- Domestic + Compliance -->
+                <rect x="450" y="360" width="200" height="60" fill="white" stroke="#666" stroke-width="2"/>
+                <text x="550" y="395" text-anchor="middle" font-size="16" font-weight="500" font-family="Arial, sans-serif">CORSIA(ICAO)</text>
+                
+                <rect x="450" y="450" width="200" height="60" fill="white" stroke="#666" stroke-width="2"/>
+                <text x="550" y="485" text-anchor="middle" font-size="16" font-weight="500" font-family="Arial, sans-serif">ITMO (PA6.2)</text>
+                
+                <!-- International + Voluntary -->
+                <rect x="150" y="400" width="200" height="80" fill="white" stroke="#666" stroke-width="2"/>
+                <text x="250" y="430" text-anchor="middle" font-size="16" font-weight="500" font-family="Arial, sans-serif">Net Zero</text>
+                <text x="250" y="450" text-anchor="middle" font-size="16" font-weight="500" font-family="Arial, sans-serif">Corporate</text>
+                <text x="250" y="470" text-anchor="middle" font-size="16" font-weight="500" font-family="Arial, sans-serif">Commitments</text>
+                
+                <!-- International + Compliance -->
+                <rect x="450" y="130" width="200" height="50" fill="white" stroke="#666" stroke-width="2"/>
+                <text x="550" y="160" text-anchor="middle" font-size="16" font-weight="500" font-family="Arial, sans-serif">PACM (PA6.4)</text>
+                
+                <rect x="450" y="190" width="200" height="50" fill="white" stroke="#666" stroke-width="2"/>
+                <text x="550" y="220" text-anchor="middle" font-size="16" font-weight="500" font-family="Arial, sans-serif">Carbon Tax</text>
+                
+                <rect x="450" y="250" width="200" height="50" fill="white" stroke="#666" stroke-width="2"/>
+                <text x="550" y="280" text-anchor="middle" font-size="16" font-weight="500" font-family="Arial, sans-serif">Cap &amp; Trade</text>
+              </svg>
             </div>
           </div>
 

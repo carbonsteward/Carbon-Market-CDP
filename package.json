@@ -6,15 +6,21 @@
   "scripts": {
     "export": "node export-pdf.js",
     "export-single": "node export-pdf-single.js",
+    "export-fixed": "node export-pdf-simple-fixed.js",
+    "export-fullscreen": "node export-pdf-fullscreen.js",
+    "export-webslides-fullscreen": "node export-pdf-webslides-fullscreen.js",
+    "export-fullscreen-optimized": "node export-pdf-fullscreen-optimized.js",
+    "export-individual-slides": "node export-pdf-individual-slides.js",
+    "export-force-pagebreaks": "node export-pdf-force-pagebreaks.js",
     "install-deps": "npm install puppeteer playwright-core html-pdf-node",
     "test": "node test-export.js"
   },
   "dependencies": {
-    "puppeteer": "^21.6.1",
-    "playwright": "^1.40.1",
-    "html-pdf-node": "^1.0.8",
     "fs-extra": "^11.2.0",
-    "path": "^0.12.7"
+    "html-pdf-node": "^1.0.8",
+    "path": "^0.12.7",
+    "playwright": "^1.40.1",
+    "puppeteer": "^21.11.0"
   },
   "devDependencies": {
     "nodemon": "^3.0.2"
