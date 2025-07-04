@@ -120,7 +120,7 @@ CDM의 Cancellation과 VCM의 Retirement는 동일한 행위(사용)를 지칭�
 - CCB Standards: 지역사회-생물다양성 혜택
 
 #### 정부 기반 표준 (확산)
-- 국가 단위: 중국 CCER, 한국 K-Offset
+- 국가 단위: 중국 CCER, 한국 KOC, 태국 TVER 등
 - 지역 단위: California, Quebec, BC
 - 국제기구: UNFCCC CDM, Article 6.4
 - EU CRCF: 탄소 제거 인증 프레임워크
