@@ -1,0 +1,31 @@
+{
+  "name": "carbon-market-presentation-pdf-export",
+  "version": "1.0.0",
+  "description": "PDF export tool for Carbon Market CDP presentation",
+  "main": "export-pdf.js",
+  "scripts": {
+    "export": "node export-pdf.js",
+    "export-single": "node export-pdf-single.js",
+    "install-deps": "npm install puppeteer playwright-core html-pdf-node",
+    "test": "node test-export.js"
+  },
+  "dependencies": {
+    "puppeteer": "^21.6.1",
+    "playwright": "^1.40.1",
+    "html-pdf-node": "^1.0.8",
+    "fs-extra": "^11.2.0",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  },
+  "keywords": [
+    "pdf",
+    "export",
+    "presentation",
+    "carbon-market",
+    "cdp"
+  ],
+  "author": "Carbon Market Research Team",
+  "license": "MIT"
+}

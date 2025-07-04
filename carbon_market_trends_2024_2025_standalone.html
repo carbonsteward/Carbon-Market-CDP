@@ -1695,69 +1695,60 @@
           </div>
 
 
-          <!-- Policy Issues Grid -->
-          <div class="korean-grid three-col" style="margin-bottom: 2rem;">
-            <div class="korean-card">
-              <h3>Reduction vs Avoidance 구분 논란</h3>
-              <div class="korean-list">
-                <li><strong>Verra 반대 입장:</strong> 두 용어 분리에 대한 강한 반발
-                  <ul style="margin-left: 1rem; margin-top: 0.5rem;">
-                    <li><strong>REDD+ 공격:</strong> 직접적인 공격으로 인식</li>
-                  </ul>
-                </li>
-                <li><strong>GS 구분 필요:</strong> 회피량은 미래 베이스라인 가정
-                  <ul style="margin-left: 1rem; margin-top: 0.5rem;">
-                    <li><strong>객관성 문제:</strong> 회피 크레딧 취급 거부</li>
-                  </ul>
-                </li>
+          <!-- Policy Issues Grid - Two Column Layout -->
+          <div class="korean-grid" style="grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem;">
+            <!-- Left Column: Both Policy Issues -->
+            <div>
+              <div class="korean-card" style="margin-bottom: 1.5rem;">
+                <h3>Reduction vs Avoidance 구분 논란</h3>
+                <div class="korean-list">
+                  <li><strong>Verra 반대 입장:</strong> 두 용어 분리에 대한 강한 반발
+                    <ul style="margin-left: 1rem; margin-top: 0.5rem;">
+                      <li><strong>REDD+ 공격:</strong> 직접적인 공격으로 인식</li>
+                    </ul>
+                  </li>
+                  <li><strong>GS 구분 필요:</strong> 회피량은 미래 베이스라인 가정
+                    <ul style="margin-left: 1rem; margin-top: 0.5rem;">
+                      <li><strong>객관성 문제:</strong> 회피 크레딧 취급 거부</li>
+                    </ul>
+                  </li>
+                </div>
+              </div>
+
+              <div class="korean-card">
+                <h3>Article 6.2 ITMO 적용 이슈</h3>
+                <div class="korean-list">
+                  <li><strong>CMA 유보 입장:</strong> 배출 회피량 ITMO 포함 여부 결정 미룸</li>
+                  <li><strong>국가 간 합의 어려움:</strong> 개발도상국 vs 선진국 이해관계 상충
+                    <ul style="margin-left: 1rem; margin-top: 0.5rem;">
+                      <li><strong>필리핀 적극 옹호:</strong> 회피 방법론 인정 로비</li>
+                      <li><strong>EU/미국 신중:</strong> 환경 무결성 우선 원칙</li>
+                    </ul>
+                  </li>
+                </div>
               </div>
             </div>
 
-            <div class="korean-card">
-              <h3>Article 6.2 ITMO 적용 이슈</h3>
-              <div class="korean-list">
-                <li><strong>CMA 유보 입장:</strong> 배출 회피량 ITMO 포함 여부 결정 미룸</li>
-                <li><strong>국가 간 합의 어려움:</strong> 개발도상국 vs 선진국 이해관계 상충
-                  <ul style="margin-left: 1rem; margin-top: 0.5rem;">
-                    <li><strong>필리핀 적극 옹호:</strong> 회피 방법론 인정 로비</li>
-                    <li><strong>EU/미국 신중:</strong> 환경 무결성 우선 원칙</li>
-                  </ul>
-                </li>
-              </div>
-            </div>
-
+            <!-- Right Column: SBTi Image -->
             <div class="korean-card">
               <h3>SBTi 구분법</h3>
-              <div class="korean-list">
-                <li><strong>Emissions Reduction:</strong> 직접적 배출 감소</li>
-                <li><strong>Emissions Avoidance:</strong> 미래 배출 회피</li>
-                <li><strong>Carbon Removals:</strong> 대기 중 탄소 제거</li>
+              <div style="background: var(--korean-white); border-radius: 8px; border: 1px solid var(--korean-border); overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                <img src="sbti3.jpg"
+                     alt="SBTi 구분법 - Emissions Reduction, Emissions Avoidance, Carbon Removals"
+                     style="width: 100%; height: auto; display: block; border-radius: 8px;"
+                     loading="lazy">
               </div>
             </div>
           </div>
 
-          <!-- Baseline Classification - Complementary Section -->
+          <!-- Baseline Classification - Minimized Section -->
           <div class="korean-grid one-col">
-            <div class="korean-card" style="background: var(--korean-light-gray); border: 1px solid var(--korean-border);">
-              <h3 style="color: var(--korean-navy); font-size: 1.4rem; margin-bottom: 1.5rem;">📊 Baseline 분류 참고</h3>
-              <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem;">
-                <!-- Avoidance-based Baseline -->
-                <div style="background: var(--korean-white); padding: 1rem; border-radius: 4px; border: 1px solid var(--korean-border);">
-                  <h4 style="color: var(--korean-navy); font-size: 1.1rem; margin-bottom: 0.5rem;">Avoidance-based</h4>
-                  <p style="font-size: 0.9rem; margin: 0; color: var(--korean-dark-gray);">미래시점 기준</p>
-                </div>
-
-                <!-- Reduction-based Baseline -->
-                <div style="background: var(--korean-white); padding: 1rem; border-radius: 4px; border: 1px solid var(--korean-border);">
-                  <h4 style="color: var(--korean-navy); font-size: 1.1rem; margin-bottom: 0.5rem;">Reduction-based</h4>
-                  <p style="font-size: 0.9rem; margin: 0; color: var(--korean-dark-gray);">과거시점 기준</p>
-                </div>
-
-                <!-- Removal-based Baseline -->
-                <div style="background: var(--korean-white); padding: 1rem; border-radius: 4px; border: 1px solid var(--korean-border);">
-                  <h4 style="color: var(--korean-navy); font-size: 1.1rem; margin-bottom: 0.5rem;">Removal-based</h4>
-                  <p style="font-size: 0.9rem; margin: 0; color: var(--korean-dark-gray);">절대량 기준</p>
-                </div>
+            <div class="korean-card" style="background: var(--korean-light-gray); border: 1px solid var(--korean-border); padding: 1rem;">
+              <h3 style="color: var(--korean-navy); font-size: 1.1rem; margin-bottom: 0.8rem;">📊 Baseline 분류 참고</h3>
+              <div style="display: flex; gap: 1rem; font-size: 0.8rem;">
+                <span><strong>Avoidance-based:</strong> 미래시점 기준</span>
+                <span><strong>Reduction-based:</strong> 과거시점 기준</span>
+                <span><strong>Removal-based:</strong> 절대량 기준</span>
               </div>
             </div>
           </div>
