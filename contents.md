@@ -49,7 +49,7 @@
 - CRT를 VCU로 일방향 전환
 - "Early Action Offset Credits 취소 후 ARB 크레딧 발급"
 
-### 부록
+### *
 CDM의 Cancellation과 VCM의 Retirement는 동일한 행위(사용)를 지칭해왔음. 자발적탄소시장과 제도시장과의 융합이 이뤄지며 용어 통일의 노력이 진행 중이며, CDP 또한 이를 반영 중. Cancel의 의미는 이제 사용의 의미가 사라지는 추세
 
 ## 3. CDP 질문 변경으로 본 마켓 트렌드 2: 국가단위의 Baseline 설정 방법론 대두

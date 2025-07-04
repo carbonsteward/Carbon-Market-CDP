@@ -1266,7 +1266,7 @@
                 2024년 상위 구매기업
               </h3>
               <div style="background: var(--korean-white); border-radius: 8px; border: 1px solid var(--korean-border); overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-                <img src="top-buyers-2024.jpg" 
+                <img src="carbon-offset-rankings-2024.jpg" 
                      alt="2024년 탄소크레딧 상위 구매기업 - Shell이 1위로 Microsoft보다 3배 많은 크레딧 구매" 
                      style="width: 100%; height: auto; display: block; border-radius: 8px;"
                      loading="lazy">
@@ -1452,7 +1452,7 @@
               
               <!-- Appendix Text -->
               <div style="margin-top: 2rem; padding: 1.5rem; background: var(--korean-light-gray); border-radius: 8px; border-left: 4px solid var(--korean-blue);">
-                <h4 style="font-size: 1.2rem; margin-bottom: 1rem; color: var(--korean-navy); font-weight: 600;">📋 부록</h4>
+                <h4 style="font-size: 1.2rem; margin-bottom: 1rem; color: var(--korean-navy); font-weight: 600;">*</h4>
                 <p style="font-size: 1rem; line-height: 1.5; color: var(--korean-dark-gray); margin: 0;">
                   CDM의 Cancellation과 VCM의 Retirement는 동일한 행위(사용)를 지칭해왔음. 자발적탄소시장과 제도시장과의 융합이 이뤄지며 용어 통일의 노력이 진행 중이며, CDP 또한 이를 반영 중. Cancel의 의미는 이제 사용의 의미가 사라지는 추세
                 </p>
@@ -1526,34 +1526,11 @@
             <!-- Right Side: Registry Transfer Process Diagram -->
             <div class="korean-card" style="padding: 2rem; background: var(--korean-white);">
               <h3 style="font-size: 1.6rem; margin-bottom: 1.5rem; text-align: center; color: var(--korean-navy);">Registry 간 전환 프로세스</h3>
-              <div style="background: var(--korean-white); border-radius: 8px; border: 1px solid var(--korean-border); padding: 1rem; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-                <div class="mermaid" style="text-align: center;">
-flowchart LR
-    subgraph A[탄소 스탠다드 A]
-        RA[레지스트리 A]
-    end
-
-    subgraph B[탄소 스탠다드 B]
-        RB[레지스트리 B]
-    end
-
-    RA --> RegA[등록]
-    RB --> RegB[등록]
-
-    RegA --> ActiveA[활성 배출권]
-    RegB --> ActiveB[활성 배출권]
-
-    ActiveA --> OffA[상쇄]
-    ActiveA -.->|취소 후 재등록| RegB
-
-    OffA --> RetiredA[상쇄된 배출권]
-
-    ActiveB --> CancelB[취소]
-    CancelB -.->|이동 가능| RegA
-
-    style RA fill:#d0f0c0,stroke:#333,stroke-width:1px
-    style RB fill:#c0e0f0,stroke:#333,stroke-width:1px
-                </div>
+              <div style="background: var(--korean-white); border-radius: 8px; border: 1px solid var(--korean-border); overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+                <img src="CarbonFlow.svg" 
+                     alt="탄소 레지스트리 간 크레딧 전환 및 취소 프로세스 흐름도" 
+                     style="width: 100%; height: auto; display: block;"
+                     loading="lazy">
               </div>
               <p style="font-size: 0.9rem; color: var(--korean-dark-gray); text-align: center; margin-top: 1rem; font-style: italic;">
                 탄소 레지스트리 간 크레딧 전환 및 취소 프로세스 흐름도
