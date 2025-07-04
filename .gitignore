@@ -38,3 +38,4 @@ save-*.sh
 simple-image-helper.sh
 slide-manager.sh
 deploy-presentation.shnode_modules/
+node_modules/
