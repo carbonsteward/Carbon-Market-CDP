@@ -1050,13 +1050,15 @@
       section {
         page-break-before: always;
         page-break-after: always;
-        page-break-inside: avoid;
+        page-break-inside: auto;
         width: 100vw;
-        height: 100vh;
+        height: auto;
+        min-height: 100vh;
         margin: 0;
         padding: 2rem;
         box-sizing: border-box;
         background: white !important;
+        overflow: visible !important;
       }
       
       /* First slide doesn't need page break before */
@@ -1072,6 +1074,44 @@
       
       h1, h2, h3, h4, h5, h6 {
         color: #2C3E50 !important;
+      }
+      
+      /* Force all slide content to be visible in print */
+      section {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        transform: none !important;
+      }
+      
+      /* Force all child elements to be visible */
+      section * {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        transform: none !important;
+      }
+      
+      /* Preserve inline and flex elements */
+      section span, section em, section strong, section a {
+        display: inline !important;
+      }
+      
+      section .korean-grid {
+        display: grid !important;
+      }
+      
+      section .korean-card {
+        display: block !important;
+      }
+      
+      /* Specifically ensure Framework Risks section is visible */
+      section h3[style*="font-size: 2.5rem"],
+      section h3[style*="font-size: 2rem"] {
+        display: block !important;
+        visibility: visible !important;
+        opacity: 1 !important;
+        page-break-inside: avoid !important;
       }
       
       /* Maintain slide layout */
@@ -1862,10 +1902,8 @@
           <div class="korean-grid one-col">
             <div class="korean-card" style="background: var(--korean-light-gray); border: 1px solid var(--korean-border); padding: 1rem;">
               <h3 style="color: var(--korean-navy); font-size: 1.1rem; margin-bottom: 0.8rem;">Baseline 기준 참고</h3>
-              <div style="display: flex; gap: 1rem; font-size: 1.1rem;">
-                <span><strong>Avoidance-based:</strong> 미래시점 기준</span>
-                <span><strong>Reduction-based:</strong> 과거시점 기준</span>
-                <span><strong>Removal-based:</strong> 절대량 기준</span>
+              <div style="font-size: 1.1rem;">
+                <span><strong>Avoidance-based:</strong> 미래시점 기준 | <strong>Reduction-based:</strong> 과거시점 기준 | <strong>Removal-based:</strong> 절대량 기준</span>
               </div>
             </div>
           </div>
@@ -2382,27 +2420,52 @@
             <div class="subtitle">리스크 다각화: 고려 대상 이해관계자 및 사회·환경요소 확대</div>
           </div>
 
-          <div class="korean-grid two-col">
+          <div style="display: grid; grid-template-columns: 1fr 1fr 1fr 1fr; gap: 1.5rem;">
+            <!-- Column 1: Economic Risks -->
             <div class="korean-card" style="padding: 1rem;">
-              <h3 style="font-size: 1.3rem; margin-bottom: 0.8rem;">기존의 경제성, 발급과정</h3>
-              <h4 style="font-size: 1rem; margin-bottom: 1rem;">(탄소시장 직접적인 이해관계자)</h4>
-              <div class="korean-list" style="font-size: 0.9rem; line-height: 1.4;">
-                <li><strong>경제성 리스크:</strong> 프로젝트 수익성 및 비용 효율성</li>
-                <li><strong>발급과정 리스크:</strong> 크레딧 생성 및 검증 과정의 불확실성</li>
-                <li><strong>기술적 리스크:</strong> 프로젝트 기술의 성능 및 지속가능성</li>
-                <li><strong>시장 리스크:</strong> 가격 변동성 및 유동성 문제</li>
-                <li style="margin-top: 1rem; color: var(--korean-navy); font-weight: 600;"><strong>주로 탄소시장 직접 참여자들의 이해관계에 초점</strong></li>
+              <h3 style="font-size: 1.1rem; margin-bottom: 0.8rem; color: var(--korean-navy);">경제성 리스크</h3>
+              <h4 style="font-size: 0.9rem; margin-bottom: 0.8rem; color: var(--korean-dark-gray);">(전통적 시장 위험)</h4>
+              <div class="korean-list" style="font-size: 0.8rem; line-height: 1.4;">
+                <li><strong>수익성:</strong> 프로젝트 수익성 및 ROI</li>
+                <li><strong>비용 효율성:</strong> 개발·운영 비용</li>
+                <li><strong>시장 가격:</strong> 크레딧 가격 변동성</li>
+                <li><strong>유동성:</strong> 매매 시장 접근성</li>
               </div>
             </div>
+
+            <!-- Column 2: Technical & Issuance Risks -->
             <div class="korean-card" style="padding: 1rem;">
-              <h3 style="font-size: 1.3rem; margin-bottom: 0.8rem;">현재 Social, Environmental Safeguards 까지</h3>
-              <h4 style="font-size: 1rem; margin-bottom: 1rem;">(이해관계자 범위 확대)</h4>
-              <div class="korean-list" style="font-size: 0.9rem; line-height: 1.4;">
-                <li><strong>사회적 보호장치:</strong> 지역 공동체 권리 보호</li>
-                <li><strong>환경적 보호장치:</strong> 생물다양성 및 생태계 보전</li>
-                <li><strong>인권 고려:</strong> 원주민 및 지역주민 권익 보호</li>
-                <li><strong>투명성 강화:</strong> 이해관계자 참여 및 정보 공개</li>
-                <li style="margin-top: 1rem; color: var(--korean-navy); font-weight: 600;"><strong>이해관계자 범위가 탄소시장을 넘어 광범위하게 확대</strong></li>
+              <h3 style="font-size: 1.1rem; margin-bottom: 0.8rem; color: var(--korean-navy);">기술적·발급 리스크</h3>
+              <h4 style="font-size: 0.9rem; margin-bottom: 0.8rem; color: var(--korean-dark-gray);">(크레딧 품질 위험)</h4>
+              <div class="korean-list" style="font-size: 0.8rem; line-height: 1.4;">
+                <li><strong>기술 성능:</strong> 프로젝트 기술의 지속가능성</li>
+                <li><strong>검증 과정:</strong> MRV 체계의 불확실성</li>
+                <li><strong>발급 지연:</strong> 크레딧 생성 일정 변동</li>
+                <li><strong>품질 논란:</strong> 추가성·영구성 이슈</li>
+              </div>
+            </div>
+
+            <!-- Column 3: Social Safeguards -->
+            <div class="korean-card" style="padding: 1rem;">
+              <h3 style="font-size: 1.1rem; margin-bottom: 0.8rem; color: var(--korean-navy);">사회적 보호장치</h3>
+              <h4 style="font-size: 0.9rem; margin-bottom: 0.8rem; color: var(--korean-dark-gray);">(지역사회 위험)</h4>
+              <div class="korean-list" style="font-size: 0.8rem; line-height: 1.4;">
+                <li><strong>인권 보호:</strong> 원주민·지역주민 권익</li>
+                <li><strong>사회적 영향:</strong> 지역사회 생계 영향</li>
+                <li><strong>참여 과정:</strong> 이해관계자 협의</li>
+                <li><strong>갈등 해결:</strong> 분쟁 발생 시 대응</li>
+              </div>
+            </div>
+
+            <!-- Column 4: Environmental Safeguards -->
+            <div class="korean-card" style="padding: 1rem;">
+              <h3 style="font-size: 1.1rem; margin-bottom: 0.8rem; color: var(--korean-navy);">환경적 보호장치</h3>
+              <h4 style="font-size: 0.9rem; margin-bottom: 0.8rem; color: var(--korean-dark-gray);">(생태계 위험)</h4>
+              <div class="korean-list" style="font-size: 0.8rem; line-height: 1.4;">
+                <li><strong>생물다양성:</strong> 생태계 서비스 보전</li>
+                <li><strong>환경 영향:</strong> 부정적 외부효과</li>
+                <li><strong>투명성:</strong> 환경정보 공개</li>
+                <li><strong>지속가능성:</strong> 장기적 환경 건전성</li>
               </div>
             </div>
           </div>
@@ -2419,46 +2482,47 @@
 
           <!-- 4 Boxes Grid for Safeguard Documents -->
           <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; margin-top: 2rem;">
-            <!-- Box 1: Verra -->
+            <!-- Box 1: Gold Standard -->
             <div class="korean-card" style="min-height: 200px; padding: 1.5rem;">
-              <h3 style="color: var(--korean-navy); margin-bottom: 1rem; font-size: 1.4rem;">📄 Verra Safeguards</h3>
+              <h3 style="color: var(--korean-navy); margin-bottom: 1rem; font-size: 1.4rem;">📄 Gold Standard</h3>
               <div style="background: var(--korean-white); border-radius: 8px; border: 1px solid var(--korean-border); overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); max-height: 300px; display: flex; align-items: center; justify-content: center;">
                 <img src="safeguard1.jpg"
-                     alt="Verra Safeguard 정책 문서"
-                     style="width: 100%; max-height: 280px; object-fit: contain; display: block; border-radius: 8px;"
-                     loading="lazy">
-              </div>
-            </div>
-
-            <!-- Box 2: Gold Standard -->
-            <div class="korean-card" style="min-height: 200px; padding: 1.5rem;">
-              <h3 style="color: var(--korean-navy); margin-bottom: 1rem; font-size: 1.4rem;">📄 Gold Standard Safeguards</h3>
-              <div style="background: var(--korean-white); border-radius: 8px; border: 1px solid var(--korean-border); overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); max-height: 300px; display: flex; align-items: center; justify-content: center;">
-                <img src="safeguard2.jpg"
                      alt="Gold Standard Safeguard 정책 문서"
                      style="width: 100%; max-height: 280px; object-fit: contain; display: block; border-radius: 8px;"
                      loading="lazy">
               </div>
             </div>
 
-            <!-- Box 3: Climate Action Reserve -->
+            <!-- Box 2: Global Carbon Council -->
             <div class="korean-card" style="min-height: 200px; padding: 1.5rem;">
-              <h3 style="color: var(--korean-navy); margin-bottom: 1rem; font-size: 1.4rem;">📄 CAR Safeguards</h3>
+              <h3 style="color: var(--korean-navy); margin-bottom: 1rem; font-size: 1.4rem;">📄 Global Carbon Council</h3>
               <div style="background: var(--korean-white); border-radius: 8px; border: 1px solid var(--korean-border); overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); max-height: 300px; display: flex; align-items: center; justify-content: center;">
-                <img src="safeguard3.jpg"
-                     alt="Climate Action Reserve Safeguard 정책 문서"
+                <img src="safeguard2.jpg"
+                     alt="Global Carbon Council Safeguard 정책 문서"
                      style="width: 100%; max-height: 280px; object-fit: contain; display: block; border-radius: 8px;"
                      loading="lazy">
               </div>
             </div>
 
-            <!-- Box 4: Other Registries -->
+            <!-- Box 3: Verra -->
             <div class="korean-card" style="min-height: 200px; padding: 1.5rem;">
-              <h3 style="color: var(--korean-navy); margin-bottom: 1rem; font-size: 1.4rem;">📄 Other Registry Safeguards</h3>
-              <div style="border: 2px dashed var(--korean-border); padding: 1rem; text-align: center; color: var(--korean-dark-gray); font-style: italic;">
-                Document attachment area
-                <br><br>
-                <small>Drag & drop or click to attach<br>Other registry safeguard policies</small>
+              <h3 style="color: var(--korean-navy); margin-bottom: 1rem; font-size: 1.4rem;">📄 Verra</h3>
+              <div style="background: var(--korean-white); border-radius: 8px; border: 1px solid var(--korean-border); overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); max-height: 300px; display: flex; align-items: center; justify-content: center;">
+                <img src="safeguard3.jpg"
+                     alt="Verra Safeguard 정책 문서"
+                     style="width: 100%; max-height: 280px; object-fit: contain; display: block; border-radius: 8px;"
+                     loading="lazy">
+              </div>
+            </div>
+
+            <!-- Box 4: PACM -->
+            <div class="korean-card" style="min-height: 200px; padding: 1.5rem;">
+              <h3 style="color: var(--korean-navy); margin-bottom: 1rem; font-size: 1.4rem;">📄 PACM</h3>
+              <div style="background: var(--korean-white); border-radius: 8px; border: 1px solid var(--korean-border); overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); max-height: 300px; display: flex; align-items: center; justify-content: center;">
+                <img src="pacm.jpg"
+                     alt="PACM Safeguard 정책 문서"
+                     style="width: 100%; max-height: 280px; object-fit: contain; display: block; border-radius: 8px;"
+                     loading="lazy">
               </div>
             </div>
           </div>
