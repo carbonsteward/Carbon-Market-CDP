@@ -966,33 +966,6 @@
 
 
 
-    /* Slide Pagination */
-    .slide-pagination {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      background: rgba(44, 62, 80, 0.9);
-      color: var(--korean-white);
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
-      font-family: var(--korean-font-primary);
-      font-size: 0.9rem;
-      font-weight: 500;
-      z-index: 100;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-    }
-
-    .slide-pagination .current-slide {
-      color: var(--korean-white);
-      font-weight: 600;
-    }
-
-    .slide-pagination .total-slides {
-      color: rgba(255, 255, 255, 0.7);
-      font-weight: 400;
-    }
 
     /* Slide Transition Overlay */
     .slide-transition-overlay {
@@ -1148,11 +1121,6 @@
 
 
 
-  <!-- Slide Pagination -->
-  <div class="slide-pagination" id="slide-pagination">
-    <span class="current-slide" id="current-slide">1</span>
-    <span class="total-slides"> / <span id="total-slides">19</span></span>
-  </div>
 
   <!-- Slide Transition Overlay -->
   <div class="slide-transition-overlay" id="transition-overlay">
@@ -2799,22 +2767,6 @@
       window.ws.el.addEventListener('ws:slide-change', updateProgress);
 
       // Update pagination on slide change
-      function updatePagination() {
-        const currentSlideElement = document.querySelector('.current');
-        if (currentSlideElement) {
-          const slides = document.querySelectorAll('#webslides > section');
-          const currentIndex = Array.from(slides).indexOf(currentSlideElement) + 1;
-          const totalSlides = slides.length;
-
-          document.getElementById('current-slide').textContent = currentIndex;
-          document.getElementById('total-slides').textContent = totalSlides;
-        }
-      }
-
-      window.ws.el.addEventListener('ws:slide-change', updatePagination);
-
-      // Initialize pagination on page load
-      updatePagination();
 
       // Enhanced slide navigation for Korean presentation
       window.ws.el.addEventListener('ws:slide-change', function() {

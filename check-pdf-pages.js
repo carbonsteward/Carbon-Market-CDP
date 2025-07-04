@@ -35,7 +35,7 @@ function countPDFPages(filePath) {
 }
 
 // Check the main PDF file
-const pdfFile = 'Carbon_Market_CDP_Presentation_Fullscreen.pdf';
+const pdfFile = 'Carbon_Market_CDP_Presentation_Chrome_Direct.pdf';
 const pages = countPDFPages(pdfFile);
 
 if (pages > 0) {

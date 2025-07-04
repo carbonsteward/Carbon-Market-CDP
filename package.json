@@ -15,14 +15,21 @@
     "export-with-images": "node export-pdf-with-images.js",
     "export-working": "node export-pdf-restore-working.js",
     "export-absolute-paths": "node export-pdf-absolute-paths.js",
+    "export-http-server": "node export-pdf-http-server.js",
+    "export-chrome-direct": "./export-pdf-chrome-direct.sh",
+    "export-ppt": "node export-ppt.js",
+    "export-ppt-enhanced": "node export-ppt-enhanced.js",
+    "export-ppt-professional": "node export-ppt-professional.js",
     "install-deps": "npm install puppeteer playwright-core html-pdf-node",
     "test": "node test-export.js"
   },
   "dependencies": {
-    "fs-extra": "^11.2.0",
+    "cheerio": "^1.1.0",
+    "fs-extra": "^11.3.0",
     "html-pdf-node": "^1.0.8",
     "path": "^0.12.7",
     "playwright": "^1.40.1",
+    "pptxgenjs": "^4.0.1",
     "puppeteer": "^21.11.0"
   },
   "devDependencies": {
@@ -36,5 +43,13 @@
     "cdp"
   ],
   "author": "Carbon Market Research Team",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carbonsteward/Carbon-Market-CDP.git"
+  },
+  "bugs": {
+    "url": "https://github.com/carbonsteward/Carbon-Market-CDP/issues"
+  },
+  "homepage": "https://github.com/carbonsteward/Carbon-Market-CDP#readme"
 }
