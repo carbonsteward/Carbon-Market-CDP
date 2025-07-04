@@ -1,0 +1,171 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="306pt" height="488pt" viewBox="0.00 0.00 305.79 487.60">
+<g id="graph0" class="graph" transform="scale(1 1) rotate(0) translate(4 483.6)">
+<title>CarbonFlow</title>
+<polygon fill="white" stroke="none" points="-4,4 -4,-483.6 301.79,-483.6 301.79,4 -4,4"/>
+<!-- CSA -->
+<g id="node1" class="node">
+<title>CSA</title>
+<polygon fill="none" stroke="black" points="139.18,-479.6 43.07,-479.6 43.07,-443.6 139.18,-443.6 139.18,-479.6"/>
+<text text-anchor="middle" x="91.13" y="-457.4" font-family="NanumGothic" font-size="14.00">탄소 스탠다드 A</text>
+</g>
+<!-- AppA -->
+<g id="node2" class="node">
+<title>AppA</title>
+<polygon fill="none" stroke="black" points="118.13,-406.6 64.13,-406.6 64.13,-370.6 118.13,-370.6 118.13,-406.6"/>
+<text text-anchor="middle" x="91.13" y="-384.4" font-family="NanumGothic" font-size="14.00">신청</text>
+</g>
+<!-- CSA&#45;&gt;AppA -->
+<g id="edge1" class="edge">
+<title>CSA-&gt;AppA</title>
+<path fill="none" stroke="black" d="M91.13,-443.41C91.13,-435.83 91.13,-426.7 91.13,-418.14"/>
+<polygon fill="black" stroke="black" points="94.63,-418.14 91.13,-408.14 87.63,-418.14 94.63,-418.14"/>
+</g>
+<!-- RegA -->
+<g id="node3" class="node">
+<title>RegA</title>
+<polygon fill="none" stroke="black" points="132.18,-333.6 50.07,-333.6 50.07,-297.6 132.18,-297.6 132.18,-333.6"/>
+<text text-anchor="middle" x="91.13" y="-311.4" font-family="NanumGothic" font-size="14.00">레지스트리 A</text>
+</g>
+<!-- AppA&#45;&gt;RegA -->
+<g id="edge2" class="edge">
+<title>AppA-&gt;RegA</title>
+<path fill="none" stroke="black" d="M91.13,-370.41C91.13,-362.83 91.13,-353.7 91.13,-345.14"/>
+<polygon fill="black" stroke="black" points="94.63,-345.14 91.13,-335.14 87.63,-345.14 94.63,-345.14"/>
+</g>
+<!-- RegistA -->
+<g id="node4" class="node">
+<title>RegistA</title>
+<polygon fill="none" stroke="black" points="118.26,-260.6 0,-260.6 0,-224.6 118.26,-224.6 118.26,-260.6"/>
+<text text-anchor="middle" x="59.13" y="-238.4" font-family="NanumGothic" font-size="14.00">등록 (Registration)</text>
+</g>
+<!-- RegA&#45;&gt;RegistA -->
+<g id="edge3" class="edge">
+<title>RegA-&gt;RegistA</title>
+<path fill="none" stroke="black" d="M83.38,-297.41C79.81,-289.48 75.47,-279.86 71.46,-270.96"/>
+<polygon fill="black" stroke="black" points="74.73,-269.69 67.43,-262.01 68.34,-272.56 74.73,-269.69"/>
+</g>
+<!-- ActiveA -->
+<g id="node5" class="node">
+<title>ActiveA</title>
+<polygon fill="none" stroke="black" points="95.13,-187.6 23.13,-187.6 23.13,-151.6 95.13,-151.6 95.13,-187.6"/>
+<text text-anchor="middle" x="59.13" y="-165.4" font-family="NanumGothic" font-size="14.00">활성 배출권</text>
+</g>
+<!-- RegistA&#45;&gt;ActiveA -->
+<g id="edge4" class="edge">
+<title>RegistA-&gt;ActiveA</title>
+<path fill="none" stroke="black" d="M59.13,-224.41C59.13,-216.83 59.13,-207.7 59.13,-199.14"/>
+<polygon fill="black" stroke="black" points="62.63,-199.14 59.13,-189.14 55.63,-199.14 62.63,-199.14"/>
+</g>
+<!-- RetireA -->
+<g id="node6" class="node">
+<title>RetireA</title>
+<polygon fill="none" stroke="black" points="115.14,-114.6 3.12,-114.6 3.12,-73 115.14,-73 115.14,-114.6"/>
+<text text-anchor="middle" x="59.13" y="-98" font-family="NanumGothic" font-size="14.00">상쇄 (Retirement)</text>
+<text text-anchor="middle" x="59.13" y="-81.2" font-family="NanumGothic" font-size="14.00">(상쇄 사용)</text>
+</g>
+<!-- ActiveA&#45;&gt;RetireA -->
+<g id="edge5" class="edge">
+<title>ActiveA-&gt;RetireA</title>
+<path fill="none" stroke="black" d="M59.13,-151.11C59.13,-143.75 59.13,-134.95 59.13,-126.52"/>
+<polygon fill="black" stroke="black" points="62.63,-126.55 59.13,-116.55 55.63,-126.55 62.63,-126.55"/>
+</g>
+<!-- RetiredA -->
+<g id="node7" class="node">
+<title>RetiredA</title>
+<polygon fill="none" stroke="black" points="100.38,-36 17.88,-36 17.88,0 100.38,0 100.38,-36"/>
+<text text-anchor="middle" x="59.13" y="-13.8" font-family="NanumGothic" font-size="14.00">상쇄된 배출권</text>
+</g>
+<!-- RetireA&#45;&gt;RetiredA -->
+<g id="edge6" class="edge">
+<title>RetireA-&gt;RetiredA</title>
+<path fill="none" stroke="black" d="M59.13,-72.63C59.13,-64.86 59.13,-55.83 59.13,-47.42"/>
+<polygon fill="black" stroke="black" points="62.63,-47.65 59.13,-37.65 55.63,-47.65 62.63,-47.65"/>
+</g>
+<!-- CSB -->
+<g id="node8" class="node">
+<title>CSB</title>
+<polygon fill="none" stroke="black" points="283.8,-479.6 188.46,-479.6 188.46,-443.6 283.8,-443.6 283.8,-479.6"/>
+<text text-anchor="middle" x="236.13" y="-457.4" font-family="NanumGothic" font-size="14.00">탄소 스탠다드 B</text>
+</g>
+<!-- AppB -->
+<g id="node9" class="node">
+<title>AppB</title>
+<polygon fill="none" stroke="black" points="263.13,-406.6 209.13,-406.6 209.13,-370.6 263.13,-370.6 263.13,-406.6"/>
+<text text-anchor="middle" x="236.13" y="-384.4" font-family="NanumGothic" font-size="14.00">신청</text>
+</g>
+<!-- CSB&#45;&gt;AppB -->
+<g id="edge7" class="edge">
+<title>CSB-&gt;AppB</title>
+<path fill="none" stroke="black" d="M236.13,-443.41C236.13,-435.83 236.13,-426.7 236.13,-418.14"/>
+<polygon fill="black" stroke="black" points="239.63,-418.14 236.13,-408.14 232.63,-418.14 239.63,-418.14"/>
+</g>
+<!-- RegB -->
+<g id="node10" class="node">
+<title>RegB</title>
+<polygon fill="none" stroke="black" points="276.8,-333.6 195.46,-333.6 195.46,-297.6 276.8,-297.6 276.8,-333.6"/>
+<text text-anchor="middle" x="236.13" y="-311.4" font-family="NanumGothic" font-size="14.00">레지스트리 B</text>
+</g>
+<!-- AppB&#45;&gt;RegB -->
+<g id="edge8" class="edge">
+<title>AppB-&gt;RegB</title>
+<path fill="none" stroke="black" d="M236.13,-370.41C236.13,-362.83 236.13,-353.7 236.13,-345.14"/>
+<polygon fill="black" stroke="black" points="239.63,-345.14 236.13,-335.14 232.63,-345.14 239.63,-345.14"/>
+</g>
+<!-- RegistB -->
+<g id="node11" class="node">
+<title>RegistB</title>
+<polygon fill="none" stroke="black" points="295.26,-260.6 177,-260.6 177,-224.6 295.26,-224.6 295.26,-260.6"/>
+<text text-anchor="middle" x="236.13" y="-238.4" font-family="NanumGothic" font-size="14.00">등록 (Registration)</text>
+</g>
+<!-- RegB&#45;&gt;RegistB -->
+<g id="edge9" class="edge">
+<title>RegB-&gt;RegistB</title>
+<path fill="none" stroke="black" d="M236.13,-297.41C236.13,-289.83 236.13,-280.7 236.13,-272.14"/>
+<polygon fill="black" stroke="black" points="239.63,-272.14 236.13,-262.14 232.63,-272.14 239.63,-272.14"/>
+</g>
+<!-- ActiveB -->
+<g id="node12" class="node">
+<title>ActiveB</title>
+<polygon fill="none" stroke="black" points="272.13,-187.6 200.13,-187.6 200.13,-151.6 272.13,-151.6 272.13,-187.6"/>
+<text text-anchor="middle" x="236.13" y="-165.4" font-family="NanumGothic" font-size="14.00">활성 배출권</text>
+</g>
+<!-- RegistB&#45;&gt;ActiveB -->
+<g id="edge10" class="edge">
+<title>RegistB-&gt;ActiveB</title>
+<path fill="none" stroke="black" d="M236.13,-224.41C236.13,-216.83 236.13,-207.7 236.13,-199.14"/>
+<polygon fill="black" stroke="black" points="239.63,-199.14 236.13,-189.14 232.63,-199.14 239.63,-199.14"/>
+</g>
+<!-- CancelB -->
+<g id="node13" class="node">
+<title>CancelB</title>
+<polygon fill="none" stroke="black" points="297.79,-114.6 174.47,-114.6 174.47,-73 297.79,-73 297.79,-114.6"/>
+<text text-anchor="middle" x="236.13" y="-98" font-family="NanumGothic" font-size="14.00">취소 (Cancellation)</text>
+<text text-anchor="middle" x="236.13" y="-81.2" font-family="NanumGothic" font-size="14.00">(상쇄 불가, 이동 가능)</text>
+</g>
+<!-- ActiveB&#45;&gt;CancelB -->
+<g id="edge11" class="edge">
+<title>ActiveB-&gt;CancelB</title>
+<path fill="none" stroke="black" d="M236.13,-151.11C236.13,-143.75 236.13,-134.95 236.13,-126.52"/>
+<polygon fill="black" stroke="black" points="239.63,-126.55 236.13,-116.55 232.63,-126.55 239.63,-126.55"/>
+</g>
+<!-- CancelledB -->
+<g id="node14" class="node">
+<title>CancelledB</title>
+<polygon fill="none" stroke="black" points="223.38,-36 140.88,-36 140.88,0 223.38,0 223.38,-36"/>
+<text text-anchor="middle" x="182.13" y="-13.8" font-family="NanumGothic" font-size="14.00">취소된 배출권</text>
+</g>
+<!-- CancelB&#45;&gt;CancelledB -->
+<g id="edge12" class="edge">
+<title>CancelB-&gt;CancelledB</title>
+<path fill="none" stroke="black" d="M221.37,-72.63C215.23,-64.23 208.01,-54.37 201.45,-45.4"/>
+<polygon fill="black" stroke="black" points="204.29,-43.36 195.56,-37.36 198.65,-47.5 204.29,-43.36"/>
+</g>
+<!-- CancelledB&#45;&gt;RegA -->
+<g id="edge13" class="edge">
+<title>CancelledB-&gt;RegA</title>
+<path fill="none" stroke="blue" stroke-dasharray="5,2" d="M168.11,-36.35C158,-50.62 146.13,-71.84 146.13,-92.8 146.13,-243.6 146.13,-243.6 146.13,-243.6 146.13,-261.21 135.43,-277.1 123.46,-289.36"/>
+<polygon fill="blue" stroke="blue" points="121.07,-286.8 116.19,-296.21 125.87,-291.9 121.07,-286.8"/>
+<text text-anchor="middle" x="161.88" y="-165.4" font-family="Times,serif" font-size="14.00">재등록</text>
+</g>
+</g>
+</svg>
