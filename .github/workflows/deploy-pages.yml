@@ -48,10 +48,13 @@ jobs:
           fi
           
           # Copy approved image assets only
-          if [ -f "icvcm-elets-terminology-comparison.jpg" ]; then
-            cp icvcm-elets-terminology-comparison.jpg _site/
-            echo "✅ Approved image assets copied"
-          fi
+          for img in icvcm-elets-terminology-comparison.jpg cumulative-carbon-offset-rankings.jpg carbon-offset-rankings-2024.jpg top-buyers-2024.jpg CarbonFlow.svg; do
+            if [ -f "$img" ]; then
+              cp "$img" _site/
+              echo "✅ $img copied"
+            fi
+          done
+          echo "✅ All approved image assets copied"
           
           # Copy .nojekyll to ensure GitHub Pages doesn't process Jekyll
           if [ -f ".nojekyll" ]; then
