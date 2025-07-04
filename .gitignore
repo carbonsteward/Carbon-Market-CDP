@@ -37,4 +37,4 @@ multi-image-workflow.sh
 save-*.sh
 simple-image-helper.sh
 slide-manager.sh
-deploy-presentation.sh
+deploy-presentation.shnode_modules/
