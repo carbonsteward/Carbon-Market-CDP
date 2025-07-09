@@ -32,81 +32,85 @@ jobs:
           # Create deployment directory
           mkdir -p _site
           
-          # SECURE DEPLOYMENT: Only copy approved presentation files
-          echo "🔒 Secure deployment - presentation files only"
+          # SECURITY-FIRST DEPLOYMENT: Only HTML presentation files and their directly referenced images
+          echo "🔒 SECURITY-FIRST: Deploying only presentation HTML files and referenced images"
           
-          # Copy main presentation file as index.html for GitHub Pages
-          if [ -f "carbon_market_trends_2024_2025_standalone.html" ]; then
-            cp carbon_market_trends_2024_2025_standalone.html _site/index.html
-            echo "✅ Main presentation copied"
-          fi
+          # Define presentation HTML files (whitelist approach)
+          presentation_files="carbon_market_trends_2024_2025_standalone.html index.html"
           
-          # Copy landing page
-          if [ -f "index.html" ]; then
-            cp index.html _site/landing.html
-            echo "✅ Landing page copied"
-          fi
-          
-          # Copy test files for debugging
-          for test_file in image-path-test.html simple-test.html test-image.html debug-images.html; do
-            if [ -f "$test_file" ]; then
-              cp "$test_file" _site/
-              echo "✅ $test_file copied"
+          # Copy whitelisted HTML presentation files
+          for html_file in $presentation_files; do
+            if [ -f "$html_file" ]; then
+              if [ "$html_file" = "carbon_market_trends_2024_2025_standalone.html" ]; then
+                cp "$html_file" _site/index.html
+                echo "✅ Main presentation copied as index.html"
+              else
+                cp "$html_file" _site/
+                echo "✅ $html_file copied"
+              fi
             fi
           done
           
-          # Copy approved image assets only
-          # DEPLOYMENT MANAGER NOTE: Always add new images to this list to prevent 404 errors
-          # Common mistake: Adding images to presentation but forgetting to update deployment
-          image_list="icvcm-elets-terminology-comparison.jpg cumulative-carbon-offset-rankings.jpg carbon-offset-rankings-2024.jpg top-buyers-2024.jpg CarbonFlow.svg sbti1.jpg risk1.jpg risk2.jpg risk3.jpg risk4.jpg safeguard1.jpg safeguard2.jpg safeguard3.jpg cmiwg.jpg CMIWG2.jpg CMIWG3.jpg gcc.jpg pacm.jpg"
+          # Auto-extract images referenced in HTML files (dynamic approach)
+          echo "🔍 Extracting images referenced in presentation HTML files..."
+          referenced_images=""
           
-          echo "📋 Copying approved images to deployment..."
-          for img in $image_list; do
+          for html_file in $presentation_files; do
+            if [ -f "$html_file" ]; then
+              echo "   📋 Scanning $html_file for image references..."
+              file_images=$(grep -o 'src="[^"]*\.\(jpg\|png\|svg\|gif\|webp\)' "$html_file" | sed 's/src="//g' | xargs -I {} basename {} | sort -u)
+              for img in $file_images; do
+                if [ -f "$img" ]; then
+                  referenced_images="$referenced_images $img"
+                  echo "   ✅ Found referenced image: $img"
+                fi
+              done
+            fi
+          done
+          
+          # Remove duplicates and copy only referenced images
+          referenced_images=$(echo $referenced_images | tr ' ' '\n' | sort -u | tr '\n' ' ')
+          
+          echo "📋 Copying only images referenced in presentation files..."
+          for img in $referenced_images; do
             if [ -f "$img" ]; then
               cp "$img" _site/
-              echo "✅ $img copied"
+              echo "✅ $img copied (referenced in presentation)"
             else
-              echo "⚠️  WARNING: $img not found (referenced in deployment but missing from repository)"
+              echo "⚠️  WARNING: $img referenced in HTML but missing from repository"
             fi
           done
           
-          # Auto-detect and validate images in presentation vs deployment
-          echo "🔍 Checking for images referenced in presentation but not in deployment..."
+          # Validate all referenced images were successfully deployed
+          echo "🔍 Validating all referenced images were deployed..."
           missing_images_found=false
           
-          if [ -f "carbon_market_trends_2024_2025_standalone.html" ]; then
-            # Extract image references from HTML
-            html_images=$(grep -o 'src="[^"]*\.\(jpg\|png\|svg\|gif\)' carbon_market_trends_2024_2025_standalone.html | sed 's/src="//g' | sort -u)
-            
-            for html_img in $html_images; do
-              # Remove path prefixes for comparison
-              clean_img=$(basename "$html_img")
-              if ! echo "$image_list" | grep -q "$clean_img"; then
-                echo "🚨 DEPLOYMENT ERROR: Image '$clean_img' found in presentation but not in deployment list!"
-                echo "   ❌ Solution: Add '$clean_img' to the image_list in deploy-pages.yml"
-                echo "   📖 See DEPLOYMENT_TROUBLESHOOTING.md for detailed instructions"
-                missing_images_found=true
-              fi
-            done
-          fi
+          for html_file in $presentation_files; do
+            if [ -f "$html_file" ]; then
+              echo "   📋 Validating images in $html_file..."
+              file_images=$(grep -o 'src="[^"]*\.\(jpg\|png\|svg\|gif\|webp\)' "$html_file" | sed 's/src="//g' | xargs -I {} basename {} | sort -u)
+              
+              for img in $file_images; do
+                if [ ! -f "_site/$img" ]; then
+                  echo "🚨 DEPLOYMENT ERROR: Image '$img' referenced in $html_file but not deployed!"
+                  echo "   ❌ Image exists in repo: $([ -f "$img" ] && echo "YES" || echo "NO")"
+                  missing_images_found=true
+                fi
+              done
+            fi
+          done
           
           # Fail build if missing images detected to prevent broken deployments
           if [ "$missing_images_found" = true ]; then
             echo ""
-            echo "💥 BUILD FAILED: Missing images detected in deployment configuration"
-            echo "📋 Required action: Update .github/workflows/deploy-pages.yml"
-            echo "📚 Full guide: See DEPLOYMENT_TROUBLESHOOTING.md"
+            echo "💥 BUILD FAILED: Referenced images missing from deployment"
+            echo "📋 This indicates a bug in the deployment script"
+            echo "📚 Check DEPLOYMENT_TROUBLESHOOTING.md for guidance"
             echo ""
             exit 1
           fi
           
-          echo "✅ All approved image assets processed"
-          
-          # Copy images directory if it exists
-          if [ -d "images" ]; then
-            cp -r images _site/
-            echo "✅ Images directory copied"
-          fi
+          echo "✅ All referenced images successfully deployed"
           
           # Copy .nojekyll to ensure GitHub Pages doesn't process Jekyll
           if [ -f ".nojekyll" ]; then
@@ -114,17 +118,41 @@ jobs:
             echo "✅ Jekyll bypass configured"
           fi
           
-          # Security check: Ensure no sensitive files
-          echo "🔍 Security verification:"
-          if find _site -name "*.pdf" -o -name "*.csv" -o -name "*.docx" | grep -q .; then
-            echo "❌ SECURITY ALERT: Sensitive files detected!"
+          # Comprehensive security verification
+          echo "🔍 SECURITY VERIFICATION: Ensuring only presentation files are deployed"
+          
+          # Check for sensitive file types
+          sensitive_files=$(find _site -type f \( -name "*.pdf" -o -name "*.csv" -o -name "*.docx" -o -name "*.xlsx" -o -name "*.pptx" -o -name "*.zip" -o -name "*.md" -o -name "*.js" -o -name "*.sh" -o -name "*.json" \) 2>/dev/null | head -10)
+          
+          if [ -n "$sensitive_files" ]; then
+            echo "❌ SECURITY ALERT: Sensitive/complementary files detected in deployment!"
+            echo "   📋 Found files:"
+            echo "$sensitive_files"
+            echo "   🛡️  Security-first policy: Only HTML presentation files and referenced images allowed"
             exit 1
-          else
-            echo "✅ No sensitive files detected"
           fi
           
-          echo "✅ Secure deployment package prepared"
-          echo "📊 Deployment contents:"
+          # Verify only expected file types are deployed
+          echo "   📋 Verifying only HTML and image files are deployed..."
+          unexpected_files=$(find _site -type f ! \( -name "*.html" -o -name "*.jpg" -o -name "*.png" -o -name "*.svg" -o -name "*.gif" -o -name "*.webp" -o -name ".nojekyll" \) 2>/dev/null)
+          
+          if [ -n "$unexpected_files" ]; then
+            echo "❌ SECURITY ALERT: Unexpected file types detected!"
+            echo "   📋 Found files:"
+            echo "$unexpected_files"
+            echo "   🛡️  Only HTML presentations and referenced images are permitted"
+            exit 1
+          fi
+          
+          # Count and verify deployed files
+          html_count=$(find _site -name "*.html" | wc -l)
+          image_count=$(find _site \( -name "*.jpg" -o -name "*.png" -o -name "*.svg" -o -name "*.gif" -o -name "*.webp" \) | wc -l)
+          
+          echo "✅ SECURITY VERIFICATION PASSED"
+          echo "   📊 Deployed: $html_count HTML files, $image_count images"
+          echo "   🛡️  Only presentation-related files deployed"
+          
+          echo "📊 Final deployment contents:"
           ls -la _site/
         
       - name: Upload artifact

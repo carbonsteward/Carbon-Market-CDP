@@ -1,30 +1,36 @@
 # GitHub Pages Deployment Troubleshooting Guide
 
-## Common Image Display Issues and Solutions
+## Security-First Deployment Architecture
+
+### 🛡️ Core Principle: Only Presentation Files Deployed
+
+The deployment system now uses a **security-first approach** that automatically:
+- Deploys only HTML presentation files and their directly referenced images
+- Excludes all complementary materials (PDFs, CSVs, scripts, etc.)
+- Dynamically scans HTML files to extract image references
+- Validates that all referenced images are successfully deployed
 
 ### 🚨 Issue: Images showing as broken/404 on GitHub Pages
 
-**Root Cause**: Images referenced in presentation but not included in GitHub Actions deployment workflow.
+**Root Cause**: Images referenced in presentation but missing from repository or not properly scanned.
 
 **Solution Steps**:
-1. **Check the workflow file**: `.github/workflows/deploy-pages.yml`
-2. **Add missing images** to the `image_list` variable (line ~61)
-3. **Commit and push** changes to trigger automatic deployment
+1. **Verify image exists** in repository root directory
+2. **Check image reference** in HTML uses correct path format
+3. **Commit and push** - deployment automatically detects and includes referenced images
 
 ### 🔍 How to Identify Missing Images
+
+**Automated Detection**:
+- The deployment workflow automatically scans HTML files for image references
+- Missing images cause build failures with clear error messages
+- Check GitHub Actions logs for detailed scanning results
 
 **Manual Check**:
 ```bash
 # Search for image references in presentation
-grep -o 'src="[^"]*\.\(jpg\|png\|svg\|gif\)' carbon_market_trends_2024_2025_standalone.html
+grep -o 'src="[^"]*\.\(jpg\|png\|svg\|gif\|webp\)' carbon_market_trends_2024_2025_standalone.html
 ```
-
-**Automated Check**:
-- The deployment workflow now auto-detects missing images
-- Check GitHub Actions logs for warnings like:
-  ```
-  🚨 DEPLOYMENT WARNING: Image 'sbti1.jpg' found in presentation but not in deployment list!
-  ```
 
 ### 📋 Image Path Best Practices
 
@@ -44,38 +50,30 @@ grep -o 'src="[^"]*\.\(jpg\|png\|svg\|gif\)' carbon_market_trends_2024_2025_stan
 <img src="/image.jpg" alt="Description">  <!-- Absolute paths fail -->
 ```
 
-### 🔧 Deployment Workflow Structure
+### 🔧 New Dynamic Deployment Architecture
 
-**Current Image List** (as of last update):
-```
-icvcm-elets-terminology-comparison.jpg
-cumulative-carbon-offset-rankings.jpg
-carbon-offset-rankings-2024.jpg
-top-buyers-2024.jpg
-CarbonFlow.svg
-sbti1.jpg
-risk1.jpg risk2.jpg risk3.jpg risk4.jpg
-safeguard1.jpg safeguard2.jpg safeguard3.jpg
-cmiwg.jpg CMIWG2.jpg CMIWG3.jpg
-gcc.jpg
-pacm.jpg
-```
+**How It Works**:
+1. **HTML Scanning**: Automatically scans whitelisted HTML files
+2. **Image Extraction**: Extracts all referenced images dynamically
+3. **Validation**: Ensures all referenced images exist and are deployed
+4. **Security Check**: Prevents deployment of non-presentation files
+
+**No Manual Management Required**:
+- No need to maintain static image lists
+- Images are automatically included if referenced in HTML
+- Unused images are automatically excluded from deployment
 
 ### 📝 Adding New Images Checklist
 
 When adding new images to the presentation:
 
-1. **Add image file** to repository root
-2. **Update deployment workflow**:
-   ```yaml
-   image_list="existing_images.jpg new_image.jpg"
-   ```
-3. **Use correct path** in HTML:
+1. **Add image file** to repository root directory
+2. **Reference in HTML** using correct path format:
    ```html
    <img src="new_image.jpg" alt="Description">
    ```
-4. **Test locally** before committing
-5. **Check GitHub Actions** logs after deployment
+3. **Commit and push** - deployment automatically includes the image
+4. **Check GitHub Actions** logs for confirmation
 
 ### 🚀 Deployment Process
 
@@ -108,20 +106,20 @@ If images are broken on live site:
 3. **Rollback Option**: Revert to previous working commit
 4. **Test First**: Use test pages to verify before main deployment
 
-### 🎯 Key Lessons Learned
+### 🎯 Key Features of Security-First Deployment
 
-1. **Always update deployment workflow** when adding images
-2. **GitHub Actions deployment** is separate from repository - files must be explicitly copied
-3. **Security-first approach** - only approved files are deployed
-4. **Multiple path formats work** - choose the simplest (root directory)
-5. **Automated detection** prevents future issues
+1. **Automated Image Detection** - No manual image list management required
+2. **Dynamic Scanning** - Only images referenced in HTML are deployed
+3. **Comprehensive Security** - Prevents accidental deployment of sensitive files
+4. **Build Validation** - Ensures all referenced images are successfully deployed
+5. **Zero Configuration** - Just add images to repo and reference in HTML
 
-### 🔄 Future Prevention
+### 🔄 Security Benefits
 
-- **Pre-commit hooks** could validate image references
-- **Automated PR checks** to ensure deployment workflow is updated
-- **Image inventory** tracking in repository
-- **Regular audits** of presentation vs deployment alignment
+- **Minimal Attack Surface** - Only presentation files and referenced images deployed
+- **No Sensitive Data Exposure** - PDFs, CSVs, scripts automatically excluded
+- **Automated Validation** - Build fails if security checks don't pass
+- **Clear Error Messages** - Detailed feedback for troubleshooting
 
 ---
 
@@ -129,11 +127,15 @@ If images are broken on live site:
 
 **Add New Image**:
 1. Add to repo: `git add new_image.jpg`
-2. Update workflow: Add to `image_list` in `deploy-pages.yml`
-3. Update HTML: `<img src="new_image.jpg">`
-4. Deploy: `git push origin main`
+2. Reference in HTML: `<img src="new_image.jpg">`
+3. Deploy: `git push origin main`
+
+**Security-First Deployment**:
+- Only HTML presentations and referenced images deployed
+- All complementary materials (PDFs, CSVs, scripts) automatically excluded
+- Dynamic scanning ensures no unused images are deployed
+- Comprehensive security validation prevents sensitive file exposure
 
 **Check Deployment**:
 - GitHub Actions: https://github.com/carbonsteward/Carbon-Market-CDP/actions
 - Live Site: https://carbonsteward.github.io/Carbon-Market-CDP/
-- Test Page: https://carbonsteward.github.io/Carbon-Market-CDP/image-path-test.html
