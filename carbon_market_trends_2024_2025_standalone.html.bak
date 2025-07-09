@@ -1427,7 +1427,7 @@
                 2024년 상위 구매기업
               </h3>
               <div style="background: var(--korean-white); border-radius: 8px; border: 1px solid var(--korean-border); overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-                <img src="images/carbon-offset-rankings-2024.jpg"
+                <img src="carbon-offset-rankings-2024.jpg"
                      alt="2024년 탄소크레딧 상위 구매기업 - Shell이 1위로 Microsoft보다 3배 많은 크레딧 구매"
                      style="width: 100%; height: auto; display: block; border-radius: 8px;"
                      loading="lazy">
@@ -1626,7 +1626,7 @@
             <div class="korean-card" style="padding: 2rem; background: var(--korean-white);">
               <h3 style="font-size: 1.6rem; margin-bottom: 1.5rem; text-align: center; color: var(--korean-navy);">ICVCM vs EU ETS 용어 정의 비교</h3>
               <div style="background: var(--korean-white); border-radius: 8px; border: 1px solid var(--korean-border); overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
-                <img src="images/icvcm-elets-terminology-comparison.jpg"
+                <img src="icvcm-elets-terminology-comparison.jpg"
                      alt="ICVCM과 EU ETS의 Retirement, Cancellation, Surrender 용어 정의 비교표"
                      style="width: 100%; height: auto; display: block; border-radius: 8px;"
                      loading="lazy">
@@ -1690,7 +1690,7 @@
             <div class="korean-card" style="padding: 2rem; background: var(--korean-white);">
               <h3 style="font-size: 1.6rem; margin-bottom: 1.5rem; text-align: center; color: var(--korean-navy);">Registry 간 전환 프로세스</h3>
               <div style="background: var(--korean-white); border-radius: 8px; border: 1px solid var(--korean-border); padding: 1.5rem; box-shadow: 0 4px 12px rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: center; min-height: 400px;">
-                <img src="images/CarbonFlow.svg"
+                <img src="CarbonFlow.svg"
                      alt="탄소 레지스트리 간 크레딧 전환 및 취소 프로세스 흐름도"
                      style="max-width: 100%; max-height: 100%; width: auto; height: auto; display: block; object-fit: contain;"
                      loading="lazy">
@@ -1840,7 +1840,7 @@
               <!-- Single SBTi Image -->
               <div style="margin-bottom: 2rem;">
                 <div style="background: var(--korean-white); border-radius: 8px; border: 1px solid var(--korean-border); overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); display: flex; align-items: center; justify-content: center;">
-                  <img src="images/sbti1.jpg"
+                  <img src="sbti1.jpg"
                        alt="SBTi 구분법 - Avoided emissions, Emissions reductions, Carbon sequestration"
                        style="width: 100%; height: auto; object-fit: contain; display: block; border-radius: 8px;"
                        loading="lazy">
@@ -2216,15 +2216,15 @@
           <div class="korean-card" style="margin-bottom: 2rem; padding: 1.5rem; border: 2px solid var(--korean-warning); background: var(--korean-white);">
             <h4 style="color: var(--korean-navy); margin-bottom: 1rem;">⚖️ 거버넌스 이슈 및 레지스트리 요건</h4>
             <div style="background: var(--korean-white); border-radius: 8px; border: 1px solid var(--korean-border); overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); display: flex; gap: 1rem; padding: 1.5rem;">
-              <img src="images/cmiwg.jpg"
+              <img src="cmiwg.jpg"
                    alt="World Bank 탄소시장 인프라 로드맵 - 안전하고 효율적이며 상호운용 가능한 탄소시장 인프라를 위한 로드맵"
                    style="width: 33.33%; height: 360px; object-fit: contain; display: block;"
                    loading="lazy">
-              <img src="images/CMIWG2.jpg"
+              <img src="CMIWG2.jpg"
                    alt="World Bank Carbon Markets Infrastructure Working Group - Additional Resource 2"
                    style="width: 33.33%; height: 360px; object-fit: contain; display: block;"
                    loading="lazy">
-              <img src="images/CMIWG3.jpg"
+              <img src="CMIWG3.jpg"
                    alt="World Bank Carbon Markets Infrastructure Working Group - Additional Resource 3"
                    style="width: 33.33%; height: 360px; object-fit: contain; display: block;"
                    loading="lazy">
@@ -2514,7 +2514,7 @@
             <div class="korean-card" style="padding: 0.8rem; background: var(--korean-white); border: 1px solid var(--korean-border);">
               <h3 style="font-size: 1.4rem; margin-bottom: 0.5rem; color: var(--korean-navy); text-align: center; font-weight: 700;">리스크 사례 1: 감축 실적 과다계상</h3>
               <div style="background: var(--korean-white); border-radius: 8px; overflow: hidden; margin-bottom: 0.5rem;">
-                <img src="images/risk1.jpg" alt="Risk Case 1" style="width: 100%; height: 280px; object-fit: cover; object-position: top; display: block;" loading="lazy">
+                <img src="risk1.jpg" alt="Risk Case 1" style="width: 100%; height: 280px; object-fit: cover; object-position: top; display: block;" loading="lazy">
               </div>
               <p style="font-size: 0.75rem; color: var(--korean-dark-gray); text-align: center; font-style: italic; margin: 0;">
                 Risk case study documentation area
@@ -2525,7 +2525,7 @@
             <div class="korean-card" style="padding: 0.8rem; background: var(--korean-white); border: 1px solid var(--korean-border);">
               <h3 style="font-size: 1.4rem; margin-bottom: 0.5rem; color: var(--korean-navy); text-align: center; font-weight: 700;">리스크 사례 2: 노동, 인권</h3>
               <div style="background: var(--korean-white); border-radius: 8px; overflow: hidden; margin-bottom: 0.5rem;">
-                <img src="images/risk2.jpg" alt="Risk Case 2" style="width: 100%; height: 280px; object-fit: cover; object-position: top; display: block;" loading="lazy">
+                <img src="risk2.jpg" alt="Risk Case 2" style="width: 100%; height: 280px; object-fit: cover; object-position: top; display: block;" loading="lazy">
               </div>
               <p style="font-size: 0.75rem; color: var(--korean-dark-gray); text-align: center; font-style: italic; margin: 0;">
                 Risk case study documentation area
@@ -2536,7 +2536,7 @@
             <div class="korean-card" style="padding: 0.8rem; background: var(--korean-white); border: 1px solid var(--korean-border);">
               <h3 style="font-size: 1.4rem; margin-bottom: 0.5rem; color: var(--korean-navy); text-align: center; font-weight: 700;">리스크 사례 3: 스탠다드의 거버넌스 이슈로 인한 이해상충</h3>
               <div style="background: var(--korean-white); border-radius: 8px; overflow: hidden; margin-bottom: 0.5rem;">
-                <img src="images/risk3.jpg" alt="Risk Case 3" style="width: 100%; height: 280px; object-fit: cover; object-position: top; display: block;" loading="lazy">
+                <img src="risk3.jpg" alt="Risk Case 3" style="width: 100%; height: 280px; object-fit: cover; object-position: top; display: block;" loading="lazy">
               </div>
               <p style="font-size: 0.75rem; color: var(--korean-dark-gray); text-align: center; font-style: italic; margin: 0;">
                 Risk case study documentation area
@@ -2547,7 +2547,7 @@
             <div class="korean-card" style="padding: 0.8rem; background: var(--korean-white); border: 1px solid var(--korean-border);">
               <h3 style="font-size: 1.4rem; margin-bottom: 0.5rem; color: var(--korean-navy); text-align: center; font-weight: 700;">리스크 사례 4: Carbon as sovereign asset</h3>
               <div style="background: var(--korean-white); border-radius: 8px; overflow: hidden; margin-bottom: 0.5rem;">
-                <img src="images/risk4.jpg" alt="Risk Case 4" style="width: 100%; height: 280px; object-fit: cover; object-position: top; display: block;" loading="lazy">
+                <img src="risk4.jpg" alt="Risk Case 4" style="width: 100%; height: 280px; object-fit: cover; object-position: top; display: block;" loading="lazy">
               </div>
               <p style="font-size: 0.75rem; color: var(--korean-dark-gray); text-align: center; font-style: italic; margin: 0;">
                 Risk case study documentation area
@@ -2630,7 +2630,7 @@
             <div class="korean-card" style="min-height: 600px; padding: 1.5rem;">
               <h3 style="color: var(--korean-navy); margin-bottom: 0.8rem; font-size: 1.2rem;">📄 Gold Standard</h3>
               <div style="background: var(--korean-white); border-radius: 8px; border: 1px solid var(--korean-border); overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); max-height: 700px; display: flex; align-items: center; justify-content: center;">
-                <img src="images/safeguard1.jpg"
+                <img src="safeguard1.jpg"
                      alt="Gold Standard Safeguard 정책 문서"
                      style="width: 100%; max-height: 650px; object-fit: contain; display: block; border-radius: 8px;"
                      loading="lazy">
@@ -2641,7 +2641,7 @@
             <div class="korean-card" style="min-height: 600px; padding: 1.5rem;">
               <h3 style="color: var(--korean-navy); margin-bottom: 0.8rem; font-size: 1.2rem;">📄 Global Carbon Council</h3>
               <div style="background: var(--korean-white); border-radius: 8px; border: 1px solid var(--korean-border); overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); max-height: 700px; display: flex; align-items: center; justify-content: center;">
-                <img src="images/safeguard2.jpg"
+                <img src="safeguard2.jpg"
                      alt="Global Carbon Council Safeguard 정책 문서"
                      style="width: 100%; max-height: 650px; object-fit: contain; display: block; border-radius: 8px;"
                      loading="lazy">
@@ -2652,7 +2652,7 @@
             <div class="korean-card" style="min-height: 600px; padding: 1.5rem;">
               <h3 style="color: var(--korean-navy); margin-bottom: 0.8rem; font-size: 1.2rem;">📄 Verra</h3>
               <div style="background: var(--korean-white); border-radius: 8px; border: 1px solid var(--korean-border); overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); max-height: 700px; display: flex; align-items: center; justify-content: center;">
-                <img src="images/safeguard3.jpg"
+                <img src="safeguard3.jpg"
                      alt="Verra Safeguard 정책 문서"
                      style="width: 100%; max-height: 650px; object-fit: contain; display: block; border-radius: 8px;"
                      loading="lazy">
@@ -2663,7 +2663,7 @@
             <div class="korean-card" style="min-height: 600px; padding: 1.5rem;">
               <h3 style="color: var(--korean-navy); margin-bottom: 0.8rem; font-size: 1.2rem;">📄 PACM</h3>
               <div style="background: var(--korean-white); border-radius: 8px; border: 1px solid var(--korean-border); overflow: hidden; box-shadow: 0 4px 12px rgba(0,0,0,0.1); max-height: 700px; display: flex; align-items: center; justify-content: center;">
-                <img src="images/pacm.jpg"
+                <img src="pacm.jpg"
                      alt="PACM Safeguard 정책 문서"
                      style="width: 100%; max-height: 650px; object-fit: contain; display: block; border-radius: 8px;"
                      loading="lazy">

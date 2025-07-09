@@ -58,11 +58,11 @@ jobs:
           for html_file in $presentation_files; do
             if [ -f "$html_file" ]; then
               echo "   📋 Scanning $html_file for image references..."
-              file_images=$(grep -o 'src="[^"]*\.\(jpg\|png\|svg\|gif\|webp\)' "$html_file" | sed 's/src="//g' | xargs -I {} basename {} | sort -u)
-              for img in $file_images; do
-                if [ -f "$img" ]; then
-                  referenced_images="$referenced_images $img"
-                  echo "   ✅ Found referenced image: $img"
+              file_images=$(grep -o 'src="[^"]*\.\(jpg\|png\|svg\|gif\|webp\)' "$html_file" | sed 's/src="//g' | sort -u)
+              for img_path in $file_images; do
+                if [ -f "$img_path" ]; then
+                  referenced_images="$referenced_images $img_path"
+                  echo "   ✅ Found referenced image: $img_path"
                 fi
               done
             fi
@@ -72,12 +72,14 @@ jobs:
           referenced_images=$(echo $referenced_images | tr ' ' '\n' | sort -u | tr '\n' ' ')
           
           echo "📋 Copying only images referenced in presentation files..."
-          for img in $referenced_images; do
-            if [ -f "$img" ]; then
-              cp "$img" _site/
-              echo "✅ $img copied (referenced in presentation)"
+          for img_path in $referenced_images; do
+            if [ -f "$img_path" ]; then
+              # Create directory structure in _site if needed
+              mkdir -p "_site/$(dirname "$img_path")"
+              cp "$img_path" "_site/$img_path"
+              echo "✅ $img_path copied (referenced in presentation)"
             else
-              echo "⚠️  WARNING: $img referenced in HTML but missing from repository"
+              echo "⚠️  WARNING: $img_path referenced in HTML but missing from repository"
             fi
           done
           
@@ -88,12 +90,12 @@ jobs:
           for html_file in $presentation_files; do
             if [ -f "$html_file" ]; then
               echo "   📋 Validating images in $html_file..."
-              file_images=$(grep -o 'src="[^"]*\.\(jpg\|png\|svg\|gif\|webp\)' "$html_file" | sed 's/src="//g' | xargs -I {} basename {} | sort -u)
+              file_images=$(grep -o 'src="[^"]*\.\(jpg\|png\|svg\|gif\|webp\)' "$html_file" | sed 's/src="//g' | sort -u)
               
-              for img in $file_images; do
-                if [ ! -f "_site/$img" ]; then
-                  echo "🚨 DEPLOYMENT ERROR: Image '$img' referenced in $html_file but not deployed!"
-                  echo "   ❌ Image exists in repo: $([ -f "$img" ] && echo "YES" || echo "NO")"
+              for img_path in $file_images; do
+                if [ ! -f "_site/$img_path" ]; then
+                  echo "🚨 DEPLOYMENT ERROR: Image '$img_path' referenced in $html_file but not deployed!"
+                  echo "   ❌ Image exists in repo: $([ -f "$img_path" ] && echo "YES" || echo "NO")"
                   missing_images_found=true
                 fi
               done
