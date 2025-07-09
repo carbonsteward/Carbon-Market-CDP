@@ -56,13 +56,51 @@ jobs:
           done
           
           # Copy approved image assets only
-          for img in icvcm-elets-terminology-comparison.jpg cumulative-carbon-offset-rankings.jpg carbon-offset-rankings-2024.jpg top-buyers-2024.jpg CarbonFlow.svg sbti1.jpg risk1.jpg risk2.jpg risk3.jpg risk4.jpg safeguard1.jpg safeguard2.jpg safeguard3.jpg cmiwg.jpg CMIWG2.jpg CMIWG3.jpg gcc.jpg pacm.jpg; do
+          # DEPLOYMENT MANAGER NOTE: Always add new images to this list to prevent 404 errors
+          # Common mistake: Adding images to presentation but forgetting to update deployment
+          image_list="icvcm-elets-terminology-comparison.jpg cumulative-carbon-offset-rankings.jpg carbon-offset-rankings-2024.jpg top-buyers-2024.jpg CarbonFlow.svg sbti1.jpg risk1.jpg risk2.jpg risk3.jpg risk4.jpg safeguard1.jpg safeguard2.jpg safeguard3.jpg cmiwg.jpg CMIWG2.jpg CMIWG3.jpg gcc.jpg pacm.jpg"
+          
+          echo "📋 Copying approved images to deployment..."
+          for img in $image_list; do
             if [ -f "$img" ]; then
               cp "$img" _site/
               echo "✅ $img copied"
+            else
+              echo "⚠️  WARNING: $img not found (referenced in deployment but missing from repository)"
             fi
           done
-          echo "✅ All approved image assets copied"
+          
+          # Auto-detect and validate images in presentation vs deployment
+          echo "🔍 Checking for images referenced in presentation but not in deployment..."
+          missing_images_found=false
+          
+          if [ -f "carbon_market_trends_2024_2025_standalone.html" ]; then
+            # Extract image references from HTML
+            html_images=$(grep -o 'src="[^"]*\.\(jpg\|png\|svg\|gif\)' carbon_market_trends_2024_2025_standalone.html | sed 's/src="//g' | sort -u)
+            
+            for html_img in $html_images; do
+              # Remove path prefixes for comparison
+              clean_img=$(basename "$html_img")
+              if ! echo "$image_list" | grep -q "$clean_img"; then
+                echo "🚨 DEPLOYMENT ERROR: Image '$clean_img' found in presentation but not in deployment list!"
+                echo "   ❌ Solution: Add '$clean_img' to the image_list in deploy-pages.yml"
+                echo "   📖 See DEPLOYMENT_TROUBLESHOOTING.md for detailed instructions"
+                missing_images_found=true
+              fi
+            done
+          fi
+          
+          # Fail build if missing images detected to prevent broken deployments
+          if [ "$missing_images_found" = true ]; then
+            echo ""
+            echo "💥 BUILD FAILED: Missing images detected in deployment configuration"
+            echo "📋 Required action: Update .github/workflows/deploy-pages.yml"
+            echo "📚 Full guide: See DEPLOYMENT_TROUBLESHOOTING.md"
+            echo ""
+            exit 1
+          fi
+          
+          echo "✅ All approved image assets processed"
           
           # Copy images directory if it exists
           if [ -d "images" ]; then
