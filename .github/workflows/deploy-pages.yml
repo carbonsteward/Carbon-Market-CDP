@@ -43,7 +43,10 @@ jobs:
             if [ -f "$html_file" ]; then
               if [ "$html_file" = "carbon_market_trends_2024_2025_standalone.html" ]; then
                 cp "$html_file" _site/index.html
-                echo "✅ Main presentation copied as index.html"
+                echo "✅ Main presentation copied as index.html (primary landing page)"
+              elif [ "$html_file" = "index.html" ]; then
+                cp "$html_file" _site/landing.html
+                echo "✅ Original landing page copied as landing.html"
               else
                 cp "$html_file" _site/
                 echo "✅ $html_file copied"
