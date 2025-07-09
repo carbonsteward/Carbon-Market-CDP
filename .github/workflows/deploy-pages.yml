@@ -47,14 +47,28 @@ jobs:
             echo "✅ Landing page copied"
           fi
           
+          # Copy test files for debugging
+          for test_file in image-path-test.html simple-test.html test-image.html debug-images.html; do
+            if [ -f "$test_file" ]; then
+              cp "$test_file" _site/
+              echo "✅ $test_file copied"
+            fi
+          done
+          
           # Copy approved image assets only
-          for img in icvcm-elets-terminology-comparison.jpg cumulative-carbon-offset-rankings.jpg carbon-offset-rankings-2024.jpg top-buyers-2024.jpg CarbonFlow.svg; do
+          for img in icvcm-elets-terminology-comparison.jpg cumulative-carbon-offset-rankings.jpg carbon-offset-rankings-2024.jpg top-buyers-2024.jpg CarbonFlow.svg sbti1.jpg risk1.jpg risk2.jpg risk3.jpg risk4.jpg safeguard1.jpg safeguard2.jpg safeguard3.jpg cmiwg.jpg CMIWG2.jpg CMIWG3.jpg gcc.jpg pacm.jpg; do
             if [ -f "$img" ]; then
               cp "$img" _site/
               echo "✅ $img copied"
             fi
           done
           echo "✅ All approved image assets copied"
+          
+          # Copy images directory if it exists
+          if [ -d "images" ]; then
+            cp -r images _site/
+            echo "✅ Images directory copied"
+          fi
           
           # Copy .nojekyll to ensure GitHub Pages doesn't process Jekyll
           if [ -f ".nojekyll" ]; then
