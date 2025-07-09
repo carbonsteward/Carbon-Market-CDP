@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Path Test for GitHub Pages</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-section { margin-bottom: 30px; padding: 20px; border: 1px solid #ddd; }
+        .test-section h2 { color: #333; }
+        .image-test { margin: 15px 0; padding: 15px; border: 1px solid #eee; }
+        img { max-width: 400px; border: 2px solid #ccc; margin: 10px 0; display: block; }
+        .success { border-color: green; }
+        .error { border-color: red; }
+        .status { font-weight: bold; margin-top: 10px; }
+    </style>
+</head>
+<body>
+    <h1>GitHub Pages Image Path Test</h1>
+    <p>Testing different image path approaches for sbti1.jpg</p>
+    
+    <div class="test-section">
+        <h2>Method 1: Root Directory (sbti1.jpg)</h2>
+        <div class="image-test">
+            <img src="sbti1.jpg" alt="SBTi Image - Root" 
+                 onerror="this.parentElement.classList.add('error'); this.nextElementSibling.innerHTML='❌ FAILED: Root directory path'"
+                 onload="this.parentElement.classList.add('success'); this.nextElementSibling.innerHTML='✅ SUCCESS: Root directory path'">
+            <div class="status">Loading...</div>
+        </div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Method 2: Relative Path (./sbti1.jpg)</h2>
+        <div class="image-test">
+            <img src="./sbti1.jpg" alt="SBTi Image - Relative" 
+                 onerror="this.parentElement.classList.add('error'); this.nextElementSibling.innerHTML='❌ FAILED: Relative path ./ prefix'"
+                 onload="this.parentElement.classList.add('success'); this.nextElementSibling.innerHTML='✅ SUCCESS: Relative path ./ prefix'">
+            <div class="status">Loading...</div>
+        </div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Method 3: Images Directory (images/sbti1.jpg)</h2>
+        <div class="image-test">
+            <img src="images/sbti1.jpg" alt="SBTi Image - Images Dir" 
+                 onerror="this.parentElement.classList.add('error'); this.nextElementSibling.innerHTML='❌ FAILED: Images directory path'"
+                 onload="this.parentElement.classList.add('success'); this.nextElementSibling.innerHTML='✅ SUCCESS: Images directory path'">
+            <div class="status">Loading...</div>
+        </div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Method 4: Absolute Path (/sbti1.jpg)</h2>
+        <div class="image-test">
+            <img src="/sbti1.jpg" alt="SBTi Image - Absolute" 
+                 onerror="this.parentElement.classList.add('error'); this.nextElementSibling.innerHTML='❌ FAILED: Absolute path from root'"
+                 onload="this.parentElement.classList.add('success'); this.nextElementSibling.innerHTML='✅ SUCCESS: Absolute path from root'">
+            <div class="status">Loading...</div>
+        </div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Method 5: GitHub Raw URL</h2>
+        <div class="image-test">
+            <img src="https://raw.githubusercontent.com/carbonsteward/Carbon-Market-CDP/main/sbti1.jpg" alt="SBTi Image - GitHub Raw" 
+                 onerror="this.parentElement.classList.add('error'); this.nextElementSibling.innerHTML='❌ FAILED: GitHub raw URL'"
+                 onload="this.parentElement.classList.add('success'); this.nextElementSibling.innerHTML='✅ SUCCESS: GitHub raw URL'">
+            <div class="status">Loading...</div>
+        </div>
+    </div>
+    
+    <div class="test-section">
+        <h2>Debugging Information</h2>
+        <p><strong>Current URL:</strong> <span id="current-url"></span></p>
+        <p><strong>Base URL:</strong> <span id="base-url"></span></p>
+        <p><strong>Test Time:</strong> <span id="test-time"></span></p>
+    </div>
+    
+    <script>
+        document.getElementById('current-url').textContent = window.location.href;
+        document.getElementById('base-url').textContent = window.location.origin + window.location.pathname.replace(/\/[^\/]*$/, '/');
+        document.getElementById('test-time').textContent = new Date().toLocaleString();
+        
+        // Log image load events
+        document.addEventListener('load', function(e) {
+            if (e.target.tagName === 'IMG') {
+                console.log('Image loaded successfully:', e.target.src);
+            }
+        }, true);
+        
+        document.addEventListener('error', function(e) {
+            if (e.target.tagName === 'IMG') {
+                console.error('Image failed to load:', e.target.src);
+            }
+        }, true);
+    </script>
+</body>
+</html>
